@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://ntf001"]
+
+[ext_resource type="Script" path="res://scripts/ui/notification.gd" id="1_ntf"]
+
+[node name="NotificationUI" type="CanvasLayer"]
+layer = 20
+script = ExtResource("1_ntf")
+
+[node name="NotificationContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 8.0
+offset_right = 120.0
+offset_bottom = 200.0
+grow_horizontal = 2
+alignment = 0

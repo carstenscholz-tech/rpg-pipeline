@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=3 uid="uid://shp001"]
+
+[ext_resource type="Script" path="res://scripts/ui/shop_ui.gd" id="1_shp"]
+
+[node name="ShopUI" type="CanvasLayer"]
+layer = 11
+script = ExtResource("1_shp")
+
+[node name="ShopPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -140.0
+offset_right = 240.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="ShopPanel"]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="ShopPanel/MainVBox"]
+layout_mode = 2
+
+[node name="ShopNameLabel" type="Label" parent="ShopPanel/MainVBox/TopBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Shop"
+
+[node name="GoldLabel" type="Label" parent="ShopPanel/MainVBox/TopBar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Gold: 0"
+
+[node name="Tabs" type="HBoxContainer" parent="ShopPanel/MainVBox"]
+layout_mode = 2
+
+[node name="TabBuy" type="Button" parent="ShopPanel/MainVBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Buy"
+
+[node name="TabSell" type="Button" parent="ShopPanel/MainVBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sell"
+
+[node name="ContentHBox" type="HBoxContainer" parent="ShopPanel/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopListPanel" type="PanelContainer" parent="ShopPanel/MainVBox/ContentHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopItemList" type="ItemList" parent="ShopPanel/MainVBox/ContentHBox/ShopListPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PlayerListPanel" type="PanelContainer" parent="ShopPanel/MainVBox/ContentHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerItemList" type="ItemList" parent="ShopPanel/MainVBox/ContentHBox/PlayerListPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="ShopPanel/MainVBox"]
+layout_mode = 2
+
+[node name="ItemInfoLabel" type="Label" parent="ShopPanel/MainVBox/BottomBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Select an item"
+autowrap_mode = 2
+
+[node name="ControlsVBox" type="VBoxContainer" parent="ShopPanel/MainVBox/BottomBar"]
+layout_mode = 2
+
+[node name="PriceLabel" type="Label" parent="ShopPanel/MainVBox/BottomBar/ControlsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="QuantityRow" type="HBoxContainer" parent="ShopPanel/MainVBox/BottomBar/ControlsVBox"]
+layout_mode = 2
+
+[node name="QtyLabel" type="Label" parent="ShopPanel/MainVBox/BottomBar/ControlsVBox/QuantityRow"]
+layout_mode = 2
+text = "Qty:"
+
+[node name="QuantitySpinBox" type="SpinBox" parent="ShopPanel/MainVBox/BottomBar/ControlsVBox/QuantityRow"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 99.0
+value = 1.0
+
+[node name="ActionButton" type="Button" parent="ShopPanel/MainVBox/BottomBar/ControlsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Buy"

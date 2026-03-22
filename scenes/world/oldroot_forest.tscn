@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=3 uid="uid://boldroot001"]
+
+[ext_resource type="Script" path="res://scripts/world/oldroot_forest.gd" id="1_forest"]
+
+[sub_resource type="TileSet" id="TileSet_forest"]
+tile_size = Vector2i(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectShape_exit_ns"]
+size = Vector2(256, 32)
+
+[sub_resource type="RectangleShape2D" id="RectShape_exit_ew"]
+size = Vector2(32, 256)
+
+[sub_resource type="NavigationPolygon" id="NavPoly_forest"]
+vertices = PackedVector2Array(0, 0, 4096, 0, 4096, 4096, 0, 4096)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(0, 0, 4096, 0, 4096, 4096, 0, 4096)]
+
+[sub_resource type="RectangleShape2D" id="RectShape_spawn_wolf"]
+size = Vector2(1600, 1600)
+
+[sub_resource type="RectangleShape2D" id="RectShape_spawn_goblin"]
+size = Vector2(1536, 1600)
+
+[node name="OldrootForest" type="Node2D"]
+script = ExtResource("1_forest")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavPoly_forest")
+
+[node name="GroundLayer" type="TileMapLayer" parent="NavigationRegion2D"]
+tile_set = SubResource("TileSet_forest")
+z_index = 0
+
+[node name="TreeLayer" type="TileMapLayer" parent="NavigationRegion2D"]
+tile_set = SubResource("TileSet_forest")
+z_index = 1
+
+[node name="DecorationLayer" type="TileMapLayer" parent="NavigationRegion2D"]
+tile_set = SubResource("TileSet_forest")
+z_index = 2
+
+[node name="NPCs" type="Node2D" parent="."]
+z_index = 3
+
+[node name="Enemies" type="Node2D" parent="."]
+z_index = 3
+
+[node name="Objects" type="Node2D" parent="."]
+z_index = 2
+
+[node name="Signs" type="Node2D" parent="."]
+z_index = 2
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="DefaultSpawn" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(2064, 3936)
+
+[node name="NPC_ranger_theron" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1856, 2240)
+
+[node name="Entry_south" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(2064, 3936)
+
+[node name="Entry_east" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(3968, 2400)
+
+[node name="RangerCampsite" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1856, 2240)
+
+[node name="WolfDenEntrance" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(976, 496)
+
+[node name="GoblinCampCenter" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(3248, 2272)
+
+[node name="ForgottenShrine" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1936, 976)
+
+[node name="HerbalistGlade" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(2080, 2912)
+
+[node name="ZoneTransitions" type="Node2D" parent="."]
+
+[node name="SouthExit" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(2064, 4080)
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/SouthExit"]
+shape = SubResource("RectShape_exit_ns")
+
+[node name="EastExit" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(4080, 2400)
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/EastExit"]
+shape = SubResource("RectShape_exit_ew")
+
+[node name="NorthExit" type="Area2D" parent="ZoneTransitions"]
+position = Vector2(2064, 16)
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneTransitions/NorthExit"]
+shape = SubResource("RectShape_exit_ns")
+
+[node name="EnemySpawnZones" type="Node2D" parent="."]
+
+[node name="WolfTerritory" type="Area2D" parent="EnemySpawnZones"]
+position = Vector2(800, 800)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawnZones/WolfTerritory"]
+shape = SubResource("RectShape_spawn_wolf")
+
+[node name="GoblinTerritory" type="Area2D" parent="EnemySpawnZones"]
+position = Vector2(3328, 2400)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawnZones/GoblinTerritory"]
+shape = SubResource("RectShape_spawn_goblin")
+
+[node name="HiddenAreas" type="Node2D" parent="."]
+
+[node name="HiddenCave" type="Marker2D" parent="HiddenAreas"]
+position = Vector2(976, 496)
+
+[node name="HiddenGlade" type="Marker2D" parent="HiddenAreas"]
+position = Vector2(2080, 2912)
+
+[node name="HiddenRuins" type="Marker2D" parent="HiddenAreas"]
+position = Vector2(1936, 976)
+
+[connection signal="body_entered" from="ZoneTransitions/SouthExit" to="." method="_on_south_exit_entered"]
+[connection signal="body_entered" from="ZoneTransitions/EastExit" to="." method="_on_east_exit_entered"]
+[connection signal="body_entered" from="ZoneTransitions/NorthExit" to="." method="_on_north_exit_entered"]

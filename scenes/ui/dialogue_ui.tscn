@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlg001"]
+
+[ext_resource type="Script" path="res://scripts/ui/dialogue_ui.gd" id="1_dlg"]
+
+[node name="DialogueUI" type="CanvasLayer"]
+layer = 12
+script = ExtResource("1_dlg")
+
+[node name="DialoguePanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -120.0
+offset_right = -20.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MainHBox" type="HBoxContainer" parent="DialoguePanel"]
+layout_mode = 2
+
+[node name="PortraitPanel" type="PanelContainer" parent="DialoguePanel/MainHBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 0)
+
+[node name="Portrait" type="TextureRect" parent="DialoguePanel/MainHBox/PortraitPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextSide" type="VBoxContainer" parent="DialoguePanel/MainHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NPCName" type="Label" parent="DialoguePanel/MainHBox/TextSide"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "NPC Name"
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel/MainHBox/TextSide"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 40)
+fit_content = true
+scroll_active = false
+
+[node name="AdvanceIndicator" type="Label" parent="DialoguePanel/MainHBox/TextSide"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "[Click to continue]"
+horizontal_alignment = 2
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="DialoguePanel/MainHBox/TextSide"]
+unique_name_in_owner = true
+layout_mode = 2

@@ -63,9 +63,8 @@ func _display_current_node() -> void:
 		end_dialogue()
 		return
 
-	# The UI layer listens and renders this
-	# We store current state for the UI to query
-	pass
+	# Emit signal for the UI layer to display
+	EventBus.dialogue_node_displayed.emit(current_npc_id, text, available_responses)
 
 
 func get_current_text() -> String:

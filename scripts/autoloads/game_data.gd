@@ -8,6 +8,7 @@ var items: Dictionary = {}
 var maps: Dictionary = {}
 var dialogue: Dictionary = {}
 var world_bible: Dictionary = {}
+var enemies: Dictionary = {}
 
 
 func _ready() -> void:
@@ -21,8 +22,9 @@ func _load_all() -> void:
 	items = _load_directory("res://data/items/")
 	maps = _load_directory("res://data/maps/")
 	dialogue = _load_directory("res://data/dialogue/")
-	print("GameData loaded: %d NPCs, %d quests, %d items, %d maps, %d dialogues" % [
-		npcs.size(), quests.size(), items.size(), maps.size(), dialogue.size()
+	enemies = _load_enemies("res://data/enemies/starter_enemies.json")
+	print("GameData loaded: %d NPCs, %d quests, %d items, %d maps, %d dialogues, %d enemies" % [
+		npcs.size(), quests.size(), items.size(), maps.size(), dialogue.size(), enemies.size()
 	])
 
 
@@ -97,6 +99,25 @@ func get_npcs_in_region(region_id: String) -> Array:
 		if npc.get("region") == region_id:
 			result.append(npc)
 	return result
+
+
+func _load_enemies(path: String) -> Dictionary:
+	var result: Dictionary = {}
+	var data: Dictionary = _load_single(path)
+	var enemy_list: Array = data.get("enemies", [])
+	for enemy in enemy_list:
+		var eid: String = enemy.get("enemy_id", "")
+		if eid != "":
+			result[eid] = enemy
+	return result
+
+
+func get_enemy_data() -> Dictionary:
+	return enemies
+
+
+func get_enemy(eid: String) -> Dictionary:
+	return enemies.get(eid, {})
 
 
 func reload() -> void:

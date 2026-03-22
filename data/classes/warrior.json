@@ -1,0 +1,33 @@
+{
+  "class_id": "warrior",
+  "name": "Warrior",
+  "description": "A master of arms and armor. Warriors excel at melee combat and can take tremendous punishment.",
+  "base_stats": {
+    "hp": 50,
+    "mp": 10,
+    "strength": 8,
+    "dexterity": 5,
+    "intelligence": 3,
+    "wisdom": 3,
+    "constitution": 7,
+    "luck": 4
+  },
+  "stat_growth": {
+    "hp": 8,
+    "mp": 2,
+    "strength": 3,
+    "dexterity": 1,
+    "intelligence": 1,
+    "wisdom": 1,
+    "constitution": 2,
+    "luck": 1
+  },
+  "skills": [
+    {"skill_id": "power_strike", "name": "Power Strike", "unlock_level": 1, "mp_cost": 3, "damage_modifier": 1.5, "description": "A heavy blow that deals 150% weapon damage."},
+    {"skill_id": "shield_bash", "name": "Shield Bash", "unlock_level": 3, "mp_cost": 4, "damage_modifier": 0.8, "effect": "stun_1_turn", "description": "Bash with your shield, dealing damage and stunning for 1 turn."},
+    {"skill_id": "war_cry", "name": "War Cry", "unlock_level": 5, "mp_cost": 6, "effect": "buff_attack_25_3t", "description": "Let loose a fearsome cry, boosting attack by 25% for 3 turns."},
+    {"skill_id": "cleave", "name": "Cleave", "unlock_level": 8, "mp_cost": 8, "damage_modifier": 1.2, "hits": "all_enemies", "description": "Swing in a wide arc, hitting all enemies for 120% damage."},
+    {"skill_id": "iron_will", "name": "Iron Will", "unlock_level": 10, "mp_cost": 10, "effect": "buff_defense_50_2t", "description": "Harden your resolve, boosting defense by 50% for 2 turns."}
+  ],
+  "starter_equipment": ["iron_sword", "wooden_shield", "chain_armor", "leather_boots"]
+}

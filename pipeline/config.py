@@ -34,7 +34,7 @@ CLAUDE_MODEL = "claude-sonnet-4-20250514"
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
 # === Godot ===
-GODOT_EXECUTABLE = "godot"  # Override with absolute path if not on PATH
+GODOT_EXECUTABLE = "D:/Godot/Godot_v4.6.1-stable_win64_console.exe"
 
 # === GitHub ===
 GITHUB_REPO = os.environ.get("GITHUB_REPO", "carstenscholz-tech/rpg-pipeline")

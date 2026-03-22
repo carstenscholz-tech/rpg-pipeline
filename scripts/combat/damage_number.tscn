@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdmgnum001"]
+
+[ext_resource type="Script" path="res://scripts/combat/damage_numbers.gd" id="1"]
+
+[node name="DamageNumber" type="Node2D"]
+z_index = 10
+script = ExtResource("1")

@@ -1,0 +1,140 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccr001"]
+
+[ext_resource type="Script" path="res://scripts/ui/character_creation.gd" id="1_ccr"]
+
+[node name="CharacterCreation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccr")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.08, 0.12, 1)
+
+[node name="MainVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="MainVBox"]
+layout_mode = 2
+text = "Create Your Character"
+horizontal_alignment = 1
+
+[node name="NameRow" type="HBoxContainer" parent="MainVBox"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MainVBox/NameRow"]
+layout_mode = 2
+text = "Name: "
+
+[node name="NameInput" type="LineEdit" parent="MainVBox/NameRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter character name..."
+max_length = 16
+
+[node name="ContentHBox" type="HBoxContainer" parent="MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ClassListPanel" type="PanelContainer" parent="MainVBox/ContentHBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 0)
+
+[node name="ClassListVBox" type="VBoxContainer" parent="MainVBox/ContentHBox/ClassListPanel"]
+layout_mode = 2
+
+[node name="ClassListLabel" type="Label" parent="MainVBox/ContentHBox/ClassListPanel/ClassListVBox"]
+layout_mode = 2
+text = "Choose Class"
+horizontal_alignment = 1
+
+[node name="ClassList" type="ItemList" parent="MainVBox/ContentHBox/ClassListPanel/ClassListVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PreviewPanel" type="PanelContainer" parent="MainVBox/ContentHBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
+
+[node name="PreviewVBox" type="VBoxContainer" parent="MainVBox/ContentHBox/PreviewPanel"]
+layout_mode = 2
+
+[node name="ClassPreview" type="TextureRect" parent="MainVBox/ContentHBox/PreviewPanel/PreviewVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(80, 80)
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ClassName" type="Label" parent="MainVBox/ContentHBox/PreviewPanel/PreviewVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Select a class"
+horizontal_alignment = 1
+
+[node name="DetailPanel" type="PanelContainer" parent="MainVBox/ContentHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DetailVBox" type="VBoxContainer" parent="MainVBox/ContentHBox/DetailPanel"]
+layout_mode = 2
+
+[node name="ClassDescription" type="RichTextLabel" parent="MainVBox/ContentHBox/DetailPanel/DetailVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 50)
+fit_content = true
+scroll_active = false
+
+[node name="StatsLabel" type="Label" parent="MainVBox/ContentHBox/DetailPanel/DetailVBox"]
+layout_mode = 2
+text = "Stats:"
+
+[node name="StatsContainer" type="VBoxContainer" parent="MainVBox/ContentHBox/DetailPanel/DetailVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BottomRow" type="HBoxContainer" parent="MainVBox"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MainVBox/BottomRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(80, 24)
+text = "Back"
+
+[node name="Spacer" type="Control" parent="MainVBox/BottomRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ErrorLabel" type="Label" parent="MainVBox/BottomRow"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ConfirmButton" type="Button" parent="MainVBox/BottomRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(100, 24)
+disabled = true
+text = "Begin Adventure"

@@ -29,10 +29,18 @@ signal enemy_damaged(enemy_id: String, damage: int)
 signal enemy_defeated(enemy_id: String)
 signal player_damaged(damage: int)
 signal player_healed(amount: int)
+signal loot_dropped(item_id: String, position: Vector2)
+signal boss_defeated(boss_id: String)
 
 # --- Skills ---
 signal xp_gained(skill_id: String, amount: int)
 signal level_up(skill_id: String, new_level: int)
+
+# --- Player ---
+signal player_moved(position: Vector2)
+signal player_interacted(target: Node2D)
+signal player_attacked(direction: Vector2)
+signal player_state_changed(new_state: String)
 
 # --- World ---
 signal zone_entered(zone_id: String)
@@ -43,6 +51,23 @@ signal npc_interacted(npc_id: String)
 signal show_notification(message: String)
 signal show_tooltip(text: String, position: Vector2)
 signal hide_tooltip()
+signal open_inventory()
+signal close_inventory()
+signal open_quest_log()
+signal close_quest_log()
+signal dialogue_node_displayed(npc_id: String, text: String, responses: Array)
+
+# --- Player stats (for HUD) ---
+signal player_hp_changed(current: int, maximum: int)
+signal player_mp_changed(current: int, maximum: int)
+signal player_xp_changed(current: int, needed: int)
+signal player_level_changed(new_level: int)
+signal player_gold_changed(amount: int)
+signal target_changed(target_data: Dictionary)
+signal target_cleared()
+
+# --- Character creation ---
+signal character_created(char_name: String, char_class: String)
 
 # --- Save/Load ---
 signal game_saved()

@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3 uid="uid://qst001"]
+
+[ext_resource type="Script" path="res://scripts/ui/quest_log_ui.gd" id="1_qst"]
+
+[node name="QuestLogUI" type="CanvasLayer"]
+layer = 11
+script = ExtResource("1_qst")
+
+[node name="QuestPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -140.0
+offset_right = 220.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="QuestPanel"]
+layout_mode = 2
+
+[node name="TitleBar" type="HBoxContainer" parent="QuestPanel/MainVBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="QuestPanel/MainVBox/TitleBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quest Log"
+horizontal_alignment = 1
+
+[node name="Tabs" type="HBoxContainer" parent="QuestPanel/MainVBox"]
+layout_mode = 2
+
+[node name="TabActive" type="Button" parent="QuestPanel/MainVBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Active"
+
+[node name="TabCompleted" type="Button" parent="QuestPanel/MainVBox/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Completed"
+
+[node name="ContentHBox" type="HBoxContainer" parent="QuestPanel/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftPanel" type="PanelContainer" parent="QuestPanel/MainVBox/ContentHBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(160, 0)
+
+[node name="QuestList" type="ItemList" parent="QuestPanel/MainVBox/ContentHBox/LeftPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RightPanel" type="PanelContainer" parent="QuestPanel/MainVBox/ContentHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DetailVBox" type="VBoxContainer" parent="QuestPanel/MainVBox/ContentHBox/RightPanel"]
+layout_mode = 2
+
+[node name="QuestTitle" type="Label" parent="QuestPanel/MainVBox/ContentHBox/RightPanel/DetailVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "No quest selected"
+
+[node name="QuestDescription" type="RichTextLabel" parent="QuestPanel/MainVBox/ContentHBox/RightPanel/DetailVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 60)
+fit_content = true
+scroll_active = false
+
+[node name="ObjLabel" type="Label" parent="QuestPanel/MainVBox/ContentHBox/RightPanel/DetailVBox"]
+layout_mode = 2
+text = "Objectives:"
+
+[node name="ObjectivesContainer" type="VBoxContainer" parent="QuestPanel/MainVBox/ContentHBox/RightPanel/DetailVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RewardsLabel" type="Label" parent="QuestPanel/MainVBox/ContentHBox/RightPanel/DetailVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 2

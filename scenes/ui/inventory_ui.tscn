@@ -1,0 +1,213 @@
+[gd_scene load_steps=2 format=3 uid="uid://inv001"]
+
+[ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="1_inv"]
+
+[node name="InventoryUI" type="CanvasLayer"]
+layer = 11
+script = ExtResource("1_inv")
+
+[node name="InventoryPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -140.0
+offset_right = 200.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainHBox" type="HBoxContainer" parent="InventoryPanel"]
+layout_mode = 2
+
+[node name="EquipmentPanel" type="PanelContainer" parent="InventoryPanel/MainHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(110, 0)
+
+[node name="EquipVBox" type="VBoxContainer" parent="InventoryPanel/MainHBox/EquipmentPanel"]
+layout_mode = 2
+
+[node name="EquipTitle" type="Label" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox"]
+layout_mode = 2
+text = "Equipment"
+horizontal_alignment = 1
+
+[node name="EquipHead" type="PanelContainer" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 28)
+
+[node name="SlotLabel" type="Label" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipHead"]
+layout_mode = 2
+text = "Head"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipHead"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EquipBody" type="PanelContainer" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 28)
+
+[node name="SlotLabel" type="Label" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipBody"]
+layout_mode = 2
+text = "Body"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipBody"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EquipLegs" type="PanelContainer" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 28)
+
+[node name="SlotLabel" type="Label" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipLegs"]
+layout_mode = 2
+text = "Legs"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipLegs"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EquipFeet" type="PanelContainer" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 28)
+
+[node name="SlotLabel" type="Label" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipFeet"]
+layout_mode = 2
+text = "Feet"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipFeet"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EquipWeapon" type="PanelContainer" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 28)
+
+[node name="SlotLabel" type="Label" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipWeapon"]
+layout_mode = 2
+text = "Weapon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipWeapon"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EquipShield" type="PanelContainer" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 28)
+
+[node name="SlotLabel" type="Label" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipShield"]
+layout_mode = 2
+text = "Shield"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipShield"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EquipRing" type="PanelContainer" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 28)
+
+[node name="SlotLabel" type="Label" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipRing"]
+layout_mode = 2
+text = "Ring"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipRing"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EquipAmulet" type="PanelContainer" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 28)
+
+[node name="SlotLabel" type="Label" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipAmulet"]
+layout_mode = 2
+text = "Amulet"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox/EquipAmulet"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatsLabel" type="Label" parent="InventoryPanel/MainHBox/EquipmentPanel/EquipVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ATK: 0
+DEF: 0"
+
+[node name="RightSide" type="VBoxContainer" parent="InventoryPanel/MainHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InventoryTitle" type="Label" parent="InventoryPanel/MainHBox/RightSide"]
+layout_mode = 2
+text = "Inventory"
+horizontal_alignment = 1
+
+[node name="InventoryGrid" type="GridContainer" parent="InventoryPanel/MainHBox/RightSide"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 7
+
+[node name="ContextMenu" type="PopupMenu" parent="."]
+unique_name_in_owner = true
+
+[node name="TooltipPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_right = 160.0
+offset_bottom = 80.0
+
+[node name="TooltipVBox" type="VBoxContainer" parent="TooltipPanel"]
+layout_mode = 2
+
+[node name="TooltipName" type="Label" parent="TooltipPanel/TooltipVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Item Name"
+
+[node name="TooltipDesc" type="Label" parent="TooltipPanel/TooltipVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="TooltipStats" type="Label" parent="TooltipPanel/TooltipVBox"]
+unique_name_in_owner = true
+layout_mode = 2

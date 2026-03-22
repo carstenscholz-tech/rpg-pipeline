@@ -1,0 +1,33 @@
+{
+  "class_id": "mage",
+  "name": "Mage",
+  "description": "A wielder of Aether magic. Mages command devastating spells but are fragile in close quarters.",
+  "base_stats": {
+    "hp": 30,
+    "mp": 40,
+    "strength": 3,
+    "dexterity": 4,
+    "intelligence": 9,
+    "wisdom": 7,
+    "constitution": 3,
+    "luck": 4
+  },
+  "stat_growth": {
+    "hp": 3,
+    "mp": 6,
+    "strength": 1,
+    "dexterity": 1,
+    "intelligence": 3,
+    "wisdom": 2,
+    "constitution": 1,
+    "luck": 1
+  },
+  "skills": [
+    {"skill_id": "arcane_bolt", "name": "Arcane Bolt", "unlock_level": 1, "mp_cost": 4, "damage_modifier": 1.6, "stat_scale": "intelligence", "description": "Hurl a bolt of pure Aether energy. Scales with Intelligence."},
+    {"skill_id": "frost_nova", "name": "Frost Nova", "unlock_level": 3, "mp_cost": 8, "damage_modifier": 1.0, "hits": "all_enemies", "effect": "slow_2t", "stat_scale": "intelligence", "description": "Blast all enemies with frost, dealing damage and slowing for 2 turns."},
+    {"skill_id": "mana_shield", "name": "Mana Shield", "unlock_level": 5, "mp_cost": 10, "effect": "absorb_damage_mp_3t", "description": "Convert incoming damage to MP cost for 3 turns."},
+    {"skill_id": "fireball", "name": "Fireball", "unlock_level": 7, "mp_cost": 12, "damage_modifier": 2.2, "stat_scale": "intelligence", "description": "Launch an explosive fireball dealing massive fire damage."},
+    {"skill_id": "arcane_storm", "name": "Arcane Storm", "unlock_level": 10, "mp_cost": 20, "damage_modifier": 1.8, "hits": "all_enemies", "stat_scale": "intelligence", "description": "Unleash a storm of Aether on all enemies for devastating damage."}
+  ],
+  "starter_equipment": ["apprentice_staff", "cloth_robe", "leather_boots"]
+}

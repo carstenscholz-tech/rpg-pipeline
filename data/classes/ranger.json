@@ -1,0 +1,33 @@
+{
+  "class_id": "ranger",
+  "name": "Ranger",
+  "description": "A swift hunter skilled with bow and blade. Rangers strike from afar and move with deadly precision.",
+  "base_stats": {
+    "hp": 40,
+    "mp": 15,
+    "strength": 5,
+    "dexterity": 8,
+    "intelligence": 4,
+    "wisdom": 4,
+    "constitution": 5,
+    "luck": 6
+  },
+  "stat_growth": {
+    "hp": 5,
+    "mp": 3,
+    "strength": 1,
+    "dexterity": 3,
+    "intelligence": 1,
+    "wisdom": 1,
+    "constitution": 1,
+    "luck": 2
+  },
+  "skills": [
+    {"skill_id": "aimed_shot", "name": "Aimed Shot", "unlock_level": 1, "mp_cost": 4, "damage_modifier": 1.8, "description": "Take careful aim for a devastating ranged attack at 180% damage."},
+    {"skill_id": "double_strike", "name": "Double Strike", "unlock_level": 3, "mp_cost": 5, "damage_modifier": 0.7, "hits": 2, "description": "Strike twice in rapid succession, each hit dealing 70% damage."},
+    {"skill_id": "evasion", "name": "Evasion", "unlock_level": 5, "mp_cost": 5, "effect": "dodge_50_2t", "description": "Enter a defensive stance with 50% dodge chance for 2 turns."},
+    {"skill_id": "poison_arrow", "name": "Poison Arrow", "unlock_level": 7, "mp_cost": 7, "damage_modifier": 1.0, "effect": "poison_3t", "description": "Fire a poisoned arrow dealing damage plus poison for 3 turns."},
+    {"skill_id": "volley", "name": "Volley", "unlock_level": 10, "mp_cost": 12, "damage_modifier": 0.9, "hits": "all_enemies", "description": "Rain arrows on all enemies for 90% damage each."}
+  ],
+  "starter_equipment": ["shortbow", "bronze_dagger", "leather_armor", "leather_boots"]
+}
