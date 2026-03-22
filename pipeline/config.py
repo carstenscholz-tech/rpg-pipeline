@@ -37,7 +37,7 @@ ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 GODOT_EXECUTABLE = "godot"  # Override with absolute path if not on PATH
 
 # === GitHub ===
-GITHUB_REPO = os.environ.get("GITHUB_REPO", "")
+GITHUB_REPO = os.environ.get("GITHUB_REPO", "carstenscholz-tech/rpg-pipeline")
 PIPELINE_READY_LABEL = "pipeline:ready"
 PIPELINE_IN_PROGRESS_LABEL = "pipeline:in-progress"
 PIPELINE_DONE_LABEL = "pipeline:done"

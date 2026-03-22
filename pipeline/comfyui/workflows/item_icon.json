@@ -1,23 +1,32 @@
 {
-  "3": {
-    "class_type": "KSampler",
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
     "inputs": {
-      "cfg": 7,
-      "denoise": 1,
-      "latent_image": ["5", 0],
-      "model": ["4", 0],
-      "negative": ["7", 0],
-      "positive": ["6", 0],
-      "sampler_name": "euler_ancestral",
-      "scheduler": "normal",
-      "seed": "{{seed}}",
-      "steps": 25
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "lora_name": "pixel-art-xl.safetensors",
+      "model": ["1", 0],
+      "clip": ["1", 1],
+      "strength_model": 0.75,
+      "strength_clip": 0.75
+    }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": ["2", 1],
+      "text": "{{positive_prompt}}"
     }
   },
   "4": {
-    "class_type": "CheckpointLoaderSimple",
+    "class_type": "CLIPTextEncode",
     "inputs": {
-      "ckpt_name": "pixel_art_xl.safetensors"
+      "clip": ["2", 1],
+      "text": "{{negative_prompt}}"
     }
   },
   "5": {
@@ -29,31 +38,32 @@
     }
   },
   "6": {
-    "class_type": "CLIPTextEncode",
+    "class_type": "KSampler",
     "inputs": {
-      "clip": ["4", 1],
-      "text": "{{positive_prompt}}"
+      "cfg": 7,
+      "denoise": 1,
+      "latent_image": ["5", 0],
+      "model": ["2", 0],
+      "negative": ["4", 0],
+      "positive": ["3", 0],
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "seed": "{{seed}}",
+      "steps": 25
     }
   },
   "7": {
-    "class_type": "CLIPTextEncode",
+    "class_type": "VAEDecode",
     "inputs": {
-      "clip": ["4", 1],
-      "text": "{{negative_prompt}}"
+      "samples": ["6", 0],
+      "vae": ["1", 2]
     }
   },
   "8": {
-    "class_type": "VAEDecode",
-    "inputs": {
-      "samples": ["3", 0],
-      "vae": ["4", 2]
-    }
-  },
-  "9": {
     "class_type": "SaveImage",
     "inputs": {
       "filename_prefix": "rpg_icon",
-      "images": ["8", 0]
+      "images": ["7", 0]
     }
   }
 }
