@@ -43,6 +43,10 @@ func _ready() -> void:
 	if npc_id != "" and npc_data.is_empty():
 		npc_data = GameData.get_npc(npc_id)
 
+	# Load NPC sprite texture if none is assigned.
+	if sprite and sprite.texture == null:
+		sprite.texture = _load_npc_texture()
+
 	# Set display name.
 	if display_name == "" and npc_data.has("name"):
 		display_name = npc_data.name
@@ -231,3 +235,52 @@ func move_to(target: Vector2) -> void:
 	_walk_target = target
 	_has_walk_target = true
 	state = NPCState.WALKING
+
+
+## Load the NPC sprite texture from assets, or create a colored placeholder.
+func _load_npc_texture() -> Texture2D:
+	# Try loading from the standard NPC sprite path.
+	if npc_id != "":
+		var tex_path: String = "res://assets/sprites/npcs/" + npc_id + ".png"
+		if ResourceLoader.exists(tex_path):
+			var tex := load(tex_path) as Texture2D
+			if tex:
+				return tex
+
+	# Also try sprite_id from npc_data if available.
+	var sprite_id_str: String = npc_data.get("sprite_id", "")
+	if sprite_id_str != "":
+		var tex_path2: String = "res://assets/sprites/npcs/" + sprite_id_str + ".png"
+		if ResourceLoader.exists(tex_path2):
+			var tex := load(tex_path2) as Texture2D
+			if tex:
+				return tex
+
+	# Fallback: create a 32x32 colored placeholder.
+	var img := Image.create(32, 32, false, Image.FORMAT_RGBA8)
+	# Generate a deterministic color from the npc_id.
+	var hash_val: int = npc_id.hash() if npc_id != "" else randi()
+	var r: float = fmod(abs(float(hash_val)) * 0.618033, 1.0)
+	var g: float = fmod(abs(float(hash_val)) * 0.302585, 1.0)
+	var b: float = fmod(abs(float(hash_val)) * 0.146290, 1.0)
+	var body_color := Color(clampf(r, 0.2, 0.9), clampf(g, 0.2, 0.9), clampf(b, 0.2, 0.9))
+	var skin_color := Color(0.9, 0.75, 0.6)
+
+	for py in range(32):
+		for px in range(32):
+			var cx: int = px - 16
+			var cy: int = py - 16
+			var c: Color = Color.TRANSPARENT
+			# Head.
+			if cx * cx + (cy + 8) * (cy + 8) < 36:
+				c = skin_color
+			# Body.
+			elif abs(cx) < 6 and cy > -4 and cy < 10:
+				c = body_color
+			# Legs.
+			elif abs(cx) < 4 and cy >= 10 and cy < 16:
+				c = body_color.darkened(0.3)
+			if c.a > 0.0:
+				img.set_pixel(px, py, c)
+
+	return ImageTexture.create_from_image(img)

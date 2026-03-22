@@ -71,6 +71,11 @@ func _ready() -> void:
 		LootDropScene = load("res://scripts/combat/loot_drop.tscn")
 
 	_load_enemy_data()
+
+	# Load enemy sprite texture if none is assigned.
+	if sprite and sprite.texture == null:
+		sprite.texture = _load_enemy_texture()
+
 	_setup_detection_radius()
 	_update_health_bar()
 	health_bar.visible = false
@@ -109,6 +114,52 @@ func _load_enemy_data() -> void:
 	is_boss = data.get("is_boss", false)
 	is_mini_boss = data.get("is_mini_boss", false)
 	abilities = data.get("abilities", [])
+
+
+## Load enemy sprite texture from assets, or create a colored placeholder.
+func _load_enemy_texture() -> Texture2D:
+	# Try enemy_id-based path first.
+	if enemy_id != "":
+		var tex_path: String = "res://assets/sprites/enemies/" + enemy_id + ".png"
+		if ResourceLoader.exists(tex_path):
+			var tex := load(tex_path) as Texture2D
+			if tex:
+				return tex
+
+	# Try sprite_id from loaded data.
+	if sprite_id != "":
+		var tex_path2: String = "res://assets/sprites/enemies/" + sprite_id + ".png"
+		if ResourceLoader.exists(tex_path2):
+			var tex := load(tex_path2) as Texture2D
+			if tex:
+				return tex
+
+	# Fallback: create a 32x32 colored placeholder.
+	var img := Image.create(32, 32, false, Image.FORMAT_RGBA8)
+	# Deterministic color from enemy_id.
+	var hash_val: int = enemy_id.hash() if enemy_id != "" else randi()
+	var r: float = fmod(abs(float(hash_val)) * 0.718033, 1.0)
+	var g: float = fmod(abs(float(hash_val)) * 0.202585, 1.0)
+	var b: float = fmod(abs(float(hash_val)) * 0.346290, 1.0)
+	var body_color := Color(clampf(r, 0.3, 0.95), clampf(g, 0.15, 0.7), clampf(b, 0.15, 0.7))
+
+	for py in range(32):
+		for px in range(32):
+			var cx: float = float(px) - 16.0
+			var cy: float = float(py) - 16.0
+			var dist_sq: float = cx * cx + cy * cy
+			var c: Color = Color.TRANSPARENT
+			# Draw a rough enemy blob shape.
+			if dist_sq < 144.0:  # radius ~12
+				var edge_factor: float = dist_sq / 144.0
+				c = body_color.darkened(edge_factor * 0.4)
+				# Eyes.
+				if (abs(cx - 4.0) < 2.0 or abs(cx + 4.0) < 2.0) and abs(cy + 2.0) < 2.0:
+					c = Color.RED
+			if c.a > 0.0:
+				img.set_pixel(px, py, c)
+
+	return ImageTexture.create_from_image(img)
 
 
 func _setup_detection_radius() -> void:

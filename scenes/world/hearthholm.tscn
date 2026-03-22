@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://scripts/world/hearthholm.gd" id="1_hearthholm"]
+[ext_resource type="Script" path="res://scripts/world/runtime_tilemap.gd" id="2_runtime_tilemap"]
 
 [sub_resource type="TileSet" id="TileSet_hearthholm"]
 tile_size = Vector2i(32, 32)
@@ -31,6 +32,7 @@ navigation_polygon = SubResource("NavPoly_hearthholm")
 [node name="GroundLayer" type="TileMapLayer" parent="NavigationRegion2D"]
 tile_set = SubResource("TileSet_hearthholm")
 z_index = 0
+script = ExtResource("2_runtime_tilemap")
 
 [node name="BuildingLayer" type="TileMapLayer" parent="NavigationRegion2D"]
 tile_set = SubResource("TileSet_hearthholm")

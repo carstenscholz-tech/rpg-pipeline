@@ -28,9 +28,55 @@ var _attack_timer: float = 0.0
 func _ready() -> void:
 	# Ensure the sprite sheet is configured correctly.
 	if sprite:
+		# Load sprite sheet texture if none is assigned.
+		if sprite.texture == null:
+			sprite.texture = _load_player_texture()
 		sprite.hframes = 3
 		sprite.vframes = 4
 		sprite.frame = 0
+
+
+## Load the player sprite sheet texture, falling back to a colored placeholder.
+func _load_player_texture() -> Texture2D:
+	# Try the knight sheet as default.
+	var sheet_path: String = "res://assets/sprites/characters/class_knight_sheet.png"
+	if ResourceLoader.exists(sheet_path):
+		var tex := load(sheet_path) as Texture2D
+		if tex:
+			return tex
+
+	# Fallback: create a colored placeholder (96x128 for 3x4 grid of 32x32).
+	var img := Image.create(96, 128, false, Image.FORMAT_RGBA8)
+	var body_color := Color(0.3, 0.5, 0.8)  # Blue knight
+	var skin_color := Color(0.9, 0.75, 0.6)
+	for vy in range(4):
+		for vx in range(3):
+			var ox: int = vx * 32
+			var oy: int = vy * 32
+			# Draw a simple character silhouette per frame.
+			for py in range(32):
+				for px in range(32):
+					var c: Color = Color.TRANSPARENT
+					var cx: int = px - 16
+					var cy: int = py - 16
+					# Head (top circle).
+					if cx * cx + (cy + 8) * (cy + 8) < 36:
+						c = skin_color
+					# Body (rectangle).
+					elif abs(cx) < 6 and cy > -4 and cy < 10:
+						c = body_color
+					# Legs offset for walk frames.
+					elif abs(cx) < 4 and cy >= 10 and cy < 16:
+						var leg_offset: int = 0
+						if vx == 1:
+							leg_offset = 2
+						elif vx == 2:
+							leg_offset = -2
+						if abs(cx - leg_offset) < 3:
+							c = body_color.darkened(0.3)
+					if c.a > 0.0:
+						img.set_pixel(ox + px, oy + py, c)
+	return ImageTexture.create_from_image(img)
 
 
 func _process(delta: float) -> void:
