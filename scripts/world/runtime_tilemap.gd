@@ -24,18 +24,19 @@ func _ready() -> void:
 	_paint_map()
 
 
-## Build the TileSet with atlas sources for each tileset texture.
+## Build the TileSet with clean procedural retro-style tiles.
+## Uses hand-crafted pixel patterns instead of AI-generated tilesets
+## for a consistent classic RPG look (SNES/GBA style).
 func _build_tileset() -> void:
 	var ts := TileSet.new()
 	ts.tile_size = Vector2i(TILE_SIZE, TILE_SIZE)
 
-	grass_source_id = _add_atlas_source(ts, "res://assets/tilesets/grass_plains.png", Color(0.2, 0.55, 0.15))
-	cobble_source_id = _add_atlas_source(ts, "res://assets/tilesets/cobblestone_town.png", Color(0.45, 0.42, 0.4))
-	buildings_source_id = _add_atlas_source(ts, "res://assets/tilesets/wooden_buildings.png", Color(0.55, 0.35, 0.15))
+	grass_source_id = _add_retro_source(ts, "grass")
+	cobble_source_id = _add_retro_source(ts, "cobble")
+	buildings_source_id = _add_retro_source(ts, "building")
 
 	tile_set = ts
 
-	# Also assign the same TileSet to sibling layers so they share it.
 	var parent_node := get_parent()
 	if parent_node:
 		var building_layer := parent_node.get_node_or_null("BuildingLayer") as TileMapLayer
@@ -46,55 +47,151 @@ func _build_tileset() -> void:
 			deco_layer.tile_set = ts
 
 
-## Add an atlas source from a texture file. If the file is missing, create a
-## solid-color fallback texture so the game still runs visually.
-func _add_atlas_source(ts: TileSet, path: String, fallback_color: Color) -> int:
-	var tex: Texture2D = null
+## Create a 4x4 atlas of retro-style tiles for the given type.
+func _add_retro_source(ts: TileSet, tile_type: String) -> int:
+	var img := Image.create(128, 128, false, Image.FORMAT_RGBA8)
 
-	if ResourceLoader.exists(path):
-		tex = load(path) as Texture2D
+	for ty in range(ATLAS_ROWS):
+		for tx in range(ATLAS_COLS):
+			var tile_idx: int = ty * ATLAS_COLS + tx
+			_draw_retro_tile(img, tx * TILE_SIZE, ty * TILE_SIZE, tile_type, tile_idx)
 
-	if tex == null:
-		# Create a fallback solid-color image texture.
-		tex = _create_fallback_texture(fallback_color)
-
+	var tex := ImageTexture.create_from_image(img)
 	var source := TileSetAtlasSource.new()
 	source.texture = tex
 	source.texture_region_size = Vector2i(TILE_SIZE, TILE_SIZE)
 
-	# Register every tile in the 4x4 grid.
 	for y in range(ATLAS_ROWS):
 		for x in range(ATLAS_COLS):
 			source.create_tile(Vector2i(x, y))
 
-	var source_id: int = ts.add_source(source)
-	return source_id
+	return ts.add_source(source)
 
 
-## Create a 128x128 fallback texture filled with a solid color, with slight
-## per-tile variation so individual tiles are distinguishable.
-func _create_fallback_texture(base_color: Color) -> ImageTexture:
-	var img := Image.create(128, 128, false, Image.FORMAT_RGBA8)
-	for ty in range(ATLAS_ROWS):
-		for tx in range(ATLAS_COLS):
-			# Slight color variation per tile.
-			var variation: float = (tx + ty * ATLAS_COLS) * 0.02
-			var c := Color(
-				clampf(base_color.r + variation, 0.0, 1.0),
-				clampf(base_color.g + variation * 0.5, 0.0, 1.0),
-				clampf(base_color.b - variation * 0.3, 0.0, 1.0)
-			)
-			for py in range(TILE_SIZE):
-				for px in range(TILE_SIZE):
-					img.set_pixel(tx * TILE_SIZE + px, ty * TILE_SIZE + py, c)
-			# Draw a 1px border to distinguish tiles.
-			for i in range(TILE_SIZE):
-				var border_color := Color(c.r * 0.7, c.g * 0.7, c.b * 0.7)
-				img.set_pixel(tx * TILE_SIZE + i, ty * TILE_SIZE, border_color)
-				img.set_pixel(tx * TILE_SIZE, ty * TILE_SIZE + i, border_color)
+## Draw a single 32x32 retro-style tile at the given position.
+func _draw_retro_tile(img: Image, ox: int, oy: int, tile_type: String, variant: int) -> void:
+	match tile_type:
+		"grass":
+			_draw_grass_tile(img, ox, oy, variant)
+		"cobble":
+			_draw_cobble_tile(img, ox, oy, variant)
+		"building":
+			_draw_building_tile(img, ox, oy, variant)
 
-	var tex := ImageTexture.create_from_image(img)
-	return tex
+
+func _draw_grass_tile(img: Image, ox: int, oy: int, variant: int) -> void:
+	# Base green with subtle noise.
+	var base := Color(0.22, 0.52, 0.18)
+	var light := Color(0.30, 0.60, 0.22)
+	var dark := Color(0.16, 0.42, 0.12)
+	var accent := Color(0.35, 0.65, 0.20)  # Bright grass blades
+
+	for py in range(TILE_SIZE):
+		for px in range(TILE_SIZE):
+			var noise: int = ((px * 7 + py * 13 + variant * 37) % 10)
+			var c: Color
+			if noise < 5:
+				c = base
+			elif noise < 8:
+				c = light
+			else:
+				c = dark
+			img.set_pixel(ox + px, oy + py, c)
+
+	# Scatter a few bright grass blade pixels.
+	var rng_base: int = variant * 53
+	for i in range(6):
+		var bx: int = (rng_base + i * 17) % TILE_SIZE
+		var by: int = (rng_base + i * 23 + 7) % TILE_SIZE
+		img.set_pixel(ox + bx, oy + by, accent)
+		if by + 1 < TILE_SIZE:
+			img.set_pixel(ox + bx, oy + by + 1, accent)
+
+	# Occasional tiny flower (on certain variants).
+	if variant % 5 == 0:
+		var fx: int = 10 + (variant * 3) % 14
+		var fy: int = 10 + (variant * 7) % 14
+		img.set_pixel(ox + fx, oy + fy, Color(0.9, 0.85, 0.2))  # Yellow
+	elif variant % 7 == 0:
+		var fx: int = 8 + (variant * 11) % 16
+		var fy: int = 8 + (variant * 5) % 16
+		img.set_pixel(ox + fx, oy + fy, Color(0.85, 0.3, 0.3))  # Red
+
+
+func _draw_cobble_tile(img: Image, ox: int, oy: int, variant: int) -> void:
+	# Gray cobblestone with stone pattern.
+	var base := Color(0.55, 0.52, 0.48)
+	var light := Color(0.65, 0.62, 0.58)
+	var dark := Color(0.40, 0.38, 0.35)
+	var grout := Color(0.32, 0.30, 0.28)  # Dark lines between stones
+
+	# Fill base.
+	for py in range(TILE_SIZE):
+		for px in range(TILE_SIZE):
+			var noise: int = ((px * 11 + py * 7 + variant * 31) % 8)
+			if noise < 4:
+				img.set_pixel(ox + px, oy + py, base)
+			elif noise < 6:
+				img.set_pixel(ox + px, oy + py, light)
+			else:
+				img.set_pixel(ox + px, oy + py, dark)
+
+	# Draw stone grid lines (grout).
+	var offset_x: int = (variant * 3) % 4
+	var offset_y: int = (variant * 5) % 4
+	for py in range(TILE_SIZE):
+		for px in range(TILE_SIZE):
+			var gx: int = (px + offset_x) % 8
+			var gy: int = (py + offset_y) % 8
+			# Horizontal grout every 8 pixels, vertical offset per row.
+			if gy == 0 or gx == 0:
+				img.set_pixel(ox + px, oy + py, grout)
+
+
+func _draw_building_tile(img: Image, ox: int, oy: int, variant: int) -> void:
+	var is_wall: bool = (variant < 8)  # First 2 rows = walls
+	var is_roof: bool = (variant < 4)   # First row = roof
+
+	if is_roof:
+		# Dark brown roof shingles.
+		var roof_base := Color(0.45, 0.25, 0.12)
+		var roof_light := Color(0.55, 0.32, 0.16)
+		for py in range(TILE_SIZE):
+			for px in range(TILE_SIZE):
+				var stripe: int = (py + variant * 3) % 6
+				if stripe < 4:
+					img.set_pixel(ox + px, oy + py, roof_base)
+				else:
+					img.set_pixel(ox + px, oy + py, roof_light)
+	elif is_wall:
+		# Wooden wall planks.
+		var plank := Color(0.60, 0.42, 0.22)
+		var plank_dark := Color(0.48, 0.32, 0.16)
+		var plank_line := Color(0.38, 0.25, 0.12)
+		for py in range(TILE_SIZE):
+			for px in range(TILE_SIZE):
+				var plank_row: int = py % 8
+				if plank_row == 0:
+					img.set_pixel(ox + px, oy + py, plank_line)
+				elif (px + (py / 8) * 4) % 8 == 0:
+					img.set_pixel(ox + px, oy + py, plank_line)
+				elif plank_row < 3:
+					img.set_pixel(ox + px, oy + py, plank)
+				else:
+					img.set_pixel(ox + px, oy + py, plank_dark)
+	else:
+		# Interior floor (lighter wood).
+		var floor_base := Color(0.65, 0.50, 0.30)
+		var floor_dark := Color(0.55, 0.40, 0.22)
+		for py in range(TILE_SIZE):
+			for px in range(TILE_SIZE):
+				var board: int = px % 8
+				if board == 0:
+					img.set_pixel(ox + px, oy + py, Color(0.45, 0.32, 0.18))
+				elif (px + py) % 7 < 4:
+					img.set_pixel(ox + px, oy + py, floor_base)
+				else:
+					img.set_pixel(ox + px, oy + py, floor_dark)
 
 
 ## Paint the entire Hearthholm town map.
