@@ -1,0 +1,42 @@
+{
+  "npc_id": "blacksmith_ironbark",
+  "name": "Thorgrim Ironbark",
+  "role": "merchant",
+  "region": "ashvale",
+  "location": { "zone": "hearthholm", "x": 275, "y": 220 },
+  "sprite_id": "npc_blacksmith_ironbark",
+  "stats": { "level": 20, "hp": 520, "attack": 58, "defense": 70 },
+  "personality": "gruff, fair-minded",
+  "personality_description": "A stout dwarven smith who lets his hammering do most of the talking. He'll grumble about shoddy materials and lazy apprentices, but every blade he forges is a masterwork and every price he names is honest.",
+  "faction": "hearthholm_merchants",
+  "dialogue_tree_id": "blacksmith_ironbark_dialogue",
+  "quests_given": [
+    "side_ore_shortage",
+    "trainer_intro_smithing"
+  ],
+  "shop_inventory": {
+    "shop_name": "Ironbark's Arms",
+    "items": [
+      "wpn_iron_sword",
+      "wpn_iron_axe",
+      "wpn_iron_mace",
+      "wpn_oak_staff",
+      "wpn_shortbow",
+      "arm_leather_helm",
+      "arm_leather_chest",
+      "arm_leather_boots",
+      "arm_iron_shield",
+      "arm_chainmail_vest",
+      "mat_whetstone",
+      "mat_repair_kit"
+    ]
+  },
+  "schedule": [
+    { "time": "05:00-06:00", "location": "ironbarks_arms_backroom", "action": "stoking_forge" },
+    { "time": "06:00-12:00", "location": "ironbarks_arms_shop", "action": "smithing_selling" },
+    { "time": "12:00-12:30", "location": "ironbarks_arms_backroom", "action": "eating_lunch" },
+    { "time": "12:30-19:00", "location": "ironbarks_arms_shop", "action": "smithing_selling" },
+    { "time": "19:00-21:00", "location": "sleeping_gryphon_inn", "action": "drinking_ale" },
+    { "time": "21:00-05:00", "location": "ironbarks_arms_backroom", "action": "sleeping" }
+  ]
+}

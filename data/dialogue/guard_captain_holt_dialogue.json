@@ -1,0 +1,165 @@
+{
+  "dialogue_id": "guard_captain_holt_dialogue",
+  "npc_id": "guard_captain_holt",
+  "trees": {
+    "default": {
+      "entry": "greeting",
+      "nodes": {
+        "greeting": {
+          "text": "State your business. I haven't got time for idle talk.",
+          "responses": [
+            {"text": "What's the situation with the goblins?", "next": "goblin_report", "condition": null},
+            {"text": "Any bounties available?", "next": "bounties", "condition": null},
+            {"text": "What should I know about the forest?", "next": "forest_warning", "condition": null},
+            {"text": "I took care of the goblin chieftain.", "next": "chieftain_done", "condition": "quest_complete:slay_chieftain"},
+            {"text": "I'll leave you to it.", "next": "end", "condition": null}
+          ]
+        },
+        "goblin_report": {
+          "text": "Three raids this month. Two caravans lost. My men are spread thin. If you can fight, I need you on the line.",
+          "responses": [
+            {"text": "Where are they hitting hardest?", "next": "raid_locations", "condition": null},
+            {"text": "What do you know about their leader?", "next": "chieftain_intel", "condition": null},
+            {"text": "Put me to work.", "next": "bounties", "condition": null},
+            {"text": "I'll keep that in mind.", "next": "end", "condition": null}
+          ]
+        },
+        "raid_locations": {
+          "text": "East road and the farmsteads south of Thornwood. They hit at night, fast and organized. Unusual for goblins.",
+          "responses": [
+            {"text": "Organized how?", "next": "organized_goblins", "condition": null},
+            {"text": "I'll patrol the east road.", "next": "bounties", "condition": null},
+            {"text": "Noted. Anything else?", "next": "forest_warning", "condition": null}
+          ]
+        },
+        "organized_goblins": {
+          "text": "Scouts, flanking maneuvers, coordinated retreats. Someone trained them. That worries me more than the raids.",
+          "responses": [
+            {"text": "Any idea who's behind it?", "next": "chieftain_intel", "condition": null},
+            {"text": "I'll look into it.", "next": "end", "condition": null}
+          ]
+        },
+        "chieftain_intel": {
+          "text": "Chieftain called Skarnak. My scouts tracked his warband to ruins north of Thornwood. Haven't come back since.",
+          "responses": [
+            {"text": "Your scouts are missing?", "next": "missing_scouts", "condition": null},
+            {"text": "I'll deal with Skarnak.", "next": "chieftain_bounty", "condition": "quest_complete:goblin_patrols"},
+            {"text": "That's above my pay grade.", "next": "end", "condition": null}
+          ]
+        },
+        "missing_scouts": {
+          "text": "Two of my best. Five days overdue. I fear the worst but can't spare anyone to search. Not with the raids.",
+          "responses": [
+            {"text": "I'll keep an eye out for them.", "next": "scouts_noted", "condition": null},
+            {"text": "What were their names?", "next": "scout_names", "condition": null}
+          ]
+        },
+        "scout_names": {
+          "text": "Bren and Marta. Good soldiers. If you find them, alive or otherwise, I need to know. Their families deserve that.",
+          "responses": [
+            {"text": "I'll find them.", "next": "scouts_noted", "condition": null},
+            {"text": "You have my word.", "next": "end", "condition": null}
+          ]
+        },
+        "scouts_noted": {
+          "text": "Appreciated. Check the old ruins if you're brave enough. That's where the trail went cold.",
+          "responses": [
+            {"text": "Any bounties I can take on now?", "next": "bounties", "condition": null},
+            {"text": "Consider it done.", "next": "end", "condition": null}
+          ]
+        },
+        "bounties": {
+          "text": "I post bounties on the board weekly. Current priorities: goblin patrols, supply escort, and forest beast culling.",
+          "responses": [
+            {"text": "[View Bounty Board]", "next": "bounty_board", "condition": null},
+            {"text": "Which pays the best?", "next": "best_bounty", "condition": null},
+            {"text": "I'll check the board later.", "next": "end", "condition": null}
+          ]
+        },
+        "bounty_board": {
+          "text": "Pick what suits you. Complete the job, bring proof, collect your coin. No excuses, no extensions.",
+          "responses": [
+            {"text": "[Open Bounty Board]", "next": "end", "condition": null}
+          ]
+        },
+        "best_bounty": {
+          "text": "Beast culling. Thornwood's crawling with corrupted wildlife. Dangerous, but forty coin per kill proof.",
+          "responses": [
+            {"text": "Corrupted how?", "next": "corrupted_beasts", "condition": null},
+            {"text": "[View Bounty Board]", "next": "bounty_board", "condition": null}
+          ]
+        },
+        "corrupted_beasts": {
+          "text": "Bigger than normal. Aggressive. Eyes gone black. The alchemist says it's some kind of Aether taint. I just want them dead.",
+          "responses": [
+            {"text": "Aether taint?", "next": "aether_mention", "condition": null},
+            {"text": "I'll handle it.", "next": "end", "condition": null}
+          ]
+        },
+        "aether_mention": {
+          "text": "Ask the elf. I deal in steel, not sorcery. My job is protecting this town. Yours is helping me do it.",
+          "responses": [
+            {"text": "Fair enough. I'll take some bounties.", "next": "bounty_board", "condition": null},
+            {"text": "Understood, Captain.", "next": "end", "condition": null}
+          ]
+        },
+        "forest_warning": {
+          "text": "Stay off the main paths in Thornwood after dark. We've lost people. The forest isn't safe anymore.",
+          "responses": [
+            {"text": "What's in the forest besides goblins?", "next": "forest_dangers", "condition": null},
+            {"text": "Noted. What about bounties?", "next": "bounties", "condition": null},
+            {"text": "I'll be careful.", "next": "end", "condition": null}
+          ]
+        },
+        "forest_dangers": {
+          "text": "Wolves, bears, things without names. And lately, the dead don't stay buried near the old barrows. Talk to Aldwin.",
+          "responses": [
+            {"text": "The dead? What do you mean?", "next": "undead_rumor", "condition": null},
+            {"text": "I'll speak to Aldwin.", "next": "end", "condition": null}
+          ]
+        },
+        "undead_rumor": {
+          "text": "Patrols found empty graves near the eastern barrows. Tracks leading into the forest. I don't like it one bit.",
+          "responses": [
+            {"text": "I'll investigate.", "next": "end", "condition": null},
+            {"text": "You've got bigger problems than goblins.", "next": "holt_burden", "condition": null}
+          ]
+        },
+        "holt_burden": {
+          "text": "Tell me something I don't know. I've got sixty guards for a hundred problems. So get out there and be one less.",
+          "responses": [
+            {"text": "Yes, Captain.", "next": "end", "condition": null}
+          ]
+        },
+        "chieftain_bounty": {
+          "text": "You want to take on Skarnak? Rowan vouches for you, so I'll authorize it. Five hundred coin, dead or alive.",
+          "responses": [
+            {"text": "I'll bring you his head.", "next": "end", "condition": null},
+            {"text": "What should I expect?", "next": "chieftain_intel", "condition": null}
+          ]
+        },
+        "chieftain_done": {
+          "text": "Skarnak is dead? Show me proof. ...By the gods, you actually did it. Hearthholm owes you a debt, adventurer.",
+          "responses": [
+            {"text": "Any new threats I should know about?", "next": "post_chieftain", "condition": null},
+            {"text": "Just doing my job, Captain.", "next": "end_respect", "condition": null}
+          ]
+        },
+        "post_chieftain": {
+          "text": "The goblins will scatter without a leader. But something drove them here in the first place. Stay sharp.",
+          "responses": [
+            {"text": "I'll get to the bottom of it.", "next": "end_respect", "condition": null}
+          ]
+        },
+        "end_respect": {
+          "text": "You've got my respect. That's not easy to earn. Hearthholm's lucky to have you. Now get back out there.",
+          "responses": []
+        },
+        "end": {
+          "text": "Stay sharp. Report anything unusual. Dismissed.",
+          "responses": []
+        }
+      }
+    }
+  }
+}

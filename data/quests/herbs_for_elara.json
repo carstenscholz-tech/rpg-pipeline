@@ -1,0 +1,49 @@
+{
+  "quest_id": "herbs_for_elara",
+  "title": "Herbs for Elara",
+  "description": "Sage Elara's apothecary is the lifeblood of Hearthholm -- her tonics cure fevers, her salves mend wounds, and her teas keep the town guard on their feet through long winter watches. But her stocks are running dangerously low. She needs thistle from the meadows and rare silverleaf from the shaded groves of Oldroot Forest. In return, she'll teach you to recognize useful plants in the wild -- a skill that could save your life on the road.",
+  "type": "side",
+  "region": "hearthholm",
+  "level_requirement": 2,
+  "prerequisites": [],
+  "steps": [
+    {
+      "step_id": 1,
+      "type": "talk_to_npc",
+      "description": "Visit Sage Elara at her apothecary in Hearthholm to learn what herbs she needs.",
+      "target_npc": "sage_elara",
+      "target_zone": "hearthholm_apothecary"
+    },
+    {
+      "step_id": 2,
+      "type": "collect_items",
+      "description": "Gather thistle from the meadows and hillsides around Hearthholm. Look for the purple-tipped stalks swaying in clusters near rocky ground.",
+      "required_item": "thistle",
+      "count": 10,
+      "target_zone": "hearthholm_meadows"
+    },
+    {
+      "step_id": 3,
+      "type": "collect_items",
+      "description": "Venture into the shaded groves of Oldroot Forest to find silverleaf. The pale, luminous leaves grow only where the canopy is thickest and the air is still.",
+      "required_item": "silverleaf",
+      "count": 3,
+      "target_zone": "oldroot_forest_shaded_grove"
+    },
+    {
+      "step_id": 4,
+      "type": "talk_to_npc",
+      "description": "Deliver the herbs to Sage Elara. She'll show you the basics of herbalism as thanks for your trouble.",
+      "target_npc": "sage_elara",
+      "target_zone": "hearthholm_apothecary"
+    }
+  ],
+  "rewards": {
+    "xp": { "herbalism": 50 },
+    "items": [
+      { "item_id": "health_potion", "quantity": 5 },
+      { "item_id": "mana_potion", "quantity": 2 }
+    ],
+    "gold": 0
+  }
+}

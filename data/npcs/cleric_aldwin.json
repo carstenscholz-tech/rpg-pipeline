@@ -1,0 +1,28 @@
+{
+  "npc_id": "cleric_aldwin",
+  "name": "Brother Aldwin",
+  "role": "trainer",
+  "region": "ashvale",
+  "location": { "zone": "hearthholm", "x": 350, "y": 145 },
+  "sprite_id": "npc_cleric_aldwin",
+  "stats": { "level": 18, "hp": 300, "attack": 20, "defense": 40 },
+  "personality": "patient, devout",
+  "personality_description": "A soft-spoken temple cleric who tends to the Shrine of the Ancients with quiet devotion. He never turns away the wounded or the weary, and believes that even the smallest act of kindness holds back the darkness creeping across Aethermoor.",
+  "faction": "order_of_the_ancients",
+  "dialogue_tree_id": "cleric_aldwin_dialogue",
+  "quests_given": [
+    "side_restless_dead",
+    "trainer_intro_prayer"
+  ],
+  "shop_inventory": null,
+  "schedule": [
+    { "time": "05:00-06:00", "location": "shrine_of_the_ancients", "action": "dawn_prayer" },
+    { "time": "06:00-08:00", "location": "shrine_garden", "action": "tending_garden" },
+    { "time": "08:00-12:00", "location": "shrine_of_the_ancients", "action": "healing_visitors" },
+    { "time": "12:00-13:00", "location": "shrine_quarters", "action": "eating_meditating" },
+    { "time": "13:00-17:00", "location": "shrine_of_the_ancients", "action": "healing_visitors" },
+    { "time": "17:00-19:00", "location": "hearthholm_graveyard", "action": "blessing_graves" },
+    { "time": "19:00-21:00", "location": "shrine_of_the_ancients", "action": "evening_prayer" },
+    { "time": "21:00-05:00", "location": "shrine_quarters", "action": "sleeping" }
+  ]
+}

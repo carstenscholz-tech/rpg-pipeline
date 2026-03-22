@@ -1,0 +1,28 @@
+{
+  "npc_id": "guildmaster_rowan",
+  "name": "Guildmaster Rowan",
+  "role": "quest_giver",
+  "region": "ashvale",
+  "location": { "zone": "hearthholm", "x": 312, "y": 184 },
+  "sprite_id": "npc_guildmaster_rowan",
+  "stats": { "level": 25, "hp": 480, "attack": 62, "defense": 55 },
+  "personality": "grizzled, warm-hearted",
+  "personality_description": "A battle-scarred veteran who has seen too many wars but never lost his booming laugh. He treats every new adventurer like family, though his eyes carry the weight of comrades lost.",
+  "faction": "adventurers_guild",
+  "dialogue_tree_id": "guildmaster_rowan_dialogue",
+  "quests_given": [
+    "tutorial_welcome_to_the_guild",
+    "tutorial_first_patrol",
+    "tutorial_prove_your_worth",
+    "main_the_gathering_dark"
+  ],
+  "shop_inventory": null,
+  "schedule": [
+    { "time": "06:00-08:00", "location": "guild_hall_quarters", "action": "morning_routine" },
+    { "time": "08:00-12:00", "location": "guild_hall_main", "action": "briefing_adventurers" },
+    { "time": "12:00-13:00", "location": "sleeping_gryphon_inn", "action": "eating_lunch" },
+    { "time": "13:00-18:00", "location": "guild_hall_main", "action": "reviewing_contracts" },
+    { "time": "18:00-20:00", "location": "sleeping_gryphon_inn", "action": "drinking_socializing" },
+    { "time": "20:00-06:00", "location": "guild_hall_quarters", "action": "sleeping" }
+  ]
+}

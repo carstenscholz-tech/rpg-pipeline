@@ -1,0 +1,143 @@
+{
+  "dialogue_id": "blacksmith_ironbark_dialogue",
+  "npc_id": "blacksmith_ironbark",
+  "trees": {
+    "default": {
+      "entry": "greeting",
+      "nodes": {
+        "greeting": {
+          "text": "Hmph. You need something, or you just here to gawk at a dwarf working?",
+          "responses": [
+            {"text": "Show me your wares.", "next": "shop", "condition": null},
+            {"text": "I've got ore to sell.", "next": "buy_ore", "condition": null},
+            {"text": "Tell me about yourself.", "next": "about_thorgrim", "condition": null},
+            {"text": "Aldric said he has iron scraps for you.", "next": "aldric_scraps", "condition": "quest_complete:aldric_rats"},
+            {"text": "Never mind.", "next": "end", "condition": null}
+          ]
+        },
+        "shop": {
+          "text": "Every piece, forged by these hands. No shortcuts. No cheap alloys. You get what you pay for here.",
+          "responses": [
+            {"text": "[Browse Weapons]", "next": "browse_weapons", "condition": null},
+            {"text": "[Browse Armor]", "next": "browse_armor", "condition": null},
+            {"text": "Can you repair my gear?", "next": "repairs", "condition": null},
+            {"text": "Maybe later.", "next": "end", "condition": null}
+          ]
+        },
+        "browse_weapons": {
+          "text": "Swords, axes, maces. Pick your poison. The hand-and-a-half is my finest work this season.",
+          "responses": [
+            {"text": "[Open Weapon Shop]", "next": "end_shop", "condition": null},
+            {"text": "Let me see the armor instead.", "next": "browse_armor", "condition": null},
+            {"text": "I'll think about it.", "next": "end", "condition": null}
+          ]
+        },
+        "browse_armor": {
+          "text": "Chainmail, plate, shields. Won't win any beauty contests, but it'll keep your insides inside.",
+          "responses": [
+            {"text": "[Open Armor Shop]", "next": "end_shop", "condition": null},
+            {"text": "Show me the weapons.", "next": "browse_weapons", "condition": null},
+            {"text": "Maybe next time.", "next": "end", "condition": null}
+          ]
+        },
+        "repairs": {
+          "text": "Aye, bring it here. Won't be cheap, but it'll hold. I don't do shoddy work.",
+          "responses": [
+            {"text": "[Open Repair Menu]", "next": "end_shop", "condition": null},
+            {"text": "How much for a full overhaul?", "next": "repair_cost", "condition": null},
+            {"text": "I'll manage for now.", "next": "end", "condition": null}
+          ]
+        },
+        "repair_cost": {
+          "text": "Depends on the damage. Dented plate, ten coin. Shattered blade, fifty. Miracle work costs extra.",
+          "responses": [
+            {"text": "[Open Repair Menu]", "next": "end_shop", "condition": null},
+            {"text": "Fair enough.", "next": "end", "condition": null}
+          ]
+        },
+        "buy_ore": {
+          "text": "Ore, eh? Let me see it. I pay fair for good stone. Try to cheat me and you'll regret it.",
+          "responses": [
+            {"text": "[Open Sell Menu]", "next": "end_shop", "condition": null},
+            {"text": "Where's the best place to mine around here?", "next": "mining_tips", "condition": null},
+            {"text": "I'll come back with more.", "next": "end", "condition": null}
+          ]
+        },
+        "mining_tips": {
+          "text": "Ironmaw foothills, northeast. Rich veins. Watch for cave crawlers, though. Nasty things.",
+          "responses": [
+            {"text": "Ironmaw? That's where your clan is from?", "next": "ironmaw_clan", "condition": null},
+            {"text": "Thanks for the tip.", "next": "end", "condition": null}
+          ]
+        },
+        "about_thorgrim": {
+          "text": "Thorgrim. Ironbark clan. Been swinging hammers since before your grandparents were born. That enough?",
+          "responses": [
+            {"text": "Why'd you leave the mountains?", "next": "left_mountains", "condition": null},
+            {"text": "The Ironbark clan?", "next": "ironmaw_clan", "condition": null},
+            {"text": "Fair enough. Let me see your wares.", "next": "shop", "condition": null}
+          ]
+        },
+        "left_mountains": {
+          "text": "Disagreement with the elders. My way or theirs. Chose my way. Don't ask more. It's done.",
+          "responses": [
+            {"text": "Do you miss it?", "next": "miss_home", "condition": null},
+            {"text": "Understood. Show me your wares.", "next": "shop", "condition": null},
+            {"text": "I'll leave you to your work.", "next": "end", "condition": null}
+          ]
+        },
+        "miss_home": {
+          "text": "Every damn day. The sound of a hundred hammers echoing off granite. Nothing like it. But I made my choice.",
+          "responses": [
+            {"text": "Maybe you'll go back someday.", "next": "maybe_return", "condition": null},
+            {"text": "Let me see your wares.", "next": "shop", "condition": null}
+          ]
+        },
+        "maybe_return": {
+          "text": "Hmph. Maybe. When the world stops needing swords. So, never. Now, you buying something or not?",
+          "responses": [
+            {"text": "Show me your wares.", "next": "shop", "condition": null},
+            {"text": "Not today.", "next": "end", "condition": null}
+          ]
+        },
+        "ironmaw_clan": {
+          "text": "Best smiths in the Ironmaw Mountains. We forge deep-steel. Stronger, lighter. Secrets passed down millennia.",
+          "responses": [
+            {"text": "Could you forge deep-steel here?", "next": "deep_steel", "condition": null},
+            {"text": "Why did you leave?", "next": "left_mountains", "condition": null},
+            {"text": "Impressive. Show me your wares.", "next": "shop", "condition": null}
+          ]
+        },
+        "deep_steel": {
+          "text": "Need Ironmaw ore. Bring me some and I'll show you what a real blade looks like. Not a promise I make lightly.",
+          "responses": [
+            {"text": "I'll find some.", "next": "end", "condition": null},
+            {"text": "Where would I find that ore?", "next": "mining_tips", "condition": null}
+          ]
+        },
+        "aldric_scraps": {
+          "text": "Old Aldric? Hah. That man hoards scrap like a dragon hoards gold. Tell him I'll send the boy to fetch it.",
+          "responses": [
+            {"text": "He seemed grateful someone helped him.", "next": "aldric_fondness", "condition": null},
+            {"text": "Anyway, show me your wares.", "next": "shop", "condition": null}
+          ]
+        },
+        "aldric_fondness": {
+          "text": "Good man, Aldric. Stubborn as granite, but good. This town would starve without his fields. Don't tell him I said that.",
+          "responses": [
+            {"text": "Your secret's safe. Show me your wares.", "next": "shop", "condition": null},
+            {"text": "Take care, Thorgrim.", "next": "end", "condition": null}
+          ]
+        },
+        "end_shop": {
+          "text": "Come back when you need steel. I'll be here. Always am.",
+          "responses": []
+        },
+        "end": {
+          "text": "Hmph. Got work to do. Hammer doesn't swing itself.",
+          "responses": []
+        }
+      }
+    }
+  }
+}

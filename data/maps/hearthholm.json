@@ -1,0 +1,62 @@
+{
+  "zone_id": "hearthholm",
+  "name": "Hearthholm",
+  "region": "ashvale",
+  "description": "The starting town of Aethermoor. Built around a glowing Aether shard embedded in the town square, Hearthholm is a bustling hub of new adventurers, seasoned merchants, and Guild officials. Stone walls protect the town from the occasional goblin raid, while farmland stretches to the south and the dark Oldroot Forest looms to the east.",
+  "size": {"width": 96, "height": 96},
+  "terrain_distribution": {
+    "grass": 0.30,
+    "path": 0.20,
+    "building_floor": 0.20,
+    "cobblestone": 0.10,
+    "water": 0.05,
+    "tree": 0.08,
+    "flower": 0.04,
+    "wall": 0.03
+  },
+  "structures": [
+    {"type": "guild_hall", "position": [45, 20], "size": [14, 12], "name": "Adventurers Guild Hall", "description": "The heart of Hearthholm. New adventurers register here and pick up bounties."},
+    {"type": "shop", "position": [30, 30], "size": [6, 6], "name": "Ironbark's Arms", "shop_type": "weapons"},
+    {"type": "shop", "position": [58, 30], "size": [6, 6], "name": "Marta's General Store", "shop_type": "general"},
+    {"type": "inn", "position": [22, 45], "size": [8, 7], "name": "The Sleeping Gryphon Inn"},
+    {"type": "shop", "position": [66, 45], "size": [5, 5], "name": "Sage Elara's Potions", "shop_type": "alchemy"},
+    {"type": "temple", "position": [48, 50], "size": [10, 8], "name": "Shrine of the Ancients"},
+    {"type": "bank", "position": [35, 55], "size": [7, 6], "name": "Hearthholm Vault"},
+    {"type": "house", "position": [15, 25], "size": [5, 4], "name": "Farmer Aldric's House"},
+    {"type": "house", "position": [75, 35], "size": [4, 4], "name": "Old Millhouse"},
+    {"type": "fountain", "position": [48, 35], "size": [4, 4], "name": "Aether Fountain", "description": "The town square fountain built around the glowing Aether shard."},
+    {"type": "training_ground", "position": [15, 55], "size": [10, 8], "name": "Combat Training Yard"},
+    {"type": "wall_gate", "position": [48, 0], "size": [8, 3], "name": "North Gate"},
+    {"type": "wall_gate", "position": [48, 93], "size": [8, 3], "name": "South Gate"},
+    {"type": "wall_gate", "position": [93, 48], "size": [3, 8], "name": "East Gate"},
+    {"type": "bridge", "position": [10, 70], "size": [6, 3], "name": "Brook Bridge"}
+  ],
+  "npc_spawns": [
+    "guildmaster_rowan", "blacksmith_ironbark", "merchant_marta", "innkeeper_bess",
+    "alchemist_elara", "cleric_aldwin", "combat_trainer_kira", "farmer_aldric",
+    "banker_geoffrey", "guard_captain_holt", "mysterious_stranger"
+  ],
+  "enemy_zones": [
+    {"area": [0, 80, 30, 96], "enemy_types": ["rat", "slime"], "density": 0.15, "level_range": [1, 2], "name": "Millbrook Fields"},
+    {"area": [70, 0, 96, 40], "enemy_types": ["goblin_scout", "goblin"], "density": 0.2, "level_range": [2, 4], "name": "Goblin Outskirts"}
+  ],
+  "resource_nodes": [
+    {"type": "tree", "subtype": "oak", "positions": [[5,10], [8,15], [3,25], [90,60], [85,70]], "respawn_seconds": 45, "skill": "woodcutting", "level": 1},
+    {"type": "ore", "subtype": "copper", "positions": [[80,80], [85,85], [78,90]], "respawn_seconds": 60, "skill": "mining", "level": 1},
+    {"type": "fishing_spot", "subtype": "pond", "positions": [[12,72], [8,75]], "respawn_seconds": 30, "skill": "fishing", "level": 1},
+    {"type": "herb", "subtype": "thistle", "positions": [[20,80], [25,85], [30,90]], "respawn_seconds": 40, "skill": "herbalism", "level": 1}
+  ],
+  "connections": [
+    {"direction": "north", "target_zone": "oldroot_forest", "position": [48, 0], "level_warning": 3},
+    {"direction": "south", "target_zone": "millbrook_farm", "position": [48, 95], "level_warning": null},
+    {"direction": "east", "target_zone": "goblin_warrens", "position": [95, 48], "level_warning": 5}
+  ],
+  "ambient": {
+    "music": "peaceful_town",
+    "lighting": "bright",
+    "weather": "clear",
+    "time_of_day_cycle": true,
+    "particle_effects": ["aether_sparkles_at_fountain"]
+  },
+  "spawn_point": {"x": 48, "y": 40, "description": "Next to the Aether Fountain in the town square"}
+}

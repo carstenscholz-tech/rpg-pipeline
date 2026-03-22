@@ -1,0 +1,46 @@
+{
+  "quest_id": "guild_registration",
+  "title": "Guild Registration",
+  "description": "Every great adventure begins with a single step -- and in Hearthholm, that step leads through the doors of the Adventurer's Guild. Guildmaster Rowan has been expecting fresh blood, and he's ready to size you up, assign your calling, and outfit you for the road ahead. The Guild Badge isn't just a trinket; it's your license to take on contracts and earn your keep in Aethermoor.",
+  "type": "main",
+  "region": "hearthholm",
+  "level_requirement": 1,
+  "prerequisites": [],
+  "steps": [
+    {
+      "step_id": 1,
+      "type": "go_to_location",
+      "description": "Find the Adventurer's Guild hall in the center of Hearthholm.",
+      "target_zone": "hearthholm_guild_hall"
+    },
+    {
+      "step_id": 2,
+      "type": "talk_to_npc",
+      "description": "Introduce yourself to Guildmaster Rowan and request registration.",
+      "target_npc": "guildmaster_rowan",
+      "target_zone": "hearthholm_guild_hall"
+    },
+    {
+      "step_id": 3,
+      "type": "interact_object",
+      "description": "Approach the Class Selection Pedestal and choose your path: Warrior, Ranger, or Mage.",
+      "target_zone": "hearthholm_guild_hall",
+      "required_item": null
+    },
+    {
+      "step_id": 4,
+      "type": "talk_to_npc",
+      "description": "Return to Guildmaster Rowan to receive your starter gear and official Guild Badge.",
+      "target_npc": "guildmaster_rowan",
+      "target_zone": "hearthholm_guild_hall"
+    }
+  ],
+  "rewards": {
+    "xp": {},
+    "items": [
+      { "item_id": "class_starter_equipment", "quantity": 1 },
+      { "item_id": "guild_badge", "quantity": 1 }
+    ],
+    "gold": 10
+  }
+}

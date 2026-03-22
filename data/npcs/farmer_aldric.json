@@ -1,0 +1,27 @@
+{
+  "npc_id": "farmer_aldric",
+  "name": "Farmer Aldric",
+  "role": "quest_giver",
+  "region": "ashvale",
+  "location": { "zone": "hearthholm", "x": 420, "y": 280 },
+  "sprite_id": "npc_farmer_aldric",
+  "stats": { "level": 3, "hp": 60, "attack": 5, "defense": 8 },
+  "personality": "worried, kind",
+  "personality_description": "A weathered old farmer whose hands know more about soil than swords. He wrings his cap nervously when speaking to adventurers but offers his last loaf of bread to anyone who helps him. The rat infestation in his fields has him at his wit's end.",
+  "faction": null,
+  "dialogue_tree_id": "farmer_aldric_dialogue",
+  "quests_given": [
+    "tutorial_rat_infestation",
+    "side_scarecrow_repair"
+  ],
+  "shop_inventory": null,
+  "schedule": [
+    { "time": "04:30-05:00", "location": "aldric_farmhouse", "action": "morning_routine" },
+    { "time": "05:00-12:00", "location": "aldric_fields", "action": "tending_crops" },
+    { "time": "12:00-13:00", "location": "aldric_farmhouse", "action": "eating_lunch" },
+    { "time": "13:00-18:00", "location": "aldric_fields", "action": "tending_crops" },
+    { "time": "18:00-19:00", "location": "aldric_farmhouse", "action": "eating_supper" },
+    { "time": "19:00-20:00", "location": "town_square", "action": "evening_chat" },
+    { "time": "20:00-04:30", "location": "aldric_farmhouse", "action": "sleeping" }
+  ]
+}

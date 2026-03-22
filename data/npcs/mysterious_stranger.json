@@ -1,0 +1,27 @@
+{
+  "npc_id": "mysterious_stranger",
+  "name": "The Stranger",
+  "role": "quest_giver",
+  "region": "ashvale",
+  "location": { "zone": "hearthholm", "x": 310, "y": 130 },
+  "sprite_id": "npc_mysterious_stranger",
+  "stats": { "level": 50, "hp": 999, "attack": 120, "defense": 100 },
+  "personality": "enigmatic, foreboding",
+  "personality_description": "A hooded figure who lingers near the Aether Fountain, always half-hidden in shadow regardless of the hour. They speak in cryptic warnings about something called the Hollow Covenant and seem to know the player's destiny before the player does.",
+  "faction": null,
+  "dialogue_tree_id": "mysterious_stranger_dialogue",
+  "quests_given": [
+    "main_the_aether_calls",
+    "main_echoes_of_the_covenant",
+    "main_the_hollow_truth"
+  ],
+  "shop_inventory": null,
+  "schedule": [
+    { "time": "00:00-05:00", "location": "aether_fountain", "action": "standing_watching" },
+    { "time": "05:00-06:00", "location": "unknown", "action": "vanished" },
+    { "time": "06:00-11:00", "location": "unknown", "action": "vanished" },
+    { "time": "11:00-14:00", "location": "hearthholm_rooftops", "action": "observing_town" },
+    { "time": "14:00-17:00", "location": "unknown", "action": "vanished" },
+    { "time": "17:00-00:00", "location": "aether_fountain", "action": "standing_watching" }
+  ]
+}

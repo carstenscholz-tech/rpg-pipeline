@@ -1,0 +1,74 @@
+{
+  "quest_id": "the_chieftains_challenge",
+  "title": "The Chieftain's Challenge",
+  "description": "Guildmaster Rowan's expression is grave when he summons you. The goblin raids weren't random -- scouts have confirmed the tribe is organized under a brutal chieftain called Grukk, who has somehow gotten his claws on an Aether fragment. The fragment's power has made him stronger and smarter than any goblin has a right to be, and his tribe grows bolder by the day. Rowan is sending you into the heart of Oldroot Forest to end Grukk's reign and recover the fragment before its corruption spreads further.",
+  "type": "main",
+  "region": "oldroot_forest",
+  "level_requirement": 6,
+  "prerequisites": [
+    "the_goblin_problem",
+    "wolfs_bane"
+  ],
+  "steps": [
+    {
+      "step_id": 1,
+      "type": "talk_to_npc",
+      "description": "Receive your orders from Guildmaster Rowan at the Adventurer's Guild.",
+      "target_npc": "guildmaster_rowan",
+      "target_zone": "hearthholm_guild_hall"
+    },
+    {
+      "step_id": 2,
+      "type": "go_to_location",
+      "description": "Journey deep into Oldroot Forest and locate the goblin stronghold hidden among the ancient roots.",
+      "target_zone": "oldroot_forest_goblin_stronghold"
+    },
+    {
+      "step_id": 3,
+      "type": "defeat_enemies",
+      "description": "Fight through the goblin war camp. Grukk's warriors are better armed and more disciplined than the rabble you faced before -- do not underestimate them.",
+      "enemy_type": "goblin_warrior",
+      "count": 8,
+      "target_zone": "oldroot_forest_goblin_stronghold"
+    },
+    {
+      "step_id": 4,
+      "type": "go_to_location",
+      "description": "Push into the chieftain's throne chamber at the heart of the stronghold.",
+      "target_zone": "oldroot_forest_chieftain_chamber"
+    },
+    {
+      "step_id": 5,
+      "type": "defeat_enemies",
+      "description": "Face Grukk the Goblin Chieftain in single combat. The Aether fragment pulses with dark energy in his fist, fueling his savage strength. This is the fight you've been building toward.",
+      "enemy_type": "grukk_goblin_chieftain",
+      "count": 1,
+      "target_zone": "oldroot_forest_chieftain_chamber"
+    },
+    {
+      "step_id": 6,
+      "type": "collect_items",
+      "description": "Pry the Aether fragment from Grukk's fallen grip. It hums with residual power, warm to the touch.",
+      "required_item": "aether_fragment",
+      "count": 1,
+      "target_zone": "oldroot_forest_chieftain_chamber"
+    },
+    {
+      "step_id": 7,
+      "type": "talk_to_npc",
+      "description": "Return the Aether fragment to Guildmaster Rowan and choose your hard-earned reward.",
+      "target_npc": "guildmaster_rowan",
+      "target_zone": "hearthholm_guild_hall"
+    }
+  ],
+  "rewards": {
+    "xp": { "melee": 300 },
+    "items": [
+      { "item_id": "aether_fragment", "quantity": 1 },
+      { "item_id": "iron_battleaxe", "quantity": 1 },
+      { "item_id": "oak_longbow", "quantity": 1 },
+      { "item_id": "shaman_staff", "quantity": 1 }
+    ],
+    "gold": 200
+  }
+}

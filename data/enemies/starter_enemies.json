@@ -1,0 +1,254 @@
+{
+  "enemies": [
+    {
+      "enemy_id": "rat",
+      "name": "Rat",
+      "description": "A mangy rodent with beady red eyes. Barely a threat, but they bite.",
+      "level": 1,
+      "stats": {"hp": 8, "attack": 2, "defense": 0, "speed": 1.2},
+      "xp_reward": 5,
+      "gold_drop": [0, 2],
+      "loot_table": [
+        {"item_id": "rat_tail", "drop_rate": 0.5},
+        {"item_id": "raw_rat_meat", "drop_rate": 0.8}
+      ],
+      "sprite_id": "enemy_rat",
+      "behavior": "wander",
+      "aggro_range": 2,
+      "respawn_seconds": 15
+    },
+    {
+      "enemy_id": "giant_rat",
+      "name": "Giant Rat",
+      "description": "An oversized rat corrupted by residual Aether. Its fangs drip with a foul toxin.",
+      "level": 3,
+      "stats": {"hp": 25, "attack": 6, "defense": 2, "speed": 1.1},
+      "xp_reward": 18,
+      "gold_drop": [1, 5],
+      "loot_table": [
+        {"item_id": "rat_tail", "drop_rate": 1.0},
+        {"item_id": "raw_rat_meat", "drop_rate": 0.8},
+        {"item_id": "venom_sac", "drop_rate": 0.15}
+      ],
+      "sprite_id": "enemy_giant_rat",
+      "behavior": "aggressive",
+      "aggro_range": 4,
+      "respawn_seconds": 30
+    },
+    {
+      "enemy_id": "slime",
+      "name": "Green Slime",
+      "description": "A wobbling mass of translucent green goo. Harmless individually, annoying in groups.",
+      "level": 1,
+      "stats": {"hp": 15, "attack": 1, "defense": 3, "speed": 0.5},
+      "xp_reward": 8,
+      "gold_drop": [0, 1],
+      "loot_table": [
+        {"item_id": "slime_gel", "drop_rate": 0.7},
+        {"item_id": "copper_shard", "drop_rate": 0.1}
+      ],
+      "sprite_id": "enemy_slime",
+      "behavior": "wander",
+      "aggro_range": 1,
+      "respawn_seconds": 20
+    },
+    {
+      "enemy_id": "goblin_scout",
+      "name": "Goblin Scout",
+      "description": "A scrawny green-skinned creature clutching a rusty knife. They're cowardly alone but dangerous in groups.",
+      "level": 2,
+      "stats": {"hp": 18, "attack": 5, "defense": 1, "speed": 1.3},
+      "xp_reward": 12,
+      "gold_drop": [2, 8],
+      "loot_table": [
+        {"item_id": "goblin_ear", "drop_rate": 0.6},
+        {"item_id": "rusty_knife", "drop_rate": 0.1},
+        {"item_id": "bread", "drop_rate": 0.2}
+      ],
+      "sprite_id": "enemy_goblin_scout",
+      "behavior": "patrol",
+      "aggro_range": 5,
+      "respawn_seconds": 25,
+      "call_for_help_range": 6
+    },
+    {
+      "enemy_id": "goblin",
+      "name": "Goblin Warrior",
+      "description": "A stockier goblin wielding a crude sword and wooden buckler. More disciplined than scouts.",
+      "level": 4,
+      "stats": {"hp": 35, "attack": 8, "defense": 4, "speed": 1.1},
+      "xp_reward": 25,
+      "gold_drop": [5, 15],
+      "loot_table": [
+        {"item_id": "goblin_ear", "drop_rate": 0.8},
+        {"item_id": "bronze_sword", "drop_rate": 0.05},
+        {"item_id": "leather_scraps", "drop_rate": 0.3},
+        {"item_id": "goblin_tooth_necklace", "drop_rate": 0.02}
+      ],
+      "sprite_id": "enemy_goblin",
+      "behavior": "patrol",
+      "aggro_range": 5,
+      "respawn_seconds": 40,
+      "call_for_help_range": 8
+    },
+    {
+      "enemy_id": "goblin_archer",
+      "name": "Goblin Archer",
+      "description": "A goblin perched on a rock or tree stump, loosing crooked arrows with surprising accuracy.",
+      "level": 4,
+      "stats": {"hp": 22, "attack": 10, "defense": 2, "speed": 1.0},
+      "xp_reward": 28,
+      "gold_drop": [3, 12],
+      "loot_table": [
+        {"item_id": "goblin_ear", "drop_rate": 0.7},
+        {"item_id": "bronze_arrows_x10", "drop_rate": 0.4},
+        {"item_id": "shortbow", "drop_rate": 0.03}
+      ],
+      "sprite_id": "enemy_goblin_archer",
+      "behavior": "ranged_patrol",
+      "aggro_range": 7,
+      "respawn_seconds": 45
+    },
+    {
+      "enemy_id": "goblin_shaman",
+      "name": "Goblin Shaman",
+      "description": "A wizened goblin draped in bone trinkets, muttering dark incantations. Heals nearby goblins.",
+      "level": 6,
+      "stats": {"hp": 30, "attack": 12, "defense": 3, "speed": 0.8, "mana": 25},
+      "xp_reward": 45,
+      "gold_drop": [10, 25],
+      "loot_table": [
+        {"item_id": "goblin_ear", "drop_rate": 1.0},
+        {"item_id": "shaman_staff", "drop_rate": 0.05},
+        {"item_id": "mana_potion", "drop_rate": 0.15},
+        {"item_id": "mysterious_rune", "drop_rate": 0.08}
+      ],
+      "sprite_id": "enemy_goblin_shaman",
+      "behavior": "support_caster",
+      "aggro_range": 6,
+      "respawn_seconds": 90,
+      "abilities": ["heal_ally", "poison_bolt"]
+    },
+    {
+      "enemy_id": "wolf",
+      "name": "Grey Wolf",
+      "description": "A lean, hungry predator with piercing yellow eyes. They hunt in packs of two to four.",
+      "level": 3,
+      "stats": {"hp": 28, "attack": 7, "defense": 3, "speed": 1.5},
+      "xp_reward": 20,
+      "gold_drop": [0, 3],
+      "loot_table": [
+        {"item_id": "wolf_pelt", "drop_rate": 0.6},
+        {"item_id": "raw_meat", "drop_rate": 0.8},
+        {"item_id": "wolf_fang", "drop_rate": 0.3}
+      ],
+      "sprite_id": "enemy_wolf",
+      "behavior": "pack_hunter",
+      "aggro_range": 6,
+      "respawn_seconds": 35,
+      "pack_size": [2, 4]
+    },
+    {
+      "enemy_id": "wolf_alpha",
+      "name": "Alpha Wolf",
+      "description": "A massive wolf with a scarred muzzle and silver-streaked fur. Leader of the pack.",
+      "level": 6,
+      "stats": {"hp": 65, "attack": 14, "defense": 6, "speed": 1.4},
+      "xp_reward": 55,
+      "gold_drop": [0, 5],
+      "loot_table": [
+        {"item_id": "wolf_pelt", "drop_rate": 1.0},
+        {"item_id": "alpha_fang", "drop_rate": 0.4},
+        {"item_id": "raw_meat", "drop_rate": 1.0},
+        {"item_id": "wolf_claw_amulet", "drop_rate": 0.08}
+      ],
+      "sprite_id": "enemy_wolf_alpha",
+      "behavior": "pack_leader",
+      "aggro_range": 8,
+      "respawn_seconds": 120,
+      "is_mini_boss": true
+    },
+    {
+      "enemy_id": "skeleton",
+      "name": "Skeleton",
+      "description": "The animated bones of a long-dead warrior. It moves with jerky, unnatural purpose.",
+      "level": 4,
+      "stats": {"hp": 30, "attack": 9, "defense": 5, "speed": 0.8},
+      "xp_reward": 22,
+      "gold_drop": [3, 10],
+      "loot_table": [
+        {"item_id": "bone", "drop_rate": 0.9},
+        {"item_id": "rusty_sword", "drop_rate": 0.1},
+        {"item_id": "ancient_coin", "drop_rate": 0.05}
+      ],
+      "sprite_id": "enemy_skeleton",
+      "behavior": "patrol",
+      "aggro_range": 5,
+      "respawn_seconds": 45,
+      "weakness": "prayer"
+    },
+    {
+      "enemy_id": "skeleton_archer",
+      "name": "Skeleton Archer",
+      "description": "A skeleton with a cracked bow, firing arrows with hollow-eyed precision.",
+      "level": 5,
+      "stats": {"hp": 22, "attack": 11, "defense": 3, "speed": 0.7},
+      "xp_reward": 28,
+      "gold_drop": [2, 8],
+      "loot_table": [
+        {"item_id": "bone", "drop_rate": 0.9},
+        {"item_id": "bronze_arrows_x10", "drop_rate": 0.5},
+        {"item_id": "ancient_coin", "drop_rate": 0.08}
+      ],
+      "sprite_id": "enemy_skeleton_archer",
+      "behavior": "ranged_patrol",
+      "aggro_range": 7,
+      "respawn_seconds": 50,
+      "weakness": "prayer"
+    },
+    {
+      "enemy_id": "bandit",
+      "name": "Bandit",
+      "description": "A desperate outlaw who preys on travelers. Better equipped than goblins, and far more cunning.",
+      "level": 5,
+      "stats": {"hp": 40, "attack": 10, "defense": 5, "speed": 1.1},
+      "xp_reward": 35,
+      "gold_drop": [10, 30],
+      "loot_table": [
+        {"item_id": "leather_scraps", "drop_rate": 0.4},
+        {"item_id": "iron_dagger", "drop_rate": 0.08},
+        {"item_id": "health_potion", "drop_rate": 0.1},
+        {"item_id": "stolen_goods", "drop_rate": 0.2}
+      ],
+      "sprite_id": "enemy_bandit",
+      "behavior": "ambush",
+      "aggro_range": 6,
+      "respawn_seconds": 60
+    },
+    {
+      "enemy_id": "goblin_chieftain",
+      "name": "Grukk the Goblin Chieftain",
+      "description": "A hulking goblin wearing a crown of rat skulls and wielding a massive cleaver. He rules the Oldroot goblins through sheer brutality.",
+      "level": 8,
+      "stats": {"hp": 120, "attack": 18, "defense": 8, "speed": 0.9, "mana": 0},
+      "xp_reward": 150,
+      "gold_drop": [50, 100],
+      "loot_table": [
+        {"item_id": "grukks_cleaver", "drop_rate": 0.15},
+        {"item_id": "goblin_crown", "drop_rate": 1.0},
+        {"item_id": "health_potion", "drop_rate": 0.5},
+        {"item_id": "aether_fragment", "drop_rate": 0.25},
+        {"item_id": "iron_chainmail", "drop_rate": 0.1}
+      ],
+      "sprite_id": "enemy_goblin_chieftain",
+      "behavior": "boss",
+      "aggro_range": 8,
+      "respawn_seconds": 600,
+      "is_boss": true,
+      "abilities": ["war_cry", "cleave", "summon_goblins"],
+      "boss_phases": [
+        {"hp_threshold": 0.5, "action": "enrage", "description": "Grukk smashes the ground, increasing attack speed"}
+      ]
+    }
+  ]
+}

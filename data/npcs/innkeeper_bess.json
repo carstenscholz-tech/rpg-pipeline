@@ -1,0 +1,36 @@
+{
+  "npc_id": "innkeeper_bess",
+  "name": "Bess",
+  "role": "merchant",
+  "region": "ashvale",
+  "location": { "zone": "hearthholm", "x": 330, "y": 170 },
+  "sprite_id": "npc_innkeeper_bess",
+  "stats": { "level": 10, "hp": 150, "attack": 14, "defense": 18 },
+  "personality": "jovial, protective",
+  "personality_description": "A big-hearted innkeeper who runs The Sleeping Gryphon with an iron spatula and a ready smile. She has thrown out more drunken sellswords than most guards have arrested, and her lamb stew is the stuff of local legend.",
+  "faction": "hearthholm_merchants",
+  "dialogue_tree_id": "innkeeper_bess_dialogue",
+  "quests_given": [
+    "side_cellar_pest_problem"
+  ],
+  "shop_inventory": {
+    "shop_name": "The Sleeping Gryphon",
+    "items": [
+      "con_lamb_stew",
+      "con_bread_loaf",
+      "con_roasted_chicken",
+      "con_apple_pie",
+      "con_ale_mug",
+      "con_honeyed_mead",
+      "con_herbal_tea",
+      "srv_room_rest_full_heal"
+    ]
+  },
+  "schedule": [
+    { "time": "06:00-07:00", "location": "sleeping_gryphon_kitchen", "action": "preparing_breakfast" },
+    { "time": "07:00-14:00", "location": "sleeping_gryphon_bar", "action": "serving_customers" },
+    { "time": "14:00-15:00", "location": "sleeping_gryphon_kitchen", "action": "preparing_dinner_menu" },
+    { "time": "15:00-23:00", "location": "sleeping_gryphon_bar", "action": "serving_customers" },
+    { "time": "23:00-06:00", "location": "sleeping_gryphon_upstairs", "action": "sleeping" }
+  ]
+}

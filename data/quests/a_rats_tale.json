@@ -1,0 +1,46 @@
+{
+  "quest_id": "a_rats_tale",
+  "title": "A Rat's Tale",
+  "description": "Farmer Aldric is at his wit's end. Oversized rats have been devouring his crops south of Hearthholm, and if something isn't done soon, the whole harvest will be lost. He's looking for someone brave enough -- or desperate enough -- to wade into the fields and thin the vermin out. It's not glamorous work, but every adventurer has to start somewhere.",
+  "type": "main",
+  "region": "hearthholm",
+  "level_requirement": 1,
+  "prerequisites": [],
+  "steps": [
+    {
+      "step_id": 1,
+      "type": "talk_to_npc",
+      "description": "Speak with Farmer Aldric at his homestead south of Hearthholm.",
+      "target_npc": "farmer_aldric",
+      "target_zone": "hearthholm_fields"
+    },
+    {
+      "step_id": 2,
+      "type": "go_to_location",
+      "description": "Head to Aldric's fields south of town where the rats have been spotted.",
+      "target_zone": "hearthholm_fields_south"
+    },
+    {
+      "step_id": 3,
+      "type": "defeat_enemies",
+      "description": "Slay the rats infesting Aldric's crops. Watch their attack patterns and time your strikes carefully.",
+      "enemy_type": "field_rat",
+      "count": 5,
+      "target_zone": "hearthholm_fields_south"
+    },
+    {
+      "step_id": 4,
+      "type": "talk_to_npc",
+      "description": "Return to Farmer Aldric and let him know the fields are safe once more.",
+      "target_npc": "farmer_aldric",
+      "target_zone": "hearthholm_fields"
+    }
+  ],
+  "rewards": {
+    "xp": { "melee": 20 },
+    "items": [
+      { "item_id": "bread", "quantity": 5 }
+    ],
+    "gold": 25
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "dialogue_id": "mysterious_stranger_dialogue",
+  "npc_id": "mysterious_stranger",
+  "trees": {
+    "default": {
+      "entry": "greeting",
+      "nodes": {
+        "greeting": {
+          "text": "You see me. Good. Most walk past without a glance. Sit. We should talk.",
+          "responses": [
+            {"text": "Who are you?", "next": "identity", "condition": null},
+            {"text": "What do you want?", "next": "purpose", "condition": null},
+            {"text": "How do you know me?", "next": "knows_you", "condition": null},
+            {"text": "I killed the goblin chieftain. You said you'd tell me more.", "next": "post_chieftain", "condition": "quest_complete:slay_chieftain"},
+            {"text": "I don't talk to strangers in hoods.", "next": "end_dismissive", "condition": null}
+          ]
+        },
+        "identity": {
+          "text": "Names are leashes. I prefer to slip free of mine. Call me what you like. It won't change what I know.",
+          "responses": [
+            {"text": "And what do you know?", "next": "what_they_know", "condition": null},
+            {"text": "That's not an answer.", "next": "non_answer", "condition": null},
+            {"text": "Fine, keep your secrets.", "next": "end", "condition": null}
+          ]
+        },
+        "non_answer": {
+          "text": "No. It isn't. But answers are earned in this world, not given. Prove your worth and I'll prove my trust.",
+          "responses": [
+            {"text": "How do I prove myself?", "next": "prove_worth", "condition": null},
+            {"text": "I don't need to prove anything to you.", "next": "end_dismissive", "condition": null}
+          ]
+        },
+        "prove_worth": {
+          "text": "The goblin chieftain in Thornwood. Kill it. That will tell me if you're the one I've been waiting for.",
+          "responses": [
+            {"text": "Waiting for me? Why?", "next": "waiting_for_you", "condition": null},
+            {"text": "I'll deal with the chieftain.", "next": "end", "condition": null},
+            {"text": "You're testing me.", "next": "testing_confirmed", "condition": null}
+          ]
+        },
+        "waiting_for_you": {
+          "text": "Old signs. A shift in the wind. The corruption accelerates and a new piece appears on the board. You.",
+          "responses": [
+            {"text": "I'm not a pawn.", "next": "not_pawn", "condition": null},
+            {"text": "What corruption?", "next": "corruption_hint", "condition": null}
+          ]
+        },
+        "not_pawn": {
+          "text": "Then be a player. But the game is already in motion, with or without your consent. Better to act than react.",
+          "responses": [
+            {"text": "Tell me about this game.", "next": "corruption_hint", "condition": null},
+            {"text": "I'll think about it.", "next": "end", "condition": null}
+          ]
+        },
+        "testing_confirmed": {
+          "text": "Of course I am. Only a fool trusts blindly. Survive the chieftain and we'll have a real conversation.",
+          "responses": [
+            {"text": "Challenge accepted.", "next": "end", "condition": null},
+            {"text": "What's really going on here?", "next": "corruption_hint", "condition": null}
+          ]
+        },
+        "purpose": {
+          "text": "To stop something old and hungry from devouring this land. Hearthholm is the first course. Not the last.",
+          "responses": [
+            {"text": "What do you mean?", "next": "corruption_hint", "condition": null},
+            {"text": "Why come to me?", "next": "why_you", "condition": null},
+            {"text": "Sounds dramatic.", "next": "not_dramatic", "condition": null}
+          ]
+        },
+        "not_dramatic": {
+          "text": "In three months, Hearthholm will be a graveyard or a fortress. The only drama is in which one you choose.",
+          "responses": [
+            {"text": "You have my attention.", "next": "corruption_hint", "condition": null},
+            {"text": "I'll choose fortress.", "next": "end", "condition": null}
+          ]
+        },
+        "why_you": {
+          "text": "Because the Guild will follow Rowan, Rowan will follow results, and you are someone who gets results. Or will be.",
+          "responses": [
+            {"text": "You've been watching me.", "next": "watching", "condition": null},
+            {"text": "What do you need me to do?", "next": "prove_worth", "condition": null}
+          ]
+        },
+        "watching": {
+          "text": "I watch everything. It's what keeps me alive. Be glad someone is paying attention. Most here aren't.",
+          "responses": [
+            {"text": "That's unsettling.", "next": "end", "condition": null},
+            {"text": "What have you seen?", "next": "corruption_hint", "condition": null}
+          ]
+        },
+        "knows_you": {
+          "text": "I know everyone who walks through Hearthholm's gates. Most don't matter. You do. Don't ask me how I know.",
+          "responses": [
+            {"text": "That's exactly what I'm asking.", "next": "why_you", "condition": null},
+            {"text": "What do you want from me?", "next": "purpose", "condition": null},
+            {"text": "I don't trust you.", "next": "trust_response", "condition": null}
+          ]
+        },
+        "trust_response": {
+          "text": "Good. You shouldn't. Trust is for people who share names and buy each other ale. We're not there yet.",
+          "responses": [
+            {"text": "Will we ever be?", "next": "maybe_trust", "condition": null},
+            {"text": "At least you're honest about it.", "next": "purpose", "condition": null}
+          ]
+        },
+        "maybe_trust": {
+          "text": "Kill the chieftain. Then ask me again. Actions build trust. Words are just noise.",
+          "responses": [
+            {"text": "Fine. I'll prove myself.", "next": "end", "condition": null},
+            {"text": "What are you so afraid of?", "next": "corruption_hint", "condition": null}
+          ]
+        },
+        "what_they_know": {
+          "text": "I know the goblins are a symptom. I know the forest rots from within. And I know a name that would terrify you.",
+          "responses": [
+            {"text": "Say it.", "next": "name_refused", "condition": null},
+            {"text": "The Aether corruption?", "next": "corruption_hint", "condition": null},
+            {"text": "You enjoy being cryptic, don't you?", "next": "cryptic_response", "condition": null}
+          ]
+        },
+        "name_refused": {
+          "text": "Not yet. Words have weight here, and that name draws attention from things best left undisturbed. Earn it.",
+          "responses": [
+            {"text": "How?", "next": "prove_worth", "condition": null},
+            {"text": "More games.", "next": "end_dismissive", "condition": null}
+          ]
+        },
+        "cryptic_response": {
+          "text": "I enjoy being alive. Saying too much to the wrong person is a quick way to stop being either. Patience.",
+          "responses": [
+            {"text": "Fine. What can you tell me?", "next": "corruption_hint", "condition": null},
+            {"text": "I'll come back when you're ready to talk.", "next": "end", "condition": null}
+          ]
+        },
+        "corruption_hint": {
+          "text": "Something old stirs beneath Thornwood. A pact made centuries ago. The seal weakens. That's all I'll say for now.",
+          "responses": [
+            {"text": "A pact? With whom?", "next": "pact_hint", "condition": null},
+            {"text": "How do you know about this?", "next": "knowledge_source", "condition": null},
+            {"text": "I'll look into it.", "next": "end", "condition": null}
+          ]
+        },
+        "pact_hint": {
+          "text": "With something that should have stayed forgotten. Kill the chieftain. Prove you can face what's coming. Then I'll say more.",
+          "responses": [
+            {"text": "You keep saying that.", "next": "persistence", "condition": null},
+            {"text": "The chieftain it is.", "next": "end", "condition": null}
+          ]
+        },
+        "persistence": {
+          "text": "Because it matters. The chieftain is the lock on a door. Remove it and we see what's behind. I need to know you can.",
+          "responses": [
+            {"text": "I won't let you down.", "next": "end", "condition": null},
+            {"text": "And if I die trying?", "next": "if_you_die", "condition": null}
+          ]
+        },
+        "if_you_die": {
+          "text": "Then I wait for the next one. Harsh, but honest. Don't die. The world can't afford it right now.",
+          "responses": [
+            {"text": "Charming.", "next": "end", "condition": null}
+          ]
+        },
+        "knowledge_source": {
+          "text": "I've walked roads you haven't heard of, read texts that were supposed to be ash. Leave it at that. For now.",
+          "responses": [
+            {"text": "You're connected to whatever is happening.", "next": "connected", "condition": null},
+            {"text": "Alright. Keep your secrets.", "next": "end", "condition": null}
+          ]
+        },
+        "connected": {
+          "text": "More than I'd like. We all carry chains. Some of us are trying to break them before they drag everyone under.",
+          "responses": [
+            {"text": "I'll help. After the chieftain.", "next": "end", "condition": null},
+            {"text": "What chains?", "next": "name_refused", "condition": null}
+          ]
+        },
+        "post_chieftain": {
+          "text": "You did it. Skarnak is dead. Good. Now the real work begins. Sit. I'll tell you about the Hollow Covenant.",
+          "responses": [
+            {"text": "The Hollow Covenant. Tell me everything.", "next": "hollow_reveal", "condition": null},
+            {"text": "First, tell me who you really are.", "next": "true_identity", "condition": null},
+            {"text": "I've earned answers. Start talking.", "next": "hollow_reveal", "condition": null}
+          ]
+        },
+        "hollow_reveal": {
+          "text": "Centuries ago, desperate rulers bargained with an entity beneath the earth. Power for servitude. The Covenant was sealed.",
+          "responses": [
+            {"text": "What entity?", "next": "entity_detail", "condition": null},
+            {"text": "And now the seal is breaking?", "next": "seal_breaking", "condition": null},
+            {"text": "Why should I care about ancient history?", "next": "why_care", "condition": null}
+          ]
+        },
+        "entity_detail": {
+          "text": "It calls itself the Sleeper. An Aether-born thing, old as the stone. It feeds on life, twists nature to its hunger.",
+          "responses": [
+            {"text": "The corruption. It's the Sleeper waking up.", "next": "sleeper_waking", "condition": null},
+            {"text": "How do we stop it?", "next": "how_to_stop", "condition": null}
+          ]
+        },
+        "sleeper_waking": {
+          "text": "Not waking. Stretching. Testing its chains. When it truly wakes, Hearthholm will be the least of our concerns.",
+          "responses": [
+            {"text": "How do we stop it?", "next": "how_to_stop", "condition": null},
+            {"text": "How much time do we have?", "next": "time_left", "condition": null}
+          ]
+        },
+        "time_left": {
+          "text": "Weeks. Maybe a season. The fog, the beasts, the restless dead. All signs. The final sign will be silence. Then it's too late.",
+          "responses": [
+            {"text": "Then we move now. How do we fight this?", "next": "how_to_stop", "condition": null}
+          ]
+        },
+        "seal_breaking": {
+          "text": "Cracking. Three anchor stones hold the seal. One is already shattered. The goblins were drawn to its corruption.",
+          "responses": [
+            {"text": "Where are the other two stones?", "next": "anchor_stones", "condition": null},
+            {"text": "Can the seal be restored?", "next": "how_to_stop", "condition": null}
+          ]
+        },
+        "anchor_stones": {
+          "text": "One lies deep in Thornwood. The other, beneath the eastern barrows. Both must be reinforced, or all is lost.",
+          "responses": [
+            {"text": "Tell me what I need to do.", "next": "how_to_stop", "condition": null}
+          ]
+        },
+        "why_care": {
+          "text": "Because it's not history. It's happening now. Every goblin raid, every risen corpse, every twisted beast. All connected.",
+          "responses": [
+            {"text": "Go on.", "next": "seal_breaking", "condition": null}
+          ]
+        },
+        "how_to_stop": {
+          "text": "Find the anchor stones. Reinforce the seal. You'll need the elf's knowledge and the cleric's faith. And my guidance.",
+          "responses": [
+            {"text": "You're finally offering to help directly?", "next": "direct_help", "condition": null},
+            {"text": "Why can't you do this yourself?", "next": "why_not_you", "condition": null},
+            {"text": "I'll gather the allies.", "next": "end_alliance", "condition": null}
+          ]
+        },
+        "direct_help": {
+          "text": "I've been helping. You just didn't see it. Now I'm offering to step out of the shadows. That should tell you how dire this is.",
+          "responses": [
+            {"text": "Then let's begin.", "next": "end_alliance", "condition": null},
+            {"text": "I still don't fully trust you.", "next": "final_trust", "condition": null}
+          ]
+        },
+        "final_trust": {
+          "text": "Nor should you. But we share an enemy, and that makes us allies enough. Trust can come later. Survival comes first.",
+          "responses": [
+            {"text": "Agreed. What's our first move?", "next": "end_alliance", "condition": null}
+          ]
+        },
+        "why_not_you": {
+          "text": "I tried. Alone. I failed. The seal requires more than one soul's will. I learned that the hard way. These scars are proof.",
+          "responses": [
+            {"text": "You tried to fight the Sleeper alone?", "next": "stranger_past", "condition": null},
+            {"text": "Then together we'll succeed.", "next": "end_alliance", "condition": null}
+          ]
+        },
+        "stranger_past": {
+          "text": "Another town. Another time. I was too late and too proud. Everyone paid for my failure. I won't let it happen again.",
+          "responses": [
+            {"text": "We'll make sure it doesn't.", "next": "end_alliance", "condition": null}
+          ]
+        },
+        "true_identity": {
+          "text": "I was a scholar of the old seals. I spent my life studying the Covenant. Now I spend it trying to prevent its return.",
+          "responses": [
+            {"text": "A scholar? Not what I expected.", "next": "scholar_surprise", "condition": null},
+            {"text": "Tell me about the Hollow Covenant.", "next": "hollow_reveal", "condition": null}
+          ]
+        },
+        "scholar_surprise": {
+          "text": "Knowledge is the sharpest weapon. Blades can't kill what's coming. Understanding might. Now, will you listen?",
+          "responses": [
+            {"text": "I'm listening.", "next": "hollow_reveal", "condition": null}
+          ]
+        },
+        "end_alliance": {
+          "text": "Meet me at the forest's edge at dawn. Bring Elara's ward and Aldwin's blessing. The real fight starts now.",
+          "responses": []
+        },
+        "end_dismissive": {
+          "text": "Your choice. But when the darkness comes, remember I offered to help. I'll be here. Watching, as always.",
+          "responses": []
+        },
+        "end": {
+          "text": "We'll speak again. Sooner than you think. Watch the shadows, friend. Not everything in them is me.",
+          "responses": []
+        }
+      }
+    }
+  }
+}

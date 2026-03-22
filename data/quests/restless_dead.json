@@ -1,0 +1,61 @@
+{
+  "quest_id": "restless_dead",
+  "title": "The Restless Dead",
+  "description": "Brother Aldwin tends the chapel at the edge of town, and his sleep has been troubled by more than bad dreams. The dead have begun to stir near the Forgotten Shrine in Oldroot Forest -- skeletal remnants of warriors from a long-past war, now clawing their way out of shallow graves. Aldwin believes a proper burial rite will lay them to rest, but someone needs to clear the shrine first and inter the bones with the proper prayers.",
+  "type": "side",
+  "region": "oldroot_forest",
+  "level_requirement": 4,
+  "prerequisites": [],
+  "steps": [
+    {
+      "step_id": 1,
+      "type": "talk_to_npc",
+      "description": "Visit Brother Aldwin at the Hearthholm chapel to learn about the disturbance at the Forgotten Shrine.",
+      "target_npc": "brother_aldwin",
+      "target_zone": "hearthholm_chapel"
+    },
+    {
+      "step_id": 2,
+      "type": "go_to_location",
+      "description": "Travel into Oldroot Forest and locate the Forgotten Shrine among the ancient oaks.",
+      "target_zone": "oldroot_forest_forgotten_shrine"
+    },
+    {
+      "step_id": 3,
+      "type": "defeat_enemies",
+      "description": "Destroy the restless skeletons shambling around the shrine. Their bones rattle with unholy energy -- strike true and do not falter.",
+      "enemy_type": "skeleton",
+      "count": 8,
+      "target_zone": "oldroot_forest_forgotten_shrine"
+    },
+    {
+      "step_id": 4,
+      "type": "collect_items",
+      "description": "Gather the scattered bones of the fallen from the ground around the shrine.",
+      "required_item": "ancient_bones",
+      "count": 5,
+      "target_zone": "oldroot_forest_forgotten_shrine"
+    },
+    {
+      "step_id": 5,
+      "type": "interact_object",
+      "description": "Place the bones upon the Forgotten Shrine's altar and recite the prayer Brother Aldwin taught you to grant the dead their final rest.",
+      "target_zone": "oldroot_forest_forgotten_shrine",
+      "required_item": "ancient_bones"
+    },
+    {
+      "step_id": 6,
+      "type": "talk_to_npc",
+      "description": "Return to Brother Aldwin and tell him the dead have been laid to rest.",
+      "target_npc": "brother_aldwin",
+      "target_zone": "hearthholm_chapel"
+    }
+  ],
+  "rewards": {
+    "xp": { "prayer": 80 },
+    "items": [
+      { "item_id": "prayer_scroll", "quantity": 3 }
+    ],
+    "gold": 40
+  }
+}

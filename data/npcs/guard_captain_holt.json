@@ -1,0 +1,29 @@
+{
+  "npc_id": "guard_captain_holt",
+  "name": "Captain Holt",
+  "role": "quest_giver",
+  "region": "ashvale",
+  "location": { "zone": "hearthholm", "x": 300, "y": 150 },
+  "sprite_id": "npc_guard_captain_holt",
+  "stats": { "level": 22, "hp": 440, "attack": 55, "defense": 65 },
+  "personality": "stern, duty-bound",
+  "personality_description": "A no-nonsense guard captain who runs Hearthholm's defenses with military precision. He respects action over words and has little patience for excuses, but those who earn his trust find an unwavering ally who would lay down his life for the town.",
+  "faction": "hearthholm_guard",
+  "dialogue_tree_id": "guard_captain_holt_dialogue",
+  "quests_given": [
+    "bounty_goblin_ears",
+    "bounty_bandit_camp",
+    "side_patrol_the_perimeter",
+    "main_goblin_threat_report"
+  ],
+  "shop_inventory": null,
+  "schedule": [
+    { "time": "06:00-07:00", "location": "guard_barracks", "action": "morning_briefing" },
+    { "time": "07:00-12:00", "location": "town_gate_north", "action": "inspecting_patrols" },
+    { "time": "12:00-13:00", "location": "guard_barracks", "action": "eating_lunch" },
+    { "time": "13:00-15:00", "location": "town_hall", "action": "reporting_to_mayor" },
+    { "time": "15:00-19:00", "location": "town_gate_south", "action": "overseeing_watch" },
+    { "time": "19:00-21:00", "location": "guard_barracks", "action": "evening_paperwork" },
+    { "time": "21:00-06:00", "location": "guard_barracks", "action": "sleeping" }
+  ]
+}

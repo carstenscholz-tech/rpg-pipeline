@@ -1,0 +1,57 @@
+{
+  "zone_id": "oldroot_forest",
+  "name": "Oldroot Forest",
+  "region": "ashvale",
+  "description": "An ancient forest north of Hearthholm. Massive oaks tower overhead, their gnarled roots forming natural caves and tunnels. Wolves patrol in packs, skeletons wander near forgotten graves, and deeper in, goblin camps dot the clearings. Adventurers come here to prove their worth.",
+  "size": {"width": 128, "height": 128},
+  "terrain_distribution": {
+    "grass": 0.15,
+    "dirt_path": 0.10,
+    "tree": 0.35,
+    "undergrowth": 0.15,
+    "rock": 0.05,
+    "water": 0.05,
+    "clearing": 0.10,
+    "grave": 0.05
+  },
+  "structures": [
+    {"type": "ruins", "position": [60, 30], "size": [12, 10], "name": "Forgotten Shrine", "description": "Crumbling stone walls overgrown with ivy. Skeletons patrol here at night."},
+    {"type": "camp", "position": [100, 70], "size": [10, 10], "name": "Goblin Camp", "description": "A crude camp of tents and campfires. The goblin chieftain rules from the largest tent."},
+    {"type": "cave_entrance", "position": [30, 15], "size": [6, 6], "name": "Wolf Den", "description": "A dark cave reeking of wet fur. The alpha wolf lurks within."},
+    {"type": "clearing", "position": [64, 90], "size": [12, 12], "name": "Herbalist's Glade", "description": "A peaceful clearing filled with rare herbs and flowers."},
+    {"type": "bridge", "position": [50, 60], "size": [8, 3], "name": "Mossy Bridge"}
+  ],
+  "npc_spawns": [
+    "ranger_theron", "wounded_traveler"
+  ],
+  "enemy_zones": [
+    {"area": [0, 0, 50, 50], "enemy_types": ["wolf", "wolf_alpha"], "density": 0.25, "level_range": [3, 6], "name": "Wolf Territory"},
+    {"area": [40, 10, 80, 50], "enemy_types": ["skeleton", "skeleton_archer"], "density": 0.2, "level_range": [4, 7], "name": "Forgotten Graveyard"},
+    {"area": [80, 50, 128, 100], "enemy_types": ["goblin", "goblin_archer", "goblin_shaman"], "density": 0.3, "level_range": [3, 8], "name": "Goblin Territory"},
+    {"area": [0, 60, 40, 128], "enemy_types": ["slime", "giant_rat", "bandit"], "density": 0.15, "level_range": [2, 5], "name": "Southern Thickets"}
+  ],
+  "resource_nodes": [
+    {"type": "tree", "subtype": "oak", "positions": [[20,40], [35,55], [70,80], [15,90], [90,30]], "respawn_seconds": 45, "skill": "woodcutting", "level": 1},
+    {"type": "tree", "subtype": "willow", "positions": [[45,65], [55,70]], "respawn_seconds": 60, "skill": "woodcutting", "level": 5},
+    {"type": "ore", "subtype": "iron", "positions": [[10,20], [25,10], [110,90]], "respawn_seconds": 90, "skill": "mining", "level": 5},
+    {"type": "herb", "subtype": "thistle", "positions": [[60,85], [65,90], [70,95]], "respawn_seconds": 40, "skill": "herbalism", "level": 1},
+    {"type": "herb", "subtype": "silverleaf", "positions": [[62,92], [68,88]], "respawn_seconds": 80, "skill": "herbalism", "level": 5},
+    {"type": "fishing_spot", "subtype": "river", "positions": [[48,58], [52,62]], "respawn_seconds": 30, "skill": "fishing", "level": 3}
+  ],
+  "connections": [
+    {"direction": "south", "target_zone": "hearthholm", "position": [64, 127], "level_warning": null},
+    {"direction": "east", "target_zone": "goblin_warrens", "position": [127, 75], "level_warning": 5},
+    {"direction": "north", "target_zone": null, "position": [64, 0], "level_warning": 10}
+  ],
+  "ambient": {
+    "music": "mysterious_forest",
+    "lighting": "dim",
+    "weather": "fog",
+    "time_of_day_cycle": true,
+    "particle_effects": ["floating_leaves", "fireflies_at_night"]
+  },
+  "loot_chests": [
+    {"position": [62, 32], "contents": [{"item_id": "iron_sword", "quantity": 1}], "respawn_seconds": 3600, "locked": false},
+    {"position": [105, 75], "contents": [{"item_id": "gold_ring", "quantity": 1}, {"item_id": "health_potion", "quantity": 2}], "respawn_seconds": 3600, "locked": true, "lock_level": 3}
+  ]
+}

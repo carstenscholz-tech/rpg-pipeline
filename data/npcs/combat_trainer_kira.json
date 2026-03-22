@@ -1,0 +1,29 @@
+{
+  "npc_id": "combat_trainer_kira",
+  "name": "Kira",
+  "role": "trainer",
+  "region": "ashvale",
+  "location": { "zone": "hearthholm", "x": 380, "y": 210 },
+  "sprite_id": "npc_combat_trainer_kira",
+  "stats": { "level": 15, "hp": 260, "attack": 48, "defense": 32 },
+  "personality": "fierce, encouraging",
+  "personality_description": "A young warrior with close-cropped hair and a scar across her chin from her first real fight. She pushes trainees hard but always picks them back up, believing everyone has a fighter inside them waiting to be forged.",
+  "faction": "adventurers_guild",
+  "dialogue_tree_id": "combat_trainer_kira_dialogue",
+  "quests_given": [
+    "tutorial_combat_basics",
+    "tutorial_advanced_techniques",
+    "trainer_intro_melee",
+    "trainer_intro_ranged"
+  ],
+  "shop_inventory": null,
+  "schedule": [
+    { "time": "05:00-06:00", "location": "training_yard", "action": "personal_drills" },
+    { "time": "06:00-12:00", "location": "training_yard", "action": "training_recruits" },
+    { "time": "12:00-13:00", "location": "sleeping_gryphon_inn", "action": "eating_lunch" },
+    { "time": "13:00-17:00", "location": "training_yard", "action": "training_recruits" },
+    { "time": "17:00-18:00", "location": "training_yard", "action": "equipment_maintenance" },
+    { "time": "18:00-20:00", "location": "sleeping_gryphon_inn", "action": "socializing" },
+    { "time": "20:00-05:00", "location": "guild_hall_barracks", "action": "sleeping" }
+  ]
+}

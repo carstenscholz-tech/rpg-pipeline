@@ -1,0 +1,134 @@
+{
+  "dialogue_id": "farmer_aldric_dialogue",
+  "npc_id": "farmer_aldric",
+  "trees": {
+    "default": {
+      "entry": "greeting",
+      "nodes": {
+        "greeting": {
+          "text": "Oh, thank the light, someone who looks capable. Please, I need help. My farm's overrun.",
+          "responses": [
+            {"text": "What kind of trouble?", "next": "rat_problem", "condition": null},
+            {"text": "What happened to your farm?", "next": "farm_backstory", "condition": null},
+            {"text": "I cleared those rats for you.", "next": "rats_cleared", "condition": "quest_complete:aldric_rats"},
+            {"text": "Sorry, I'm busy.", "next": "end", "condition": null}
+          ]
+        },
+        "rat_problem": {
+          "text": "Rats! Big ones, mean ones. Nested in my grain cellar. I'll lose the whole harvest if someone doesn't clear them.",
+          "responses": [
+            {"text": "[Accept: Rat Infestation]", "next": "quest_accepted", "condition": null},
+            {"text": "How many are we talking?", "next": "rat_details", "condition": null},
+            {"text": "Can't you handle them yourself?", "next": "aldric_too_old", "condition": null}
+          ]
+        },
+        "rat_details": {
+          "text": "Dozens, at least. I hear them scratching all night. Some are big as dogs. It ain't natural, I tell you.",
+          "responses": [
+            {"text": "I'll take care of it.", "next": "quest_accepted", "condition": null},
+            {"text": "Dog-sized rats? What's causing this?", "next": "unnatural_rats", "condition": null},
+            {"text": "That sounds like more than I can handle.", "next": "end", "condition": null}
+          ]
+        },
+        "unnatural_rats": {
+          "text": "Dunno. Ever since that strange fog rolled through last autumn, critters have been... wrong. Bigger. Angrier.",
+          "responses": [
+            {"text": "Strange fog? Tell me more.", "next": "fog_memory", "condition": null},
+            {"text": "I'll deal with the rats.", "next": "quest_accepted", "condition": null}
+          ]
+        },
+        "fog_memory": {
+          "text": "Came from the forest. Smelled like rot and copper. Animals went mad for days after. The old elf might know more.",
+          "responses": [
+            {"text": "The old elf?", "next": "mention_elara", "condition": null},
+            {"text": "Let me handle those rats first.", "next": "quest_accepted", "condition": null}
+          ]
+        },
+        "mention_elara": {
+          "text": "Elara, the alchemist. Keeps to her shop near the chapel. Strange woman, but wise. Been here longer than anyone.",
+          "responses": [
+            {"text": "I'll speak with her. But first, the rats.", "next": "quest_accepted", "condition": null},
+            {"text": "Thanks for the tip.", "next": "end", "condition": null}
+          ]
+        },
+        "aldric_too_old": {
+          "text": "These old bones? I'd be rat food before I got down the cellar stairs. Please. I'll pay what I can.",
+          "responses": [
+            {"text": "Alright, I'll help.", "next": "quest_accepted", "condition": null},
+            {"text": "How much are we talking?", "next": "payment_offer", "condition": null}
+          ]
+        },
+        "payment_offer": {
+          "text": "Fifty coin and whatever herbs I've got dried. It's not much, but it's honest pay for honest work.",
+          "responses": [
+            {"text": "Deal. Show me the cellar.", "next": "quest_accepted", "condition": null},
+            {"text": "I'll think about it.", "next": "end", "condition": null}
+          ]
+        },
+        "quest_accepted": {
+          "text": "Bless you. Cellar's round the back of the barn. Watch your step down there, the stairs are rotten.",
+          "responses": [
+            {"text": "I'll be back when it's done.", "next": "end", "condition": null}
+          ]
+        },
+        "farm_backstory": {
+          "text": "Three generations, my family worked this land. Was peaceful once. Before the goblins, before the fog.",
+          "responses": [
+            {"text": "When did things go bad?", "next": "things_changed", "condition": null},
+            {"text": "You mentioned needing help?", "next": "rat_problem", "condition": null}
+          ]
+        },
+        "things_changed": {
+          "text": "Two winters ago. Goblin raids started small. Now they burn whole fields. Hearthholm's barely holding on.",
+          "responses": [
+            {"text": "Someone should do something about those goblins.", "next": "aldric_hope", "condition": null},
+            {"text": "What about your immediate problem?", "next": "rat_problem", "condition": null}
+          ]
+        },
+        "aldric_hope": {
+          "text": "Rowan's Guild is trying. But there aren't enough swords and too many monsters. Maybe you'll tip the balance.",
+          "responses": [
+            {"text": "I intend to. Now, about those rats?", "next": "rat_problem", "condition": null},
+            {"text": "I'll do what I can.", "next": "end", "condition": null}
+          ]
+        },
+        "rats_cleared": {
+          "text": "You did it? Oh, bless you, child! Here, take this. It's all I've got, but you've saved my livelihood.",
+          "responses": [
+            {"text": "Happy to help, Aldric.", "next": "post_quest_chat", "condition": null},
+            {"text": "Any other work you need done?", "next": "post_quest_work", "condition": null},
+            {"text": "Take care of yourself.", "next": "end_grateful", "condition": null}
+          ]
+        },
+        "post_quest_chat": {
+          "text": "You remind me of my son. He joined Rowan's Guild years back. Good lad. Be careful out there like he wasn't.",
+          "responses": [
+            {"text": "What happened to him?", "next": "son_story", "condition": null},
+            {"text": "I'll be careful. Farewell.", "next": "end_grateful", "condition": null}
+          ]
+        },
+        "son_story": {
+          "text": "Went into Thornwood chasing goblins. Never came back. Rowan still blames himself. Don't tell him I said that.",
+          "responses": [
+            {"text": "I'm sorry, Aldric.", "next": "end_grateful", "condition": null}
+          ]
+        },
+        "post_quest_work": {
+          "text": "Nothing right now, but if you're headed to town, tell Thorgrim I've got iron scraps from the old plow.",
+          "responses": [
+            {"text": "I'll pass the word.", "next": "end_grateful", "condition": null},
+            {"text": "Take care, Aldric.", "next": "end_grateful", "condition": null}
+          ]
+        },
+        "end": {
+          "text": "Please, if you change your mind... I'm running out of time and grain both.",
+          "responses": []
+        },
+        "end_grateful": {
+          "text": "The light watch over you, friend. You're a good soul in dark times.",
+          "responses": []
+        }
+      }
+    }
+  }
+}

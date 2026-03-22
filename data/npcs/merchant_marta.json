@@ -1,0 +1,42 @@
+{
+  "npc_id": "merchant_marta",
+  "name": "Marta",
+  "role": "merchant",
+  "region": "ashvale",
+  "location": { "zone": "hearthholm", "x": 290, "y": 195 },
+  "sprite_id": "npc_merchant_marta",
+  "stats": { "level": 8, "hp": 120, "attack": 10, "defense": 12 },
+  "personality": "cheerful, talkative",
+  "personality_description": "A rosy-cheeked woman who knows every rumor in town and shares them freely between sales. She mothers every young adventurer who walks through her door and always throws in a little extra for first-time buyers.",
+  "faction": "hearthholm_merchants",
+  "dialogue_tree_id": "merchant_marta_dialogue",
+  "quests_given": [
+    "side_lost_supply_cart"
+  ],
+  "shop_inventory": {
+    "shop_name": "Marta's General Store",
+    "items": [
+      "con_minor_health_potion",
+      "con_minor_mana_potion",
+      "con_bread_loaf",
+      "con_cheese_wheel",
+      "con_waterskin",
+      "con_torch",
+      "tool_rope_30ft",
+      "tool_pickaxe",
+      "tool_herbalism_kit",
+      "tool_fishing_rod",
+      "mat_empty_vial",
+      "mat_bandage",
+      "misc_camp_bedroll",
+      "misc_flint_tinder"
+    ]
+  },
+  "schedule": [
+    { "time": "07:00-08:00", "location": "marta_house", "action": "morning_routine" },
+    { "time": "08:00-18:00", "location": "general_store", "action": "selling_chatting" },
+    { "time": "18:00-19:00", "location": "town_square", "action": "evening_walk" },
+    { "time": "19:00-20:00", "location": "sleeping_gryphon_inn", "action": "socializing" },
+    { "time": "20:00-07:00", "location": "marta_house", "action": "sleeping" }
+  ]
+}

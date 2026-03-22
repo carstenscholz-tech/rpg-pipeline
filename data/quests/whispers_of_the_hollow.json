@@ -1,0 +1,47 @@
+{
+  "quest_id": "whispers_of_the_hollow",
+  "title": "Whispers of the Hollow",
+  "description": "With Grukk defeated and the Aether fragment secured, you thought the worst was behind you. But a hooded stranger has appeared at the guild hall, claiming to know the truth behind the goblin uprising. The chieftain was merely a puppet, he says -- a tool of the Hollow Covenant, a shadowy order that has been quietly gathering Aether fragments across Aethermoor for a ritual that could unravel the very fabric of the world. The stranger urges you to travel to the Thornweald region, where the Covenant's agents are already on the move. Your journey in Hearthholm is ending. The real adventure is about to begin.",
+  "type": "main",
+  "region": "hearthholm",
+  "level_requirement": 8,
+  "prerequisites": [
+    "the_chieftains_challenge"
+  ],
+  "steps": [
+    {
+      "step_id": 1,
+      "type": "talk_to_npc",
+      "description": "Meet the Mysterious Stranger lurking in the shadows of the Adventurer's Guild.",
+      "target_npc": "mysterious_stranger",
+      "target_zone": "hearthholm_guild_hall"
+    },
+    {
+      "step_id": 2,
+      "type": "talk_to_npc",
+      "description": "Consult Guildmaster Rowan about the stranger's claims and the Hollow Covenant.",
+      "target_npc": "guildmaster_rowan",
+      "target_zone": "hearthholm_guild_hall"
+    },
+    {
+      "step_id": 3,
+      "type": "talk_to_npc",
+      "description": "Return to the Mysterious Stranger and accept the rune he offers -- a key, he says, that will open doors in Thornweald that were never meant to be opened.",
+      "target_npc": "mysterious_stranger",
+      "target_zone": "hearthholm_guild_hall"
+    },
+    {
+      "step_id": 4,
+      "type": "go_to_location",
+      "description": "Make your preparations and travel to the crossroads at the edge of Hearthholm, where the road to Thornweald begins.",
+      "target_zone": "hearthholm_crossroads"
+    }
+  ],
+  "rewards": {
+    "xp": { "general": 100 },
+    "items": [
+      { "item_id": "mysterious_rune", "quantity": 1 }
+    ],
+    "gold": 100
+  }
+}

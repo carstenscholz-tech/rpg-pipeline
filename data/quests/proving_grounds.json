@@ -1,0 +1,47 @@
+{
+  "quest_id": "proving_grounds",
+  "title": "The Proving Grounds",
+  "description": "Combat Trainer Kira doesn't hand out praise lightly, and she certainly doesn't hand out potions for free. If you want to survive beyond the town walls, you'll need to prove you can hold your own. She's arranged a trial at the Training Yard: a few slimes to test your reflexes, and a bout with the training dummy to sharpen your technique. Pass her test, and she might just admit you have potential.",
+  "type": "main",
+  "region": "hearthholm",
+  "level_requirement": 2,
+  "prerequisites": [],
+  "steps": [
+    {
+      "step_id": 1,
+      "type": "talk_to_npc",
+      "description": "Report to Combat Trainer Kira at Hearthholm's Training Yard.",
+      "target_npc": "combat_trainer_kira",
+      "target_zone": "hearthholm_training_yard"
+    },
+    {
+      "step_id": 2,
+      "type": "defeat_enemies",
+      "description": "Defeat the slimes Kira has corralled into the training pit. Use your class abilities and learn to read enemy movements.",
+      "enemy_type": "training_slime",
+      "count": 3,
+      "target_zone": "hearthholm_training_yard"
+    },
+    {
+      "step_id": 3,
+      "type": "interact_object",
+      "description": "Spar with the reinforced training dummy to demonstrate your combat form. Land a series of successful strikes to complete the exercise.",
+      "target_zone": "hearthholm_training_yard",
+      "required_item": null
+    },
+    {
+      "step_id": 4,
+      "type": "talk_to_npc",
+      "description": "Speak with Kira to receive her assessment and your rewards.",
+      "target_npc": "combat_trainer_kira",
+      "target_zone": "hearthholm_training_yard"
+    }
+  ],
+  "rewards": {
+    "xp": { "melee": 30, "ranged": 30, "magic": 30 },
+    "items": [
+      { "item_id": "health_potion", "quantity": 3 }
+    ],
+    "gold": 30
+  }
+}

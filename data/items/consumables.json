@@ -1,0 +1,105 @@
+{
+  "items": [
+    {
+      "item_id": "bread",
+      "name": "Bread",
+      "type": "consumable",
+      "subtype": "food",
+      "level_requirement": 0,
+      "stats": {"hp_restore": 15},
+      "description": "A simple loaf of bread. Fills the belly and mends minor wounds.",
+      "value": 5,
+      "sprite_id": "bread",
+      "stackable": true
+    },
+    {
+      "item_id": "cooked_meat",
+      "name": "Cooked Meat",
+      "type": "consumable",
+      "subtype": "food",
+      "level_requirement": 0,
+      "stats": {"hp_restore": 30},
+      "description": "Roasted meat seasoned with herbs. Hearty and restorative.",
+      "value": 15,
+      "sprite_id": "cooked_meat",
+      "stackable": true,
+      "crafting_recipe": {"skill": "cooking", "level": 1, "materials": [{"item_id": "raw_meat", "quantity": 1}]}
+    },
+    {
+      "item_id": "cooked_trout",
+      "name": "Cooked Trout",
+      "type": "consumable",
+      "subtype": "food",
+      "level_requirement": 0,
+      "stats": {"hp_restore": 25},
+      "description": "A freshwater trout cooked over an open flame.",
+      "value": 12,
+      "sprite_id": "cooked_trout",
+      "stackable": true,
+      "crafting_recipe": {"skill": "cooking", "level": 3, "materials": [{"item_id": "raw_trout", "quantity": 1}]}
+    },
+    {
+      "item_id": "health_potion",
+      "name": "Health Potion",
+      "type": "consumable",
+      "subtype": "potion",
+      "level_requirement": 0,
+      "stats": {"hp_restore": 50},
+      "description": "A red potion that mends wounds instantly. Tastes like cherries and regret.",
+      "value": 30,
+      "sprite_id": "health_potion",
+      "stackable": true,
+      "crafting_recipe": {"skill": "alchemy", "level": 1, "materials": [{"item_id": "herb_thistle", "quantity": 2}, {"item_id": "vial", "quantity": 1}]}
+    },
+    {
+      "item_id": "mana_potion",
+      "name": "Mana Potion",
+      "type": "consumable",
+      "subtype": "potion",
+      "level_requirement": 0,
+      "stats": {"mana_restore": 30},
+      "description": "A shimmering blue potion that replenishes magical energy.",
+      "value": 35,
+      "sprite_id": "mana_potion",
+      "stackable": true,
+      "crafting_recipe": {"skill": "alchemy", "level": 3, "materials": [{"item_id": "silverleaf_herb", "quantity": 1}, {"item_id": "vial", "quantity": 1}]}
+    },
+    {
+      "item_id": "antidote",
+      "name": "Antidote",
+      "type": "consumable",
+      "subtype": "potion",
+      "level_requirement": 0,
+      "stats": {"cure_poison": true},
+      "description": "A murky green potion that neutralizes most common poisons.",
+      "value": 25,
+      "sprite_id": "antidote",
+      "stackable": true,
+      "crafting_recipe": {"skill": "alchemy", "level": 2, "materials": [{"item_id": "herb_thistle", "quantity": 1}, {"item_id": "slime_gel", "quantity": 1}, {"item_id": "vial", "quantity": 1}]}
+    },
+    {
+      "item_id": "prayer_scroll",
+      "name": "Prayer Scroll",
+      "type": "consumable",
+      "subtype": "scroll",
+      "level_requirement": 0,
+      "stats": {"hp_restore": 40, "cure_all": true},
+      "description": "A scroll inscribed with ancient prayers. Burns with holy light when read aloud.",
+      "value": 45,
+      "sprite_id": "prayer_scroll",
+      "stackable": true
+    },
+    {
+      "item_id": "lockpick",
+      "name": "Lockpick",
+      "type": "tool",
+      "subtype": "tool",
+      "level_requirement": 0,
+      "stats": {},
+      "description": "A thin metal pick for opening locks. Breaks on failed attempts.",
+      "value": 10,
+      "sprite_id": "lockpick",
+      "stackable": true
+    }
+  ]
+}

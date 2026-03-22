@@ -1,0 +1,152 @@
+{
+  "dialogue_id": "combat_trainer_kira_dialogue",
+  "npc_id": "combat_trainer_kira",
+  "trees": {
+    "default": {
+      "entry": "greeting",
+      "nodes": {
+        "greeting": {
+          "text": "Another recruit? You don't look like much. Let's see if you can change my mind.",
+          "responses": [
+            {"text": "Rowan sent me for training.", "next": "rowan_sent", "condition": "quest_active:guild_registration"},
+            {"text": "I want to learn to fight.", "next": "training_offer", "condition": null},
+            {"text": "Got any combat tips?", "next": "combat_tips", "condition": null},
+            {"text": "I'm tougher than I look.", "next": "prove_it", "condition": null},
+            {"text": "Maybe another time.", "next": "end", "condition": null}
+          ]
+        },
+        "rowan_sent": {
+          "text": "Did he now? Old man's got a soft spot for strays. Fine. Grab a practice sword. We start now.",
+          "responses": [
+            {"text": "[Begin Training]", "next": "training_start", "condition": null},
+            {"text": "Any advice before we start?", "next": "combat_tips", "condition": null},
+            {"text": "I need a moment to prepare.", "next": "end", "condition": null}
+          ]
+        },
+        "training_offer": {
+          "text": "Good. Self-awareness is step one. I can teach you to stay alive. The rest is up to you.",
+          "responses": [
+            {"text": "[Begin Training]", "next": "training_start", "condition": null},
+            {"text": "What will you teach me?", "next": "training_details", "condition": null},
+            {"text": "How did you learn to fight?", "next": "kira_backstory", "condition": null}
+          ]
+        },
+        "training_details": {
+          "text": "Stance. Timing. How to read an enemy. Fancy moves get you killed. Fundamentals keep you breathing.",
+          "responses": [
+            {"text": "Let's do it.", "next": "training_start", "condition": null},
+            {"text": "Sounds practical. Any other tips?", "next": "combat_tips", "condition": null}
+          ]
+        },
+        "training_start": {
+          "text": "Eyes up. Guard high. And for the love of all things holy, stop telegraphing your swings.",
+          "responses": [
+            {"text": "[Complete Training Exercise]", "next": "training_result", "condition": null}
+          ]
+        },
+        "training_result": {
+          "text": "Not terrible. You didn't fall over, which puts you ahead of the last three recruits. Again.",
+          "responses": [
+            {"text": "[Train Again]", "next": "advanced_training", "condition": null},
+            {"text": "How'd I actually do?", "next": "honest_assessment", "condition": null},
+            {"text": "I need a breather.", "next": "end", "condition": null}
+          ]
+        },
+        "advanced_training": {
+          "text": "Faster this time. A goblin won't wait for you to find your footing. React or die. Simple as that.",
+          "responses": [
+            {"text": "[Complete Advanced Exercise]", "next": "training_complete", "condition": null}
+          ]
+        },
+        "training_complete": {
+          "text": "Huh. You might actually survive out there. Don't let it go to your head. Come back when you want more.",
+          "responses": [
+            {"text": "Thanks, Kira.", "next": "end_respect", "condition": null},
+            {"text": "I want to spar. For real.", "next": "spar_challenge", "condition": null}
+          ]
+        },
+        "honest_assessment": {
+          "text": "Raw, but there's something there. You've got instincts. Training will sharpen them into something lethal.",
+          "responses": [
+            {"text": "Let's keep going.", "next": "advanced_training", "condition": null},
+            {"text": "I appreciate the honesty.", "next": "end", "condition": null}
+          ]
+        },
+        "combat_tips": {
+          "text": "Block before you strike. Watch the shoulders, not the weapon. And never, ever turn your back.",
+          "responses": [
+            {"text": "What about fighting multiple enemies?", "next": "tip_multiple", "condition": null},
+            {"text": "What if I'm outmatched?", "next": "tip_retreat", "condition": null},
+            {"text": "Thanks. Let's train.", "next": "training_start", "condition": null},
+            {"text": "Good advice. Thanks.", "next": "end", "condition": null}
+          ]
+        },
+        "tip_multiple": {
+          "text": "Keep moving. Force them into a line so you fight one at a time. Goblins are stupid enough to bunch up.",
+          "responses": [
+            {"text": "Any other tips?", "next": "tip_retreat", "condition": null},
+            {"text": "Let's train.", "next": "training_start", "condition": null},
+            {"text": "Got it. Thanks.", "next": "end", "condition": null}
+          ]
+        },
+        "tip_retreat": {
+          "text": "Run. No shame in retreating. Dead heroes don't save anyone. Live to fight smarter next time.",
+          "responses": [
+            {"text": "You don't seem the type to run.", "next": "kira_pride", "condition": null},
+            {"text": "Wise words. Thanks.", "next": "end", "condition": null}
+          ]
+        },
+        "kira_pride": {
+          "text": "I've run plenty. That's why I'm still here teaching you. Pride is a luxury the dead can't afford.",
+          "responses": [
+            {"text": "Let's train.", "next": "training_start", "condition": null},
+            {"text": "How did you learn all this?", "next": "kira_backstory", "condition": null}
+          ]
+        },
+        "prove_it": {
+          "text": "Words are cheap. Steel isn't. Pick up a practice blade and show me what you've got.",
+          "responses": [
+            {"text": "[Spar with Kira]", "next": "spar_challenge", "condition": null},
+            {"text": "Maybe I should warm up first.", "next": "training_start", "condition": null}
+          ]
+        },
+        "spar_challenge": {
+          "text": "A real bout? Alright, hotshot. Don't cry when you eat dirt. Best of three. Ready?",
+          "responses": [
+            {"text": "[Accept Sparring Match]", "next": "spar_result", "condition": null},
+            {"text": "Actually, let me train more first.", "next": "training_start", "condition": null}
+          ]
+        },
+        "spar_result": {
+          "text": "Well, well. You actually landed a hit. Most people can't touch me. You've earned my attention, recruit.",
+          "responses": [
+            {"text": "Rematch anytime.", "next": "end_respect", "condition": null},
+            {"text": "You're incredible. How long have you trained?", "next": "kira_backstory", "condition": null}
+          ]
+        },
+        "kira_backstory": {
+          "text": "Grew up on a border fort. Bandits every week. Learned to fight before I could read. It's all I know.",
+          "responses": [
+            {"text": "Why come to Hearthholm?", "next": "why_hearthholm", "condition": null},
+            {"text": "Let's put that experience to work. Train me.", "next": "training_start", "condition": null}
+          ]
+        },
+        "why_hearthholm": {
+          "text": "Rowan asked. Said this town needed a fighter, not just soldiers. Couldn't say no to the old bear.",
+          "responses": [
+            {"text": "He inspires loyalty.", "next": "end_respect", "condition": null},
+            {"text": "Glad you're here. Train me.", "next": "training_start", "condition": null}
+          ]
+        },
+        "end_respect": {
+          "text": "Not bad, recruit. Come back tomorrow. We'll make a warrior out of you yet.",
+          "responses": []
+        },
+        "end": {
+          "text": "Don't take too long. The goblins won't wait for you to be ready.",
+          "responses": []
+        }
+      }
+    }
+  }
+}

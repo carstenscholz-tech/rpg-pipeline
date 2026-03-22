@@ -1,0 +1,46 @@
+{
+  "npc_id": "alchemist_elara",
+  "name": "Sage Elara",
+  "role": "merchant",
+  "region": "ashvale",
+  "location": { "zone": "hearthholm", "x": 245, "y": 160 },
+  "sprite_id": "npc_alchemist_elara",
+  "stats": { "level": 30, "hp": 280, "attack": 45, "defense": 35 },
+  "personality": "mysterious, patient",
+  "personality_description": "An ancient elven alchemist whose silver eyes seem to peer through time itself. She speaks in riddles as often as plain words, and her cluttered apothecary smells of starbloom and old secrets. She knows far more about the Aether corruption than she lets on.",
+  "faction": "circle_of_sages",
+  "dialogue_tree_id": "alchemist_elara_dialogue",
+  "quests_given": [
+    "side_corrupted_herbs",
+    "side_aether_sample_collection",
+    "trainer_intro_herbalism",
+    "trainer_intro_alchemy"
+  ],
+  "shop_inventory": {
+    "shop_name": "Elara's Apothecary",
+    "items": [
+      "con_minor_health_potion",
+      "con_health_potion",
+      "con_minor_mana_potion",
+      "con_mana_potion",
+      "con_antidote",
+      "con_elixir_of_focus",
+      "con_stamina_draught",
+      "mat_empty_vial",
+      "mat_mortar_pestle",
+      "mat_starbloom_petals",
+      "mat_thornroot",
+      "mat_glowcap_mushroom",
+      "recipe_minor_health_potion",
+      "recipe_antidote"
+    ]
+  },
+  "schedule": [
+    { "time": "05:00-07:00", "location": "elara_garden", "action": "gathering_herbs" },
+    { "time": "07:00-12:00", "location": "elara_apothecary", "action": "brewing_selling" },
+    { "time": "12:00-13:00", "location": "elara_apothecary_backroom", "action": "meditating" },
+    { "time": "13:00-18:00", "location": "elara_apothecary", "action": "brewing_selling" },
+    { "time": "18:00-20:00", "location": "shrine_of_the_ancients", "action": "studying_aether_texts" },
+    { "time": "20:00-05:00", "location": "elara_apothecary_backroom", "action": "sleeping" }
+  ]
+}

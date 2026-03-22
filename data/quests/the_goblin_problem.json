@@ -1,0 +1,55 @@
+{
+  "quest_id": "the_goblin_problem",
+  "title": "The Goblin Problem",
+  "description": "Guard Captain Holt has a grim look about him these days. Goblins have been massing near the east gate in numbers not seen for years, harassing merchants and ambushing patrols. The town guard is stretched thin, and Holt needs proof that the Adventurer's Guild can pull its weight. Bring him ten goblin ears, and he'll know you're someone worth counting on when things get worse -- and he's certain they will.",
+  "type": "main",
+  "region": "hearthholm",
+  "level_requirement": 3,
+  "prerequisites": [],
+  "steps": [
+    {
+      "step_id": 1,
+      "type": "talk_to_npc",
+      "description": "Speak with Guard Captain Holt at the east gate barracks.",
+      "target_npc": "guard_captain_holt",
+      "target_zone": "hearthholm_east_gate"
+    },
+    {
+      "step_id": 2,
+      "type": "go_to_location",
+      "description": "Venture to the goblin encampments east of Hearthholm's walls.",
+      "target_zone": "hearthholm_east_outskirts"
+    },
+    {
+      "step_id": 3,
+      "type": "defeat_enemies",
+      "description": "Hunt goblins near the east gate and collect their ears as trophies. Beware -- they fight in packs and set crude traps along the road.",
+      "enemy_type": "goblin_scout",
+      "count": 10,
+      "target_zone": "hearthholm_east_outskirts"
+    },
+    {
+      "step_id": 4,
+      "type": "collect_items",
+      "description": "Gather the goblin ears from the fallen.",
+      "required_item": "goblin_ear",
+      "count": 10,
+      "target_zone": "hearthholm_east_outskirts"
+    },
+    {
+      "step_id": 5,
+      "type": "talk_to_npc",
+      "description": "Deliver the goblin ears to Guard Captain Holt and choose your reward.",
+      "target_npc": "guard_captain_holt",
+      "target_zone": "hearthholm_east_gate"
+    }
+  ],
+  "rewards": {
+    "xp": { "melee": 80 },
+    "items": [
+      { "item_id": "iron_shield", "quantity": 1 },
+      { "item_id": "leather_boots", "quantity": 1 }
+    ],
+    "gold": 50
+  }
+}

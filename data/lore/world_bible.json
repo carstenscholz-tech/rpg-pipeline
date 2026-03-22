@@ -1,0 +1,243 @@
+{
+  "world_name": "Aethermoor",
+  "setting_description": "Aethermoor is a vast continent scarred by the Sundering — an ancient cataclysm that shattered the Aether Crystal, the source of all magic. Fragments of the crystal rained across the land, warping terrain, spawning monsters, and granting mortals the ability to channel magic through sheer willpower. Now, centuries later, five great factions vie for control of the remaining crystal shards, each believing they hold the key to restoring — or forever harnessing — the Aether. The wilderness between settlements teems with corrupted beasts, undead remnants of the old world, and bandits who prey on travelers. Adventurers are the lifeblood of civilization, delving into forgotten ruins, clearing monster dens, and keeping the trade routes open. The guilds of Aethermoor welcome all who prove their worth — whether through steel, sorcery, or cunning.",
+  "major_regions": [
+    {
+      "region_id": "ashvale",
+      "name": "Ashvale",
+      "description": "A sheltered valley of rolling green hills, scattered farmsteads, and ancient oak forests. Once the breadbasket of the old empire, Ashvale is now the safest region in Aethermoor — a haven for new adventurers. The town of Hearthholm sits at its center, built around a still-glowing Aether shard embedded in the town square.",
+      "terrain_type": "plains",
+      "level_range": [1, 10],
+      "notable_features": ["Hearthholm town", "Glimmering Shard", "Oldroot Forest", "Goblin Warrens", "Millbrook Farm"],
+      "enemies": ["rat", "goblin", "wolf", "skeleton", "slime", "bandit"],
+      "resources": ["oak_log", "copper_ore", "iron_ore", "wheat", "herb_thistle", "trout"]
+    },
+    {
+      "region_id": "ironmaw_mountains",
+      "name": "Ironmaw Mountains",
+      "description": "A jagged mountain range rich in ore deposits and riddled with dwarven mines. The Ironmaw Dwarves guard their forges jealously, but trade openly with those who bring rare materials. Deep within the peaks, fire elementals and cave trolls make mining a deadly profession.",
+      "terrain_type": "mountains",
+      "level_range": [10, 25],
+      "notable_features": ["Hammerdeep Citadel", "Molten Core Mines", "Skybridge Pass"],
+      "enemies": ["cave_troll", "fire_elemental", "stone_golem", "mountain_bandit", "wyvern"],
+      "resources": ["iron_ore", "mithril_ore", "coal", "gemstone_ruby", "mountain_herb"]
+    },
+    {
+      "region_id": "thornweald",
+      "name": "Thornweald",
+      "description": "A dense, primeval forest where the Aether's corruption runs deep. Trees grow to impossible heights, their canopies blocking all sunlight. The Druids of the Green Circle make their home here, attempting to purify the corruption while fending off the twisted beasts that roam the undergrowth.",
+      "terrain_type": "forest",
+      "level_range": [8, 20],
+      "notable_features": ["Eldergrove Sanctuary", "Spider Hollow", "Corrupted Heartwood"],
+      "enemies": ["giant_spider", "corrupted_treant", "venomfang_serpent", "shadow_wolf", "forest_witch"],
+      "resources": ["yew_log", "silverleaf_herb", "spider_silk", "mushroom_nightcap", "foxglove"]
+    },
+    {
+      "region_id": "bleached_coast",
+      "name": "Bleached Coast",
+      "description": "Sun-scorched cliffs and white sand beaches line this coastal region. Pirates and smugglers operate from hidden coves, while the port city of Saltmere serves as Aethermoor's gateway to the outer islands. Sea monsters occasionally surface to terrorize fishermen.",
+      "terrain_type": "coastal",
+      "level_range": [12, 28],
+      "notable_features": ["Saltmere Harbor", "Smuggler's Cove", "Coral Ruins", "Lighthouse of Vael"],
+      "enemies": ["pirate", "sea_serpent", "siren", "ghost_sailor", "sand_crab"],
+      "resources": ["driftwood", "pearl", "coral", "saltwater_fish", "seaweed"]
+    },
+    {
+      "region_id": "crimson_wastes",
+      "name": "Crimson Wastes",
+      "description": "A scorched desert where the Sundering hit hardest. The sand itself is stained red from crystallized Aether residue. Nomadic tribes survive by following underground water sources, and ancient ruins poke through the dunes — remnants of the pre-Sundering civilization.",
+      "terrain_type": "desert",
+      "level_range": [20, 35],
+      "notable_features": ["Ruins of Solanthus", "Oasis of Whispers", "Sandworm Nesting Grounds"],
+      "enemies": ["sandworm", "desert_scorpion", "dust_wraith", "mummy", "fire_djinn"],
+      "resources": ["sandstone", "gold_ore", "cactus_water", "ancient_relic", "sun_crystal"]
+    },
+    {
+      "region_id": "gloomfen",
+      "name": "Gloomfen",
+      "description": "A vast, fog-choked swamp where the dead do not rest easy. Necromancers fled here after the Sundering, raising armies from the endless supply of ancient battlefields beneath the muck. The Witchlight Lanterns are the only safe guides through the treacherous bogs.",
+      "terrain_type": "swamp",
+      "level_range": [18, 32],
+      "notable_features": ["Witchlight Path", "Sunken Cathedral", "Necromancer's Spire"],
+      "enemies": ["zombie", "bog_horror", "will_o_wisp", "plague_rat", "necromancer"],
+      "resources": ["swamp_reed", "nightshade", "bog_iron", "ectoplasm", "leech"]
+    },
+    {
+      "region_id": "frosthollow",
+      "name": "Frosthollow",
+      "description": "The frozen north, where permanent winter grips the land. Viking-like clans battle ice giants for territory, and the Aurora Borealis crackles with wild Aether energy. Ancient frost dragons slumber beneath the glaciers.",
+      "terrain_type": "tundra",
+      "level_range": [25, 40],
+      "notable_features": ["Jarlheim Stronghold", "Frozen Throne", "Aurora Spire", "Dragon's Rest Glacier"],
+      "enemies": ["ice_giant", "frost_wolf", "yeti", "frost_dragon", "berserker_raider"],
+      "resources": ["frostwood", "adamantite_ore", "ice_crystal", "mammoth_hide", "arctic_herb"]
+    },
+    {
+      "region_id": "shadow_undercroft",
+      "name": "Shadow Undercroft",
+      "description": "A massive underground network of caverns, ancient dwarven cities, and fungal forests that stretches beneath the entire continent. The deeper you go, the more twisted and dangerous the creatures become. At the very bottom lies the Abyss Gate — said to be where the Sundering originated.",
+      "terrain_type": "underground",
+      "level_range": [30, 50],
+      "notable_features": ["Fungal Gardens", "Lost City of Nethara", "Abyss Gate", "Crystal Caverns"],
+      "enemies": ["deep_spider", "mushroom_golem", "shadow_stalker", "abyssal_demon", "elder_wyrm"],
+      "resources": ["darksteel_ore", "luminous_mushroom", "shadow_essence", "abyssal_crystal", "deep_pearl"]
+    },
+    {
+      "region_id": "aether_spire",
+      "name": "Aether Spire",
+      "description": "A floating island chain suspended by concentrated Aether energy, visible from anywhere on the continent. The Arcane Academy sits atop the largest island, training the world's most powerful mages. Reality itself is unstable here — gravity shifts, time dilates, and portals open without warning.",
+      "terrain_type": "volcanic",
+      "level_range": [35, 50],
+      "notable_features": ["Arcane Academy", "Rift Gardens", "Shattered Observatory", "The Nexus"],
+      "enemies": ["arcane_construct", "void_walker", "temporal_phantom", "crystal_golem", "aether_dragon"],
+      "resources": ["aether_shard", "void_essence", "starlight_ore", "arcane_dust", "philosopher_stone"]
+    }
+  ],
+  "factions": [
+    {
+      "faction_id": "adventurers_guild",
+      "name": "Adventurers Guild",
+      "description": "The backbone of civilization in Aethermoor. The Guild coordinates monster bounties, dungeon expeditions, and trade route protection. All new adventurers register here, and rising through the ranks unlocks access to better contracts, gear, and restricted areas.",
+      "alignment": "neutral",
+      "headquarters_region": "ashvale"
+    },
+    {
+      "faction_id": "ironmaw_compact",
+      "name": "Ironmaw Compact",
+      "description": "An alliance of dwarven clans who control the continent's richest mines. Master smiths and engineers, they supply arms and armor to all who can pay. They seek to reclaim their deepest mines, now overrun by shadow creatures.",
+      "alignment": "good",
+      "headquarters_region": "ironmaw_mountains"
+    },
+    {
+      "faction_id": "green_circle",
+      "name": "Green Circle",
+      "description": "Druids and rangers dedicated to healing the land's Aether corruption. They view the Sundering as a wound that must be mended, not exploited. Often at odds with those who harvest Aether shards for profit.",
+      "alignment": "good",
+      "headquarters_region": "thornweald"
+    },
+    {
+      "faction_id": "crimson_hand",
+      "name": "Crimson Hand",
+      "description": "A secretive organization of thieves, assassins, and information brokers. They control the underworld of every major city and profit from chaos. Their true leader is unknown — only the Red Fingers, their regional captains, are ever seen.",
+      "alignment": "evil",
+      "headquarters_region": "bleached_coast"
+    },
+    {
+      "faction_id": "arcane_council",
+      "name": "Arcane Council",
+      "description": "The governing body of mages who control the Aether Spire. They regulate the use of magic across the continent and hunt down rogue sorcerers. Their power is immense but their bureaucracy is stifling.",
+      "alignment": "neutral",
+      "headquarters_region": "aether_spire"
+    },
+    {
+      "faction_id": "hollow_covenant",
+      "name": "Hollow Covenant",
+      "description": "Necromancers and death cultists who believe the Sundering was a gift — a chance to transcend mortality. They seek to gather enough Aether shards to perform the Grand Awakening, raising an unstoppable undead army.",
+      "alignment": "evil",
+      "headquarters_region": "gloomfen"
+    }
+  ],
+  "magic_system": {
+    "description": "All magic in Aethermoor flows from Aether — a crystalline energy released during the Sundering. Mortals channel Aether through willpower, focus, and learned techniques. Raw Aether is volatile; without training, it can corrupt the user's body and mind. The five schools each approach Aether manipulation differently.",
+    "schools": [
+      {"school_id": "pyromancy", "name": "Pyromancy", "description": "Channeling Aether into heat and flame. Devastating offensive power but dangerous to allies.", "element": "fire"},
+      {"school_id": "cryomancy", "name": "Cryomancy", "description": "Freezing Aether into ice and cold. Excellent for crowd control and defense.", "element": "ice"},
+      {"school_id": "restoration", "name": "Restoration", "description": "Using Aether to mend flesh and cure ailments. The most socially valued school.", "element": "holy"},
+      {"school_id": "shadow_arts", "name": "Shadow Arts", "description": "Bending Aether to manipulate darkness, illusions, and fear. Distrusted but effective.", "element": "shadow"},
+      {"school_id": "geomancy", "name": "Geomancy", "description": "Channeling Aether through earth and stone. Slow but incredibly powerful defensive magic.", "element": "earth"}
+    ]
+  },
+  "major_threats": [
+    {"name": "The Corruption", "description": "Aether residue from the Sundering continues to warp wildlife and terrain. Left unchecked, corrupted zones expand and consume settlements.", "faction_or_independent": "independent"},
+    {"name": "The Hollow Covenant", "description": "Necromancers gathering shards for the Grand Awakening — a ritual to raise every corpse on the continent simultaneously.", "faction_or_independent": "hollow_covenant"},
+    {"name": "The Abyss Gate", "description": "Something ancient stirs beneath the Shadow Undercroft. The gate is weakening, and aberrations from beyond are seeping through.", "faction_or_independent": "independent"},
+    {"name": "Dragon Resurgence", "description": "The great dragons, dormant since the Sundering, are beginning to wake. Not all are hostile, but their territorial claims threaten entire regions.", "faction_or_independent": "independent"}
+  ],
+  "historical_events": [
+    {"name": "The Sundering", "era": "Age of Ruin (500 years ago)", "description": "The Aether Crystal, source of all magic, was shattered by unknown forces. The explosion reshaped the continent, killed millions, and scattered crystal shards across the land."},
+    {"name": "The Long Dark", "era": "Age of Ruin (500-400 years ago)", "description": "A century of chaos following the Sundering. Monsters roamed freely, kingdoms fell, and civilization nearly collapsed."},
+    {"name": "The First Guild Charter", "era": "Age of Recovery (400 years ago)", "description": "Survivors banded together and formed the Adventurers Guild, marking the beginning of organized resistance against monsters and the slow rebuilding of society."},
+    {"name": "The Ironmaw Reclamation", "era": "Age of Recovery (300 years ago)", "description": "Dwarven clans united to retake their mountain strongholds from the creatures that had overrun them. They founded the Ironmaw Compact and became the continent's primary arms suppliers."},
+    {"name": "The Mage Wars", "era": "Age of Strife (150 years ago)", "description": "Rival mage factions nearly destroyed the Bleached Coast fighting over a massive Aether shard. The Arcane Council was formed in the aftermath to regulate magic use."}
+  ],
+  "economy": {
+    "currency_name": "Shards",
+    "currency_denominations": [
+      {"name": "Copper Shard", "value": 1},
+      {"name": "Silver Shard", "value": 100},
+      {"name": "Gold Shard", "value": 10000},
+      {"name": "Aether Shard", "value": 1000000}
+    ],
+    "major_trade_goods": ["iron_bars", "mithril_bars", "enchanted_equipment", "healing_potions", "aether_fragments", "lumber", "gemstones", "monster_parts"]
+  },
+  "skills": [
+    {"skill_id": "melee", "name": "Melee Combat", "type": "combat", "description": "Proficiency with swords, axes, maces, and other close-range weapons."},
+    {"skill_id": "ranged", "name": "Ranged Combat", "type": "combat", "description": "Proficiency with bows, crossbows, and thrown weapons."},
+    {"skill_id": "magic", "name": "Magic", "type": "combat", "description": "Ability to channel Aether into offensive and utility spells."},
+    {"skill_id": "defense", "name": "Defense", "type": "combat", "description": "Ability to block, parry, and mitigate incoming damage."},
+    {"skill_id": "hitpoints", "name": "Hitpoints", "type": "combat", "description": "Overall physical resilience and maximum health."},
+    {"skill_id": "prayer", "name": "Prayer", "type": "support", "description": "Communion with ancient spirits for protective boons and healing."},
+    {"skill_id": "mining", "name": "Mining", "type": "gathering", "description": "Extracting ores and gems from rock deposits."},
+    {"skill_id": "woodcutting", "name": "Woodcutting", "type": "gathering", "description": "Felling trees and collecting various types of lumber."},
+    {"skill_id": "fishing", "name": "Fishing", "type": "gathering", "description": "Catching fish from rivers, lakes, and the ocean."},
+    {"skill_id": "herbalism", "name": "Herbalism", "type": "gathering", "description": "Identifying and collecting useful plants and fungi."},
+    {"skill_id": "smithing", "name": "Smithing", "type": "crafting", "description": "Smelting ores into bars and forging weapons and armor."},
+    {"skill_id": "cooking", "name": "Cooking", "type": "crafting", "description": "Preparing food that restores health and grants temporary buffs."},
+    {"skill_id": "alchemy", "name": "Alchemy", "type": "crafting", "description": "Brewing potions from herbs and monster parts."},
+    {"skill_id": "enchanting", "name": "Enchanting", "type": "crafting", "description": "Infusing equipment with Aether to grant magical properties."},
+    {"skill_id": "thieving", "name": "Thieving", "type": "support", "description": "Pickpocketing, lockpicking, and disarming traps."},
+    {"skill_id": "agility", "name": "Agility", "type": "support", "description": "Speed, reflexes, and ability to navigate obstacles."}
+  ],
+  "player_classes": [
+    {
+      "class_id": "warrior",
+      "name": "Warrior",
+      "description": "Masters of steel and fury. Warriors charge into battle wielding heavy weapons and wearing thick armor. Their raw physical power makes them the backbone of any adventuring party.",
+      "primary_skills": ["melee", "defense", "hitpoints"],
+      "starting_stats": {"hp": 120, "attack": 12, "defense": 10, "speed": 0.9, "mana": 0},
+      "starting_equipment": ["iron_sword", "wooden_shield", "leather_armor", "bread_x3"],
+      "sprite_id": "class_warrior",
+      "color_palette": "reds and steel gray"
+    },
+    {
+      "class_id": "mage",
+      "name": "Mage",
+      "description": "Scholars of the Aether who bend reality to their will. Fragile in body but devastating in power, mages rain fire, ice, and arcane energy upon their foes from a safe distance.",
+      "primary_skills": ["magic", "enchanting", "alchemy"],
+      "starting_stats": {"hp": 70, "attack": 5, "defense": 4, "speed": 1.0, "mana": 50},
+      "starting_equipment": ["apprentice_staff", "cloth_robe", "mana_potion_x3", "bread_x3"],
+      "sprite_id": "class_mage",
+      "color_palette": "deep blues and purple"
+    },
+    {
+      "class_id": "ranger",
+      "name": "Ranger",
+      "description": "Silent hunters of the wild. Rangers strike from the shadows with deadly precision, using bows and traps to control the battlefield. Their knowledge of nature makes them expert trackers and survivalists.",
+      "primary_skills": ["ranged", "agility", "herbalism"],
+      "starting_stats": {"hp": 90, "attack": 10, "defense": 6, "speed": 1.3, "mana": 10},
+      "starting_equipment": ["shortbow", "leather_armor", "bronze_arrows_x50", "bread_x3"],
+      "sprite_id": "class_ranger",
+      "color_palette": "forest greens and brown"
+    },
+    {
+      "class_id": "rogue",
+      "name": "Rogue",
+      "description": "Masters of deception and deadly precision. Rogues strike from the shadows, exploiting weaknesses with poisoned daggers and dirty tricks. What they lack in armor they make up in cunning.",
+      "primary_skills": ["thieving", "agility", "melee"],
+      "starting_stats": {"hp": 80, "attack": 11, "defense": 5, "speed": 1.4, "mana": 5},
+      "starting_equipment": ["bronze_dagger", "bronze_dagger_offhand", "dark_leather_armor", "lockpick_x5", "bread_x3"],
+      "sprite_id": "class_rogue",
+      "color_palette": "dark grays and crimson"
+    },
+    {
+      "class_id": "cleric",
+      "name": "Cleric",
+      "description": "Holy warriors who channel the prayers of the ancient spirits. Clerics can heal allies, smite the undead, and hold the line in battle. They are equally comfortable with a mace as with a prayer book.",
+      "primary_skills": ["prayer", "defense", "hitpoints"],
+      "starting_stats": {"hp": 100, "attack": 8, "defense": 9, "speed": 0.9, "mana": 30},
+      "starting_equipment": ["iron_mace", "wooden_shield", "chain_armor", "prayer_scroll_x2", "bread_x3"],
+      "sprite_id": "class_cleric",
+      "color_palette": "white and gold"
+    }
+  ]
+}

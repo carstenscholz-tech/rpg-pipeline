@@ -1,0 +1,255 @@
+{
+  "dialogue_id": "cleric_aldwin_dialogue",
+  "npc_id": "cleric_aldwin",
+  "trees": {
+    "default": {
+      "entry": "greeting",
+      "nodes": {
+        "greeting": {
+          "text": "Welcome, child. The chapel is open to all who seek solace. How may I help you?",
+          "responses": [
+            {"text": "I need healing.", "next": "healing", "condition": null},
+            {"text": "What's this about restless dead?", "next": "restless_dead", "condition": null},
+            {"text": "Can you teach me about prayer?", "next": "prayer_teaching", "condition": null},
+            {"text": "Tell me about yourself, Brother Aldwin.", "next": "about_aldwin", "condition": null},
+            {"text": "Just visiting. Farewell.", "next": "end", "condition": null}
+          ]
+        },
+        "healing": {
+          "text": "Of course. Sit, rest. The Light mends all wounds in time. Let me see what ails you.",
+          "responses": [
+            {"text": "[Receive Healing]", "next": "healed", "condition": null},
+            {"text": "How much will this cost?", "next": "healing_cost", "condition": null},
+            {"text": "I also need supplies.", "next": "healing_supplies", "condition": null}
+          ]
+        },
+        "healed": {
+          "text": "There. The Light flows through you now. Rest a moment before you head back into danger, won't you?",
+          "responses": [
+            {"text": "Thank you, Brother.", "next": "post_heal_chat", "condition": null},
+            {"text": "I feel much better. Farewell.", "next": "end", "condition": null}
+          ]
+        },
+        "healing_cost": {
+          "text": "The Light is freely given. I ask only a small offering for the chapel's upkeep. Whatever you can spare.",
+          "responses": [
+            {"text": "[Receive Healing - Donate 10 coin]", "next": "healed", "condition": null},
+            {"text": "[Receive Healing - No donation]", "next": "healed_free", "condition": null}
+          ]
+        },
+        "healed_free": {
+          "text": "Do not worry. The Light does not measure coin. Be well, and perhaps pay it forward to another in need.",
+          "responses": [
+            {"text": "You're a good man, Aldwin.", "next": "post_heal_chat", "condition": null},
+            {"text": "I will. Thank you.", "next": "end", "condition": null}
+          ]
+        },
+        "healing_supplies": {
+          "text": "I keep blessed bandages and restorative draughts. Not as fancy as Elara's brews, but they'll keep you standing.",
+          "responses": [
+            {"text": "[Open Healing Supplies]", "next": "end_shop", "condition": null},
+            {"text": "Heal me first, then I'll browse.", "next": "healed", "condition": null}
+          ]
+        },
+        "post_heal_chat": {
+          "text": "You carry heavy burdens. I can see it. The Light asks only that you carry them with purpose, not alone.",
+          "responses": [
+            {"text": "What troubles you, Brother?", "next": "aldwin_worry", "condition": null},
+            {"text": "Tell me about the restless dead.", "next": "restless_dead", "condition": null},
+            {"text": "Kind words. Farewell.", "next": "end", "condition": null}
+          ]
+        },
+        "aldwin_worry": {
+          "text": "This town is afraid. They come to me for comfort, but I feel the same dread they do. I pray it's enough.",
+          "responses": [
+            {"text": "What are you afraid of?", "next": "restless_dead", "condition": null},
+            {"text": "Prayer and a sharp sword. That's what we need.", "next": "prayer_and_steel", "condition": null}
+          ]
+        },
+        "prayer_and_steel": {
+          "text": "Ha. You sound like Rowan. Perhaps you're right. The Light guides, but mortal hands must do the work.",
+          "responses": [
+            {"text": "Tell me about the undead.", "next": "restless_dead", "condition": null},
+            {"text": "Teach me to pray.", "next": "prayer_teaching", "condition": null},
+            {"text": "Stay strong, Brother.", "next": "end", "condition": null}
+          ]
+        },
+        "restless_dead": {
+          "text": "Something stirs the dead from their rest. The barrows east of town... graves have been found empty. It grieves me.",
+          "responses": [
+            {"text": "What could cause that?", "next": "undead_cause", "condition": null},
+            {"text": "Have you seen them yourself?", "next": "aldwin_encounter", "condition": null},
+            {"text": "Can your prayers stop them?", "next": "prayer_vs_undead", "condition": null},
+            {"text": "I'll investigate the barrows.", "next": "barrow_quest", "condition": null}
+          ]
+        },
+        "undead_cause": {
+          "text": "When the Aether sickens, death's boundary thins. Souls cannot rest in poisoned ground. They wander, lost and angry.",
+          "responses": [
+            {"text": "Is there a way to put them back to rest?", "next": "laying_rest", "condition": null},
+            {"text": "Elara mentioned Aether corruption too.", "next": "elara_agreement", "condition": null},
+            {"text": "I should check the barrows.", "next": "barrow_quest", "condition": null}
+          ]
+        },
+        "laying_rest": {
+          "text": "Blessed salt and prayer can grant peace to individual spirits. But until the source is cleansed, more will rise.",
+          "responses": [
+            {"text": "Can you give me blessed salt?", "next": "blessed_supplies", "condition": null},
+            {"text": "I'll find the source.", "next": "end", "condition": null}
+          ]
+        },
+        "blessed_supplies": {
+          "text": "Take what you need. Scatter it on the bones and speak the Rite of Passing. I'll teach you the words.",
+          "responses": [
+            {"text": "[Learn Rite of Passing]", "next": "rite_learned", "condition": null},
+            {"text": "Thank you, Brother.", "next": "end", "condition": null}
+          ]
+        },
+        "rite_learned": {
+          "text": "Speak with conviction, not volume. The dead hear intent, not words. Grant them the peace they were denied.",
+          "responses": [
+            {"text": "I understand. I won't let them suffer.", "next": "end", "condition": null}
+          ]
+        },
+        "elara_agreement": {
+          "text": "Elara and I rarely agree, but on this we do. The corruption is the root of all our troubles. Goblins, beasts, the dead.",
+          "responses": [
+            {"text": "Everyone keeps pointing to the same source.", "next": "convergence", "condition": null},
+            {"text": "I'll deal with it.", "next": "end", "condition": null}
+          ]
+        },
+        "convergence": {
+          "text": "When all paths point one direction, the Light is showing you the way. Be brave enough to walk it.",
+          "responses": [
+            {"text": "I will.", "next": "end", "condition": null}
+          ]
+        },
+        "aldwin_encounter": {
+          "text": "Once. A woman, dead three years, standing at the chapel door. She looked at me and wept. I've not slept well since.",
+          "responses": [
+            {"text": "That's horrible.", "next": "aldwin_grief", "condition": null},
+            {"text": "Did she attack you?", "next": "ghost_nature", "condition": null}
+          ]
+        },
+        "aldwin_grief": {
+          "text": "She was a parishioner. I spoke her funeral rites myself. To see her like that... no one deserves such an end.",
+          "responses": [
+            {"text": "I'll put an end to this.", "next": "barrow_quest", "condition": null},
+            {"text": "Teach me to help them.", "next": "laying_rest", "condition": null}
+          ]
+        },
+        "ghost_nature": {
+          "text": "No. Not all the risen are violent. Some are confused, grieving. But others... others come back wrong. Hungry.",
+          "responses": [
+            {"text": "I'll need to be prepared.", "next": "prayer_vs_undead", "condition": null},
+            {"text": "Let me deal with the barrows.", "next": "barrow_quest", "condition": null}
+          ]
+        },
+        "prayer_vs_undead": {
+          "text": "The Light burns what should not walk. A blessing on your blade will make it strike true against the risen.",
+          "responses": [
+            {"text": "[Receive Weapon Blessing]", "next": "weapon_blessed", "condition": null},
+            {"text": "Teach me to pray for myself.", "next": "prayer_teaching", "condition": null}
+          ]
+        },
+        "weapon_blessed": {
+          "text": "There. Your steel carries the Light's warmth now. The dead will feel its mercy. Use it well.",
+          "responses": [
+            {"text": "I'll cleanse the barrows.", "next": "barrow_quest", "condition": null},
+            {"text": "Thank you, Brother. Farewell.", "next": "end", "condition": null}
+          ]
+        },
+        "barrow_quest": {
+          "text": "The eastern barrows, past the old mill. Be careful. Pray before you enter. And come back alive, please.",
+          "responses": [
+            {"text": "[Accept: Cleanse the Barrows]", "next": "barrow_accepted", "condition": null},
+            {"text": "I'll prepare first.", "next": "end", "condition": null}
+          ]
+        },
+        "barrow_accepted": {
+          "text": "Take blessed salt and keep the prayer close to your heart. The Light goes with you, child. I believe that.",
+          "responses": [
+            {"text": "I won't fail.", "next": "end", "condition": null}
+          ]
+        },
+        "prayer_teaching": {
+          "text": "Prayer is not begging. It is alignment. You still your mind, open your heart, and let the Light fill the cracks.",
+          "responses": [
+            {"text": "How do I begin?", "next": "prayer_basics", "condition": null},
+            {"text": "Does the Light answer everyone?", "next": "faith_question", "condition": null},
+            {"text": "Can prayer heal wounds?", "next": "prayer_power", "condition": null}
+          ]
+        },
+        "prayer_basics": {
+          "text": "Close your eyes. Breathe. Speak what troubles you honestly. The Light does not judge. It only listens and mends.",
+          "responses": [
+            {"text": "[Learn Basic Prayer]", "next": "prayer_learned", "condition": null},
+            {"text": "That sounds... simple.", "next": "simplicity", "condition": null}
+          ]
+        },
+        "simplicity": {
+          "text": "The deepest truths always are. People complicate faith the way they complicate everything. Keep it simple. Keep it honest.",
+          "responses": [
+            {"text": "[Learn Basic Prayer]", "next": "prayer_learned", "condition": null},
+            {"text": "Thank you, Brother.", "next": "end", "condition": null}
+          ]
+        },
+        "prayer_learned": {
+          "text": "Good. Use it when you are weary or wounded. It won't replace a healer, but it will keep your spirit whole.",
+          "responses": [
+            {"text": "I'll practice. Thank you.", "next": "end", "condition": null}
+          ]
+        },
+        "faith_question": {
+          "text": "The Light shines on all equally. Whether you feel its warmth depends on whether you're willing to stand in it.",
+          "responses": [
+            {"text": "I'd like to try.", "next": "prayer_basics", "condition": null},
+            {"text": "That's a comforting thought.", "next": "end", "condition": null}
+          ]
+        },
+        "prayer_power": {
+          "text": "In time, yes. I can mend bone and close wounds through faith alone. But it took decades of devotion to learn.",
+          "responses": [
+            {"text": "Can you teach me the basics?", "next": "prayer_basics", "condition": null},
+            {"text": "I'll stick to potions for now.", "next": "end", "condition": null}
+          ]
+        },
+        "about_aldwin": {
+          "text": "A simple cleric who tends the chapel and its flock. I came to Hearthholm seeking quiet. Found purpose instead.",
+          "responses": [
+            {"text": "Where were you before?", "next": "aldwin_past", "condition": null},
+            {"text": "This town is lucky to have you.", "next": "aldwin_humble", "condition": null},
+            {"text": "Good to know you, Brother.", "next": "end", "condition": null}
+          ]
+        },
+        "aldwin_past": {
+          "text": "The Great Seminary in Ashford. Studied twenty years. But faith learned from books pales next to faith tested by life.",
+          "responses": [
+            {"text": "And life in Hearthholm tested your faith?", "next": "faith_tested", "condition": null},
+            {"text": "You seem at peace here.", "next": "end", "condition": null}
+          ]
+        },
+        "faith_tested": {
+          "text": "Every day. When a child cries for a father the goblins took. When the dead walk. And yet, the Light persists. So do I.",
+          "responses": [
+            {"text": "That's true strength, Brother.", "next": "end", "condition": null}
+          ]
+        },
+        "aldwin_humble": {
+          "text": "I merely hold the lantern. The people of Hearthholm carry their own light. They just forget sometimes.",
+          "responses": [
+            {"text": "You're too modest.", "next": "end", "condition": null}
+          ]
+        },
+        "end_shop": {
+          "text": "May the Light keep you whole in body and spirit. Return whenever you have need.",
+          "responses": []
+        },
+        "end": {
+          "text": "Go in peace, child. The Light walks beside you, even in the darkest places. Remember that.",
+          "responses": []
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "dialogue_id": "alchemist_elara_dialogue",
+  "npc_id": "alchemist_elara",
+  "trees": {
+    "default": {
+      "entry": "greeting",
+      "nodes": {
+        "greeting": {
+          "text": "The wind carried your scent before your footsteps did. You seek answers, young one. They all do.",
+          "responses": [
+            {"text": "Show me your wares.", "next": "shop", "condition": null},
+            {"text": "What do you know about the Aether corruption?", "next": "aether_corruption", "condition": null},
+            {"text": "Can you teach me about herbs?", "next": "herb_teaching", "condition": null},
+            {"text": "Aldric mentioned a strange fog.", "next": "fog_knowledge", "condition": "quest_complete:aldric_rats"},
+            {"text": "You're... not what I expected.", "next": "about_elara", "condition": null},
+            {"text": "I should go.", "next": "end", "condition": null}
+          ]
+        },
+        "shop": {
+          "text": "Potions, salves, tinctures. Each one a small miracle brewed from root and rain. Choose wisely.",
+          "responses": [
+            {"text": "[Browse Potions]", "next": "browse_potions", "condition": null},
+            {"text": "[Browse Ingredients]", "next": "browse_ingredients", "condition": null},
+            {"text": "What do you recommend for a new adventurer?", "next": "recommendation", "condition": null},
+            {"text": "Maybe later.", "next": "end", "condition": null}
+          ]
+        },
+        "browse_potions": {
+          "text": "Healing draughts, antidotes, elixirs of vigor. The forest provides, if you know where to look.",
+          "responses": [
+            {"text": "[Open Potion Shop]", "next": "end_shop", "condition": null},
+            {"text": "Can you brew anything custom?", "next": "custom_brew", "condition": null},
+            {"text": "Let me see ingredients instead.", "next": "browse_ingredients", "condition": null}
+          ]
+        },
+        "browse_ingredients": {
+          "text": "Raw materials for those who walk the alchemist's path. Or perhaps you have herbs to sell?",
+          "responses": [
+            {"text": "[Open Ingredient Shop]", "next": "end_shop", "condition": null},
+            {"text": "[Sell Herbs]", "next": "end_shop", "condition": null},
+            {"text": "Teach me which herbs to gather.", "next": "herb_teaching", "condition": null}
+          ]
+        },
+        "recommendation": {
+          "text": "Three healing draughts and an antidote. Thornwood's creatures carry poisons that rot flesh in hours.",
+          "responses": [
+            {"text": "[Buy Starter Bundle]", "next": "end_shop", "condition": null},
+            {"text": "What kind of poisons?", "next": "poison_knowledge", "condition": null},
+            {"text": "I'll browse on my own.", "next": "browse_potions", "condition": null}
+          ]
+        },
+        "poison_knowledge": {
+          "text": "The corrupted beasts weep a venom that wasn't there before. New poison, born from tainted Aether. Troubling.",
+          "responses": [
+            {"text": "Tell me about this corruption.", "next": "aether_corruption", "condition": null},
+            {"text": "I'll take those antidotes.", "next": "browse_potions", "condition": null}
+          ]
+        },
+        "custom_brew": {
+          "text": "Bring me the components and I shall weave them into something greater. Alchemy is merely patience made liquid.",
+          "responses": [
+            {"text": "What components do you need?", "next": "herb_teaching", "condition": null},
+            {"text": "I'll gather what I can.", "next": "end", "condition": null}
+          ]
+        },
+        "aether_corruption": {
+          "text": "The world breathes Aether like you breathe air. But something poisons the breath. The land sickens from within.",
+          "responses": [
+            {"text": "What's causing it?", "next": "corruption_source", "condition": null},
+            {"text": "Can it be stopped?", "next": "corruption_cure", "condition": null},
+            {"text": "How long has this been happening?", "next": "corruption_timeline", "condition": null}
+          ]
+        },
+        "corruption_source": {
+          "text": "A wound in the earth, where something was sealed long ago. Seals do not last forever. Nothing does.",
+          "responses": [
+            {"text": "Where is this wound?", "next": "wound_location", "condition": null},
+            {"text": "What was sealed?", "next": "sealed_thing", "condition": null},
+            {"text": "This is connected to the goblins, isn't it?", "next": "goblin_connection", "condition": null}
+          ]
+        },
+        "wound_location": {
+          "text": "Deep in Thornwood, where the trees grow silent and the birds refuse to sing. You will know it by the silence.",
+          "responses": [
+            {"text": "Has anyone gone to investigate?", "next": "investigation_warning", "condition": null},
+            {"text": "I'll find it.", "next": "end_ominous", "condition": null}
+          ]
+        },
+        "investigation_warning": {
+          "text": "Some have. None returned unchanged. The corruption whispers, you see. It offers power. Most cannot refuse.",
+          "responses": [
+            {"text": "I'm not most people.", "next": "end_ominous", "condition": null},
+            {"text": "That's terrifying.", "next": "elara_reassurance", "condition": null}
+          ]
+        },
+        "elara_reassurance": {
+          "text": "Fear is the mind's shield against foolishness. Keep it close. But do not let it anchor you in place.",
+          "responses": [
+            {"text": "Wise words.", "next": "end", "condition": null}
+          ]
+        },
+        "sealed_thing": {
+          "text": "Old hunger. Old malice. It has many names across many ages. This generation calls it nothing, for they have forgotten.",
+          "responses": [
+            {"text": "The Hollow Covenant?", "next": "hollow_mention", "condition": "quest_complete:slay_chieftain"},
+            {"text": "How do you know all this?", "next": "about_elara", "condition": null},
+            {"text": "That's... unsettling.", "next": "end", "condition": null}
+          ]
+        },
+        "hollow_mention": {
+          "text": "You know that name? Interesting. Be careful where you speak it. Some words are heard by things that listen in the dark.",
+          "responses": [
+            {"text": "What is the Hollow Covenant?", "next": "hollow_details", "condition": null},
+            {"text": "The stranger in town mentioned it.", "next": "stranger_knowledge", "condition": null}
+          ]
+        },
+        "hollow_details": {
+          "text": "A pact made in desperation, an age ago. Power given for a price no one remembered to pay. The debt comes due.",
+          "responses": [
+            {"text": "How do we stop it?", "next": "corruption_cure", "condition": null},
+            {"text": "I need to know more.", "next": "stranger_knowledge", "condition": null}
+          ]
+        },
+        "stranger_knowledge": {
+          "text": "The hooded one? They carry secrets like open wounds. Trust carefully. Not all who oppose the dark serve the light.",
+          "responses": [
+            {"text": "Do you trust them?", "next": "trust_assessment", "condition": null},
+            {"text": "Noted. I'll be cautious.", "next": "end", "condition": null}
+          ]
+        },
+        "trust_assessment": {
+          "text": "I trust that they fear what is coming. Fear makes honest allies. For a time.",
+          "responses": [
+            {"text": "Good enough for now.", "next": "end", "condition": null}
+          ]
+        },
+        "corruption_cure": {
+          "text": "A river cannot be cleaned at its mouth. You must walk to the source. But first, you must survive the walk.",
+          "responses": [
+            {"text": "Will you help me prepare?", "next": "preparation_help", "condition": null},
+            {"text": "Where do I start?", "next": "wound_location", "condition": null}
+          ]
+        },
+        "preparation_help": {
+          "text": "Bring me moonpetal and ashroot from the forest edge. I will brew a ward against the corruption's whisper.",
+          "responses": [
+            {"text": "[Accept: Gather Ingredients]", "next": "gather_accepted", "condition": null},
+            {"text": "Where do I find those?", "next": "herb_teaching", "condition": null}
+          ]
+        },
+        "gather_accepted": {
+          "text": "Moonpetal blooms at dusk near running water. Ashroot clings to dead trees. Hurry. The corruption spreads.",
+          "responses": [
+            {"text": "I'll return with them.", "next": "end", "condition": null}
+          ]
+        },
+        "corruption_timeline": {
+          "text": "A trickle for decades. A stream for years. Now a flood. This land has perhaps one season before the rot takes hold.",
+          "responses": [
+            {"text": "One season? That's not much time.", "next": "urgency", "condition": null},
+            {"text": "What happens if it takes hold?", "next": "worst_case", "condition": null}
+          ]
+        },
+        "urgency": {
+          "text": "No. It is not. That is why every sword and every soul in Hearthholm matters now. Including yours.",
+          "responses": [
+            {"text": "Tell me how to fight this.", "next": "corruption_cure", "condition": null},
+            {"text": "I won't waste the time we have.", "next": "end", "condition": null}
+          ]
+        },
+        "worst_case": {
+          "text": "The living flee. The dead rise. The forest becomes a maw that swallows everything. It has happened before.",
+          "responses": [
+            {"text": "Before? Where?", "next": "historical_event", "condition": null},
+            {"text": "Not on my watch.", "next": "end", "condition": null}
+          ]
+        },
+        "historical_event": {
+          "text": "I was young then. Another forest, another age. We stopped it, but the cost... I still hear their names on the wind.",
+          "responses": [
+            {"text": "How old are you, exactly?", "next": "about_elara", "condition": null},
+            {"text": "We'll stop it again.", "next": "end", "condition": null}
+          ]
+        },
+        "goblin_connection": {
+          "text": "Creatures of instinct flee poison. Goblins are not fleeing into Hearthholm. They are being driven.",
+          "responses": [
+            {"text": "Driven by what?", "next": "corruption_source", "condition": null},
+            {"text": "So killing them won't solve the real problem.", "next": "deeper_truth", "condition": null}
+          ]
+        },
+        "deeper_truth": {
+          "text": "Cutting weeds does not kill the root. But it buys time to find the root. Both matter.",
+          "responses": [
+            {"text": "What's the root, then?", "next": "corruption_source", "condition": null},
+            {"text": "Practical wisdom. Thank you.", "next": "end", "condition": null}
+          ]
+        },
+        "herb_teaching": {
+          "text": "Silverleaf soothes wounds. Bittercap cures poison. Thornberry numbs pain. The forest is a garden, if you have eyes to see.",
+          "responses": [
+            {"text": "Where do I find these?", "next": "herb_locations", "condition": null},
+            {"text": "Are any of them dangerous?", "next": "dangerous_herbs", "condition": null},
+            {"text": "Can I sell you herbs I find?", "next": "browse_ingredients", "condition": null}
+          ]
+        },
+        "herb_locations": {
+          "text": "Silverleaf near streams. Bittercap under old oaks. Thornberry along cliff edges. And never pick under a new moon.",
+          "responses": [
+            {"text": "Why not a new moon?", "next": "moon_warning", "condition": null},
+            {"text": "I'll start gathering.", "next": "end", "condition": null}
+          ]
+        },
+        "moon_warning": {
+          "text": "Herbs absorb moonlight like roots drink water. Without it, they hold only bitterness. Timing is alchemy's secret.",
+          "responses": [
+            {"text": "I'll remember that.", "next": "end", "condition": null}
+          ]
+        },
+        "dangerous_herbs": {
+          "text": "Nightbloom kills in a swallow. Witch-ivy burns the skin for days. Learn what not to touch before you reach for anything.",
+          "responses": [
+            {"text": "How do I tell them apart?", "next": "herb_identification", "condition": null},
+            {"text": "Duly noted.", "next": "end", "condition": null}
+          ]
+        },
+        "herb_identification": {
+          "text": "Smell before you touch. Touch before you taste. And never taste if it smells of copper or sweetness together.",
+          "responses": [
+            {"text": "Copper and sweetness. Got it.", "next": "end", "condition": null},
+            {"text": "Show me your wares instead.", "next": "shop", "condition": null}
+          ]
+        },
+        "fog_knowledge": {
+          "text": "The fog. Yes. A symptom, not the sickness. Aether bleeds from the wound like heat from a fever. The land trembles.",
+          "responses": [
+            {"text": "What wound?", "next": "corruption_source", "condition": null},
+            {"text": "Can you stop the fog?", "next": "fog_remedy", "condition": null}
+          ]
+        },
+        "fog_remedy": {
+          "text": "I can brew wards against its effects, but I cannot heal a wound I cannot reach. That task needs younger legs.",
+          "responses": [
+            {"text": "I'll be those legs.", "next": "preparation_help", "condition": null},
+            {"text": "Tell me more about the corruption.", "next": "aether_corruption", "condition": null}
+          ]
+        },
+        "about_elara": {
+          "text": "Seven centuries of watching mortals repeat their mistakes. And yet, each generation surprises me. Hope is stubborn.",
+          "responses": [
+            {"text": "Seven centuries?", "next": "elara_age", "condition": null},
+            {"text": "You've seen all this before?", "next": "historical_event", "condition": null},
+            {"text": "You give me hope too.", "next": "end", "condition": null}
+          ]
+        },
+        "elara_age": {
+          "text": "Elven years pass like water through fingers. I am old even by my people's measure. Wisdom is a slow harvest.",
+          "responses": [
+            {"text": "Why stay in Hearthholm?", "next": "why_stay", "condition": null},
+            {"text": "Can I learn from you?", "next": "herb_teaching", "condition": null}
+          ]
+        },
+        "why_stay": {
+          "text": "Because last time, I ran. I will not make that mistake twice. Some debts can only be paid by standing still.",
+          "responses": [
+            {"text": "We'll stand together, then.", "next": "end", "condition": null}
+          ]
+        },
+        "end_shop": {
+          "text": "May your path be lit by more than starlight, child. Return when the forest yields its gifts.",
+          "responses": []
+        },
+        "end_ominous": {
+          "text": "Walk carefully where the silence grows thick. And remember: not every voice in the dark is an enemy.",
+          "responses": []
+        },
+        "end": {
+          "text": "The wind shifts. Go now, and listen to what the world tells you. It speaks, if you are quiet enough.",
+          "responses": []
+        }
+      }
+    }
+  }
+}

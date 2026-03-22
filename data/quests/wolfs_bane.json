@@ -1,0 +1,54 @@
+{
+  "quest_id": "wolfs_bane",
+  "title": "Wolf's Bane",
+  "description": "Ranger Theron keeps a lonely vigil in Oldroot Forest, and lately his watch has grown dangerous. The wolf packs have grown bold and territorial, dragging travelers from the road and leaving nothing but bloodied cloaks behind. Theron suspects an Alpha is driving them into a frenzy. He needs someone skilled enough to cull the pack and put the Alpha down before the forest becomes impassable.",
+  "type": "main",
+  "region": "oldroot_forest",
+  "level_requirement": 4,
+  "prerequisites": [],
+  "steps": [
+    {
+      "step_id": 1,
+      "type": "talk_to_npc",
+      "description": "Find Ranger Theron at his campsite along the Oldroot Forest trail.",
+      "target_npc": "ranger_theron",
+      "target_zone": "oldroot_forest_trail"
+    },
+    {
+      "step_id": 2,
+      "type": "defeat_enemies",
+      "description": "Track and kill the wolves prowling the forest paths. Listen for their howls to locate their hunting grounds.",
+      "enemy_type": "forest_wolf",
+      "count": 6,
+      "target_zone": "oldroot_forest_inner"
+    },
+    {
+      "step_id": 3,
+      "type": "go_to_location",
+      "description": "Follow the trail of torn pelts and gnawed bones deeper into the forest to find the Alpha's den.",
+      "target_zone": "oldroot_forest_alpha_den"
+    },
+    {
+      "step_id": 4,
+      "type": "defeat_enemies",
+      "description": "Confront and slay the Alpha Wolf. It is larger and far more cunning than the rest of the pack -- keep your guard up.",
+      "enemy_type": "alpha_wolf",
+      "count": 1,
+      "target_zone": "oldroot_forest_alpha_den"
+    },
+    {
+      "step_id": 5,
+      "type": "talk_to_npc",
+      "description": "Return to Ranger Theron with news that the Alpha has fallen.",
+      "target_npc": "ranger_theron",
+      "target_zone": "oldroot_forest_trail"
+    }
+  ],
+  "rewards": {
+    "xp": { "ranged": 100 },
+    "items": [
+      { "item_id": "wolf_claw_amulet", "quantity": 1 }
+    ],
+    "gold": 75
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "npc_id": "ranger_theron",
+  "name": "Theron",
+  "role": "quest_giver",
+  "region": "ashvale",
+  "location": { "zone": "oldroot_forest", "x": 580, "y": 340 },
+  "sprite_id": "npc_ranger_theron",
+  "stats": { "level": 16, "hp": 240, "attack": 44, "defense": 28 },
+  "personality": "quiet, observant",
+  "personality_description": "A lean ranger who has lived alone among the ancient oaks of Oldroot Forest for years. He speaks only when necessary, trusting animals more than people, but his tracking skills are unmatched and his knowledge of the goblin threat is invaluable.",
+  "faction": "ashvale_rangers",
+  "dialogue_tree_id": "ranger_theron_dialogue",
+  "quests_given": [
+    "main_scout_the_goblin_camp",
+    "main_slay_chieftain_grakk",
+    "side_lost_ranger_cache",
+    "side_wolf_den_problem"
+  ],
+  "shop_inventory": null,
+  "schedule": [
+    { "time": "04:00-06:00", "location": "oldroot_campsite", "action": "dawn_patrol" },
+    { "time": "06:00-10:00", "location": "oldroot_forest_east", "action": "scouting" },
+    { "time": "10:00-12:00", "location": "oldroot_campsite", "action": "resting_crafting" },
+    { "time": "12:00-16:00", "location": "oldroot_forest_west", "action": "tracking_goblins" },
+    { "time": "16:00-18:00", "location": "oldroot_campsite", "action": "maintaining_gear" },
+    { "time": "18:00-20:00", "location": "oldroot_hilltop", "action": "watching_sunset_scouting" },
+    { "time": "20:00-04:00", "location": "oldroot_campsite", "action": "sleeping" }
+  ]
+}

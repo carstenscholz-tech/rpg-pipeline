@@ -1,0 +1,120 @@
+{
+  "dialogue_id": "guildmaster_rowan_dialogue",
+  "npc_id": "guildmaster_rowan",
+  "trees": {
+    "default": {
+      "entry": "greeting",
+      "nodes": {
+        "greeting": {
+          "text": "Ha! Fresh face in Hearthholm! Name's Rowan. I run the Adventurer's Guild here. What can I do for you?",
+          "responses": [
+            {"text": "I'd like to join the Guild.", "next": "registration", "condition": null},
+            {"text": "Tell me about the Guild.", "next": "about_guild", "condition": null},
+            {"text": "What's the situation around here?", "next": "goblin_threat", "condition": null},
+            {"text": "I'm ready to go after the chieftain.", "next": "chieftain_quest", "condition": "quest_complete:goblin_patrols"},
+            {"text": "Just passing through. Farewell.", "next": "end", "condition": null}
+          ]
+        },
+        "registration": {
+          "text": "Eager, are you? I like that. Sign the ledger and you're one of us. We look out for our own.",
+          "responses": [
+            {"text": "[Sign the ledger]", "next": "registered", "condition": null},
+            {"text": "What do I get out of it?", "next": "guild_benefits", "condition": null},
+            {"text": "I need to think about it.", "next": "end", "condition": null}
+          ]
+        },
+        "registered": {
+          "text": "Welcome aboard! Ha ha! Now go talk to Kira at the training yard. She'll knock the green off you.",
+          "responses": [
+            {"text": "Where do I find Kira?", "next": "kira_directions", "condition": null},
+            {"text": "What work have you got for me?", "next": "goblin_threat", "condition": null},
+            {"text": "Thanks, Rowan.", "next": "end", "condition": null}
+          ]
+        },
+        "guild_benefits": {
+          "text": "Bounty boards, a warm bed, and folk who'll drag you home if things go sideways. That enough?",
+          "responses": [
+            {"text": "Sold. Sign me up.", "next": "registered", "condition": null},
+            {"text": "I'll think on it.", "next": "end", "condition": null}
+          ]
+        },
+        "kira_directions": {
+          "text": "East side of town, past the well. You'll hear her before you see her. Woman fights like thunder.",
+          "responses": [
+            {"text": "Anything else I should know?", "next": "goblin_threat", "condition": null},
+            {"text": "I'll head there now.", "next": "end", "condition": null}
+          ]
+        },
+        "about_guild": {
+          "text": "We're the thin line between Hearthholm and everything that wants it dead. Founded it myself, twenty years back.",
+          "responses": [
+            {"text": "Twenty years? You must have seen a lot.", "next": "rowan_past", "condition": null},
+            {"text": "I want to join.", "next": "registration", "condition": null},
+            {"text": "Sounds dangerous. I'll pass for now.", "next": "end", "condition": null}
+          ]
+        },
+        "rowan_past": {
+          "text": "Aye. Lost friends, gained scars. But every life we save makes the rest worth it. That's the truth of it.",
+          "responses": [
+            {"text": "I'd be honored to join.", "next": "registration", "condition": null},
+            {"text": "Tell me about the goblin problem.", "next": "goblin_threat", "condition": null},
+            {"text": "You're a good man, Rowan.", "next": "end", "condition": null}
+          ]
+        },
+        "goblin_threat": {
+          "text": "Goblins out of Thornwood are getting bolder. Raiding farms, ambushing travelers. Something's riling them up.",
+          "responses": [
+            {"text": "What do you need me to do?", "next": "goblin_task", "condition": null},
+            {"text": "Any idea what's behind it?", "next": "goblin_suspicion", "condition": null},
+            {"text": "I'll keep my eyes open.", "next": "end", "condition": null}
+          ]
+        },
+        "goblin_task": {
+          "text": "Start with patrols along the east road. Thin their numbers. Prove yourself and I'll trust you with more.",
+          "responses": [
+            {"text": "[Accept: Goblin Patrols]", "next": "task_accepted", "condition": null},
+            {"text": "I'll gear up first.", "next": "end", "condition": null}
+          ]
+        },
+        "task_accepted": {
+          "text": "Good. Don't be a hero out there. Come back alive and we'll share a drink. Ha!",
+          "responses": [
+            {"text": "Count on it.", "next": "end", "condition": null}
+          ]
+        },
+        "goblin_suspicion": {
+          "text": "Goblins don't organize like this on their own. Someone or something is pulling the strings. Worries me.",
+          "responses": [
+            {"text": "Let me help. What can I do?", "next": "goblin_task", "condition": null},
+            {"text": "I'll look into it.", "next": "end", "condition": null}
+          ]
+        },
+        "chieftain_quest": {
+          "text": "You've proven your steel. Time to cut the head off the snake. The chieftain lurks deep in Thornwood.",
+          "responses": [
+            {"text": "Tell me everything you know.", "next": "chieftain_details", "condition": null},
+            {"text": "[Accept: Slay the Chieftain]", "next": "chieftain_accepted", "condition": null},
+            {"text": "I need more time to prepare.", "next": "end", "condition": null}
+          ]
+        },
+        "chieftain_details": {
+          "text": "Big brute called Skarnak. Smarter than most goblins. Holt's scouts found his camp near the old ruins.",
+          "responses": [
+            {"text": "[Accept: Slay the Chieftain]", "next": "chieftain_accepted", "condition": null},
+            {"text": "I'll talk to Holt first.", "next": "end", "condition": null}
+          ]
+        },
+        "chieftain_accepted": {
+          "text": "End this, and Hearthholm will owe you a debt. I'll have the Guild's best gear waiting. Go with fire, friend.",
+          "responses": [
+            {"text": "For Hearthholm.", "next": "end", "condition": null}
+          ]
+        },
+        "end": {
+          "text": "Steel and courage, friend. That's all you need out there. Ha!",
+          "responses": []
+        }
+      }
+    }
+  }
+}
