@@ -110,13 +110,20 @@ func _paint_map() -> void:
 
 
 ## Fill the entire map with grass tiles.
+## Uses only 2-3 clean grass tiles to avoid visual chaos from the
+## AI-generated tileset which has very different tiles per cell.
 func _fill_grass() -> void:
+	# Pick 2 clean tile coords from the grass atlas for variety.
+	var grass_tiles: Array[Vector2i] = [
+		Vector2i(2, 2),  # Cleanest solid green
+		Vector2i(2, 3),  # Slight variation
+		Vector2i(3, 2),  # Another variation
+	]
 	for row in range(MAP_ROWS):
 		for col in range(MAP_COLS):
-			# Use different grass tile variants for visual variety.
-			var atlas_x: int = (col + row) % ATLAS_COLS
-			var atlas_y: int = (col * 3 + row * 7) % ATLAS_ROWS
-			set_cell(Vector2i(col, row), grass_source_id, Vector2i(atlas_x, atlas_y))
+			# Simple hash to pick from our 3 clean tiles.
+			var idx: int = ((col * 7 + row * 13) % grass_tiles.size())
+			set_cell(Vector2i(col, row), grass_source_id, grass_tiles[idx])
 
 
 ## Paint cobblestone roads connecting key locations.
@@ -166,13 +173,17 @@ func _paint_roads() -> void:
 
 
 ## Paint cobblestone tiles in a rectangular region.
+## Uses only 2-3 clean cobblestone tiles to keep roads uniform.
 func _fill_rect_cobble(start_col: int, start_row: int, width: int, height: int) -> void:
+	var cobble_tiles: Array[Vector2i] = [
+		Vector2i(0, 0),  # Main cobblestone
+		Vector2i(1, 0),  # Slight variation
+		Vector2i(0, 1),  # Another variation
+	]
 	for row in range(start_row, mini(start_row + height, MAP_ROWS)):
 		for col in range(start_col, mini(start_col + width, MAP_COLS)):
-			# Use tile variants for visual interest.
-			var atlas_x: int = (col + row * 2) % ATLAS_COLS
-			var atlas_y: int = (col * 5 + row) % ATLAS_ROWS
-			set_cell(Vector2i(col, row), cobble_source_id, Vector2i(atlas_x, atlas_y))
+			var idx: int = ((col * 3 + row * 11) % cobble_tiles.size())
+			set_cell(Vector2i(col, row), cobble_source_id, cobble_tiles[idx])
 
 
 ## Paint building footprints on the BuildingLayer.
@@ -213,20 +224,15 @@ func _paint_buildings() -> void:
 
 
 ## Paint a building footprint rectangle on the given layer.
+## Uses consistent wall and floor tiles for clean building appearance.
 func _paint_building(layer: TileMapLayer, start_col: int, start_row: int, width: int, height: int) -> void:
+	var wall_tile := Vector2i(0, 0)    # One clean wall tile
+	var floor_tile := Vector2i(3, 3)   # One clean floor/interior tile
 	for row in range(start_row, mini(start_row + height, MAP_ROWS)):
 		for col in range(start_col, mini(start_col + width, MAP_COLS)):
-			# Use different atlas coords for walls vs interior.
-			var atlas_x: int
-			var atlas_y: int
 			var is_edge: bool = (row == start_row or row == start_row + height - 1
 				or col == start_col or col == start_col + width - 1)
 			if is_edge:
-				# Wall tiles (top two rows of atlas).
-				atlas_x = (col + row) % ATLAS_COLS
-				atlas_y = 0 if row == start_row else 1
+				layer.set_cell(Vector2i(col, row), buildings_source_id, wall_tile)
 			else:
-				# Interior / floor tiles (bottom two rows of atlas).
-				atlas_x = (col + row) % ATLAS_COLS
-				atlas_y = 2 + ((col + row) % 2)
-			layer.set_cell(Vector2i(col, row), buildings_source_id, Vector2i(atlas_x, atlas_y))
+				layer.set_cell(Vector2i(col, row), buildings_source_id, floor_tile)
