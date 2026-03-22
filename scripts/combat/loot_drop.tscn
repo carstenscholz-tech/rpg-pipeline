@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://blootdrop001"]
+[gd_scene load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://scripts/combat/loot_drop.gd" id="1"]
 

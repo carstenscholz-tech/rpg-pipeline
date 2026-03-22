@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bplayer001"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_ctrl"]
 [ext_resource type="Script" path="res://scripts/player/player_animation.gd" id="2_anim"]

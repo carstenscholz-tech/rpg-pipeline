@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bworld001"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/world/world.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/world/zone_manager.gd" id="2"]
 [ext_resource type="Script" path="res://scripts/npcs/npc_spawner.gd" id="3"]
 [ext_resource type="Script" path="res://scripts/world/spawn_manager.gd" id="4"]
-[ext_resource type="PackedScene" uid="uid://bplayer001" path="res://scenes/player/player.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="5"]
 
 [node name="World" type="Node2D" groups=["world"]]
 script = ExtResource("1")

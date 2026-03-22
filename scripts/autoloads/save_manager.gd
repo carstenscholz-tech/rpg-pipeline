@@ -6,7 +6,7 @@ const SAVE_PATH: String = "user://save_data.json"
 var save_data: Dictionary = {
 	"player": {
 		"position": {"x": 0, "y": 0},
-		"zone": "lumbridge",
+		"zone": "hearthholm",
 		"stats": {},
 		"skills": {},
 	},

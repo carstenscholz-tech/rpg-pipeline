@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmain001"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="PackedScene" uid="uid://bworld001" path="res://scenes/world/world.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/world/world.tscn" id="1"]
 
 [node name="Main" type="Node2D"]
 

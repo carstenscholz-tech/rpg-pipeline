@@ -47,7 +47,7 @@ func spawn_npcs_for_zone(zone_id: String, zone_node: Node2D) -> void:
 
 ## Instantiate a single NPC and add it to the zone.
 func _spawn_npc(npc_id: String, npc_data: Dictionary, parent: Node2D) -> void:
-	var npc_instance := _npc_scene.instantiate() as NPCController
+	var npc_instance = _npc_scene.instantiate()
 	if not npc_instance:
 		push_warning("NPCSpawner: Failed to instantiate NPC scene for '%s'" % npc_id)
 		return
@@ -93,8 +93,8 @@ func despawn_all() -> void:
 
 
 ## Get a spawned NPC by ID.
-func get_npc(npc_id: String) -> NPCController:
-	return spawned_npcs.get(npc_id, null) as NPCController
+func get_npc(npc_id: String) -> Node:
+	return spawned_npcs.get(npc_id, null)
 
 
 ## Find a Marker2D in the node tree by name.
@@ -111,6 +111,6 @@ func _find_marker(node: Node, marker_name: String) -> Marker2D:
 ## Update quest indicators on all spawned NPCs.
 func refresh_quest_icons() -> void:
 	for npc_id in spawned_npcs:
-		var npc := spawned_npcs[npc_id] as NPCController
-		if is_instance_valid(npc):
+		var npc = spawned_npcs[npc_id]
+		if is_instance_valid(npc) and npc.has_method("_update_quest_icon"):
 			npc._update_quest_icon()

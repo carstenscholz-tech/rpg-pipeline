@@ -34,7 +34,7 @@
   "npc_spawns": [
     "guildmaster_rowan", "blacksmith_ironbark", "merchant_marta", "innkeeper_bess",
     "alchemist_elara", "cleric_aldwin", "combat_trainer_kira", "farmer_aldric",
-    "banker_geoffrey", "guard_captain_holt", "mysterious_stranger"
+    "guard_captain_holt", "mysterious_stranger"
   ],
   "enemy_zones": [
     {"area": [0, 80, 30, 96], "enemy_types": ["rat", "slime"], "density": 0.15, "level_range": [1, 2], "name": "Millbrook Fields"},

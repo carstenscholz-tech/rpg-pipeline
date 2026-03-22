@@ -4,7 +4,7 @@ extends Node2D
 
 @onready var zone_container: Node2D = $ZoneContainer
 @onready var player: CharacterBody2D = $Player
-@onready var zone_manager: ZoneManager = $ZoneManager
+@onready var zone_manager: Node = $ZoneManager
 @onready var npc_spawner: Node = $NPCSpawner
 @onready var spawn_manager: Node = $SpawnManager
 @onready var fade_overlay: ColorRect = $UILayer/FadeOverlay

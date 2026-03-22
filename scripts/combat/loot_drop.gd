@@ -183,7 +183,7 @@ func _find_inventory() -> Node:
 		return inv
 	# Check autoloads by iterating root children
 	for child in get_tree().root.get_children():
-		if child is InventorySystem:
+		if child.has_method("add_item"):
 			return child
 	return null
 

@@ -28,12 +28,12 @@ func _on_north_exit_entered(body: Node2D) -> void:
 		EventBus.show_notification.emit("The forest grows impossibly dense. You cannot pass. (Level 10+ area)")
 
 
-func _get_zone_manager() -> ZoneManager:
+func _get_zone_manager() -> Node:
 	var world := get_tree().get_first_node_in_group("world")
 	if world:
-		var zm := world.get_node_or_null("ZoneManager")
-		if zm is ZoneManager:
-			return zm as ZoneManager
+		var zm = world.get_node_or_null("ZoneManager")
+		if zm and zm.has_method("on_zone_transition"):
+			return zm
 	return null
 
 
