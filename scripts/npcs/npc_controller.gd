@@ -256,8 +256,8 @@ func _load_npc_texture() -> Texture2D:
 			if tex:
 				return tex
 
-	# Fallback: create a 32x32 colored placeholder.
-	var img := Image.create(32, 32, false, Image.FORMAT_RGBA8)
+	# Fallback: create a 64x64 colored placeholder.
+	var img := Image.create(64, 64, false, Image.FORMAT_RGBA8)
 	# Generate a deterministic color from the npc_id.
 	var hash_val: int = npc_id.hash() if npc_id != "" else randi()
 	var r: float = fmod(abs(float(hash_val)) * 0.618033, 1.0)
@@ -266,19 +266,19 @@ func _load_npc_texture() -> Texture2D:
 	var body_color := Color(clampf(r, 0.2, 0.9), clampf(g, 0.2, 0.9), clampf(b, 0.2, 0.9))
 	var skin_color := Color(0.9, 0.75, 0.6)
 
-	for py in range(32):
-		for px in range(32):
-			var cx: int = px - 16
-			var cy: int = py - 16
+	for py in range(64):
+		for px in range(64):
+			var cx: int = px - 32
+			var cy: int = py - 32
 			var c: Color = Color.TRANSPARENT
 			# Head.
-			if cx * cx + (cy + 8) * (cy + 8) < 36:
+			if cx * cx + (cy + 16) * (cy + 16) < 144:
 				c = skin_color
 			# Body.
-			elif abs(cx) < 6 and cy > -4 and cy < 10:
+			elif abs(cx) < 12 and cy > -8 and cy < 20:
 				c = body_color
 			# Legs.
-			elif abs(cx) < 4 and cy >= 10 and cy < 16:
+			elif abs(cx) < 8 and cy >= 20 and cy < 32:
 				c = body_color.darkened(0.3)
 			if c.a > 0.0:
 				img.set_pixel(px, py, c)

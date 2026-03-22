@@ -45,34 +45,36 @@ func _load_player_texture() -> Texture2D:
 		if tex:
 			return tex
 
-	# Fallback: create a colored placeholder (96x128 for 3x4 grid of 32x32).
-	var img := Image.create(96, 128, false, Image.FORMAT_RGBA8)
+	# Fallback: create a colored placeholder (192x256 for 3x4 grid of 64x64).
+	var cell: int = 64
+	var img := Image.create(cell * 3, cell * 4, false, Image.FORMAT_RGBA8)
 	var body_color := Color(0.3, 0.5, 0.8)  # Blue knight
 	var skin_color := Color(0.9, 0.75, 0.6)
+	var half: int = cell / 2
 	for vy in range(4):
 		for vx in range(3):
-			var ox: int = vx * 32
-			var oy: int = vy * 32
+			var ox: int = vx * cell
+			var oy: int = vy * cell
 			# Draw a simple character silhouette per frame.
-			for py in range(32):
-				for px in range(32):
+			for py in range(cell):
+				for px in range(cell):
 					var c: Color = Color.TRANSPARENT
-					var cx: int = px - 16
-					var cy: int = py - 16
+					var cx: int = px - half
+					var cy: int = py - half
 					# Head (top circle).
-					if cx * cx + (cy + 8) * (cy + 8) < 36:
+					if cx * cx + (cy + 16) * (cy + 16) < 144:
 						c = skin_color
 					# Body (rectangle).
-					elif abs(cx) < 6 and cy > -4 and cy < 10:
+					elif abs(cx) < 12 and cy > -8 and cy < 20:
 						c = body_color
 					# Legs offset for walk frames.
-					elif abs(cx) < 4 and cy >= 10 and cy < 16:
+					elif abs(cx) < 8 and cy >= 20 and cy < 32:
 						var leg_offset: int = 0
 						if vx == 1:
-							leg_offset = 2
+							leg_offset = 4
 						elif vx == 2:
-							leg_offset = -2
-						if abs(cx - leg_offset) < 3:
+							leg_offset = -4
+						if abs(cx - leg_offset) < 6:
 							c = body_color.darkened(0.3)
 					if c.a > 0.0:
 						img.set_pixel(ox + px, oy + py, c)

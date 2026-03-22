@@ -134,8 +134,8 @@ func _load_enemy_texture() -> Texture2D:
 			if tex:
 				return tex
 
-	# Fallback: create a 32x32 colored placeholder.
-	var img := Image.create(32, 32, false, Image.FORMAT_RGBA8)
+	# Fallback: create a 64x64 colored placeholder.
+	var img := Image.create(64, 64, false, Image.FORMAT_RGBA8)
 	# Deterministic color from enemy_id.
 	var hash_val: int = enemy_id.hash() if enemy_id != "" else randi()
 	var r: float = fmod(abs(float(hash_val)) * 0.718033, 1.0)
@@ -143,18 +143,18 @@ func _load_enemy_texture() -> Texture2D:
 	var b: float = fmod(abs(float(hash_val)) * 0.346290, 1.0)
 	var body_color := Color(clampf(r, 0.3, 0.95), clampf(g, 0.15, 0.7), clampf(b, 0.15, 0.7))
 
-	for py in range(32):
-		for px in range(32):
-			var cx: float = float(px) - 16.0
-			var cy: float = float(py) - 16.0
+	for py in range(64):
+		for px in range(64):
+			var cx: float = float(px) - 32.0
+			var cy: float = float(py) - 32.0
 			var dist_sq: float = cx * cx + cy * cy
 			var c: Color = Color.TRANSPARENT
 			# Draw a rough enemy blob shape.
-			if dist_sq < 144.0:  # radius ~12
-				var edge_factor: float = dist_sq / 144.0
+			if dist_sq < 576.0:  # radius ~24
+				var edge_factor: float = dist_sq / 576.0
 				c = body_color.darkened(edge_factor * 0.4)
 				# Eyes.
-				if (abs(cx - 4.0) < 2.0 or abs(cx + 4.0) < 2.0) and abs(cy + 2.0) < 2.0:
+				if (abs(cx - 8.0) < 4.0 or abs(cx + 8.0) < 4.0) and abs(cy + 4.0) < 4.0:
 					c = Color.RED
 			if c.a > 0.0:
 				img.set_pixel(px, py, c)
