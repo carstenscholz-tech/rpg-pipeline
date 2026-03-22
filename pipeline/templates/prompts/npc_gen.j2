@@ -1,0 +1,48 @@
+You are a game designer creating an NPC for a top-down 2D RPG.
+
+WORLD CONTEXT:
+{% if world_bible %}
+World: {{ world_bible.get("world_name", "Unknown") }}
+Setting: {{ world_bible.get("setting_description", "Medieval fantasy") }}
+Regions: {% for r in world_bible.get("major_regions", []) %}{{ r.name }} ({{ r.terrain_type }}){% if not loop.last %}, {% endif %}{% endfor %}
+Factions: {% for f in world_bible.get("factions", []) %}{{ f.name }}{% if not loop.last %}, {% endif %}{% endfor %}
+{% endif %}
+
+{% if existing_npcs %}
+EXISTING NPCs (do not duplicate):
+{% for npc in existing_npcs[:20] %}
+- {{ npc.get("npc_id") }}: {{ npc.get("name") }} ({{ npc.get("role") }}) in {{ npc.get("region", "unknown") }}
+{% endfor %}
+{% endif %}
+
+CREATE THIS NPC:
+Description: {{ description }}
+{% if region %}Region: {{ region }}{% endif %}
+
+Output valid JSON with this structure:
+{
+  "npc_id": "snake_case_unique_id",
+  "name": "Display Name",
+  "role": "quest_giver|merchant|trainer|ambient|guard|innkeeper",
+  "region": "region_id from world bible",
+  "location": {"zone": "zone_id", "x": 0, "y": 0},
+  "sprite_id": "snake_case (used to find sprite files)",
+  "stats": {"level": 1, "hp": 100, "attack": 10, "defense": 10},
+  "personality": "2-3 word personality summary",
+  "personality_description": "1-2 sentences about how they speak and act",
+  "faction": "faction_id or null",
+  "dialogue_tree_id": "npc_id_dialogue",
+  "quests_given": ["quest_id list or empty"],
+  "shop_inventory": null,
+  "schedule": [
+    {"time": "06:00-18:00", "location": "location_name", "action": "patrol|stand|wander|work"}
+  ]
+}
+
+If this NPC is a merchant, include shop_inventory as:
+{
+  "shop_name": "Display Name",
+  "items": ["item_id1", "item_id2"]
+}
+
+Output ONLY the JSON, no other text.

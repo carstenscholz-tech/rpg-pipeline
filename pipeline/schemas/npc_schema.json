@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["npc_id", "name", "role", "region", "sprite_id", "stats"],
+  "properties": {
+    "npc_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "name": {"type": "string", "minLength": 1},
+    "role": {"type": "string", "enum": ["quest_giver", "merchant", "trainer", "ambient", "guard", "innkeeper"]},
+    "region": {"type": "string"},
+    "location": {
+      "type": "object",
+      "properties": {
+        "zone": {"type": "string"},
+        "x": {"type": "number"},
+        "y": {"type": "number"}
+      }
+    },
+    "sprite_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "stats": {
+      "type": "object",
+      "required": ["level", "hp"],
+      "properties": {
+        "level": {"type": "integer", "minimum": 1},
+        "hp": {"type": "integer", "minimum": 1},
+        "attack": {"type": "integer", "minimum": 0},
+        "defense": {"type": "integer", "minimum": 0}
+      }
+    },
+    "personality": {"type": "string"},
+    "personality_description": {"type": "string"},
+    "faction": {"type": ["string", "null"]},
+    "dialogue_tree_id": {"type": "string"},
+    "quests_given": {"type": "array", "items": {"type": "string"}},
+    "shop_inventory": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "properties": {
+            "shop_name": {"type": "string"},
+            "items": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      ]
+    },
+    "schedule": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "time": {"type": "string"},
+          "location": {"type": "string"},
+          "action": {"type": "string"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+You are a game designer creating a zone/map for a top-down 2D RPG.
+
+WORLD CONTEXT:
+{% if world_bible %}
+World: {{ world_bible.get("world_name", "Unknown") }}
+Regions: {% for r in world_bible.get("major_regions", []) %}
+- {{ r.region_id }}: {{ r.name }} ({{ r.terrain_type }}, levels {{ r.level_range[0] }}-{{ r.level_range[1] }}, enemies: {{ r.enemies | join(", ") }})
+{% endfor %}
+{% endif %}
+
+{% if existing_maps %}
+EXISTING ZONES (can connect to these):
+{% for m in existing_maps[:10] %}
+- {{ m.get("zone_id") }}: {{ m.get("name") }} ({{ m.get("region") }})
+{% endfor %}
+{% endif %}
+
+{% if existing_npcs %}
+AVAILABLE NPCs (can be placed in this zone):
+{% for npc in existing_npcs[:15] %}
+- {{ npc.get("npc_id") }}: {{ npc.get("name") }} ({{ npc.get("role") }})
+{% endfor %}
+{% endif %}
+
+CREATE THIS ZONE:
+Description: {{ description }}
+{% if region %}Region: {{ region }}{% endif %}
+
+Output valid JSON:
+{
+  "zone_id": "snake_case_unique_id",
+  "name": "Display Name",
+  "region": "region_id from world bible",
+  "size": {"width": 64, "height": 64},
+  "terrain_distribution": {
+    "grass": 0.4,
+    "path": 0.15,
+    "water": 0.1,
+    "building_floor": 0.15,
+    "tree": 0.1,
+    "rock": 0.05,
+    "sand": 0.05
+  },
+  "structures": [
+    {"type": "castle|shop|house|inn|temple|mine|tower|bridge|wall", "position": [x, y], "size": [w, h], "name": "Display Name"}
+  ],
+  "npc_spawns": ["npc_id1", "npc_id2"],
+  "enemy_zones": [
+    {"area": [x1, y1, x2, y2], "enemy_types": ["enemy_id"], "density": 0.3, "level_range": [1, 5]}
+  ],
+  "resource_nodes": [
+    {"type": "tree|rock|ore|herb|fishing_spot", "positions": [[x,y]], "respawn_seconds": 60}
+  ],
+  "connections": [
+    {"direction": "north|south|east|west", "target_zone": "zone_id or null", "position": [x, y]}
+  ],
+  "ambient": {
+    "music": "zone_theme_name",
+    "lighting": "bright|dim|dark",
+    "weather": "clear|rain|snow|fog"
+  }
+}
+
+Requirements:
+- Zone size should be 48x48 to 128x128 tiles
+- Terrain distribution percentages must sum to 1.0
+- Include 2-5 structures appropriate for the zone type
+- Place NPCs that make sense for this location
+- Enemy zones should not overlap with NPC/structure areas
+- Include at least 2 connections to other zones (or null for unexplored)
+- Resource nodes should match the region's defined resources
+
+Output ONLY the JSON, no other text.

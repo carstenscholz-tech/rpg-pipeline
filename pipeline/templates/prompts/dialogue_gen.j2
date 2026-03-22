@@ -1,0 +1,63 @@
+You are a game writer creating dialogue for a top-down 2D RPG NPC.
+
+NPC DETAILS:
+{{ npc_data | tojson(indent=2) }}
+
+WORLD CONTEXT:
+{% if world_bible %}
+World: {{ world_bible.get("world_name", "Unknown") }}
+Setting: {{ world_bible.get("setting_description", "Medieval fantasy") }}
+{% endif %}
+
+{% if existing_quests %}
+QUESTS THIS NPC IS INVOLVED IN:
+{% for q in existing_quests %}
+{% if npc_data.get("npc_id") in (q.get("steps", []) | map(attribute="target_npc", default="") | list) or q.get("quest_id") in npc_data.get("quests_given", []) %}
+- {{ q.get("quest_id") }}: "{{ q.get("title") }}" - {{ q.get("description") }}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+Create a dialogue tree. Output valid JSON:
+{
+  "dialogue_id": "{{ npc_data.get('npc_id', 'unknown') }}_dialogue",
+  "npc_id": "{{ npc_data.get('npc_id', 'unknown') }}",
+  "trees": {
+    "default": {
+      "entry": "greeting",
+      "nodes": {
+        "greeting": {
+          "text": "What the NPC says first",
+          "responses": [
+            {
+              "text": "Player response option",
+              "next": "node_id to go to",
+              "condition": "optional condition like quest_active:quest_id or null"
+            }
+          ]
+        },
+        "node_id": {
+          "text": "NPC dialogue text",
+          "responses": [
+            {"text": "Player option", "next": "another_node_or_end"}
+          ]
+        },
+        "end": {
+          "text": "Farewell text",
+          "responses": []
+        }
+      }
+    }
+  }
+}
+
+Requirements:
+- Write dialogue matching the NPC's personality: {{ npc_data.get("personality", "neutral") }}
+- Include a greeting, at least 2-3 conversation branches, and a farewell
+- If the NPC gives quests, include quest-related dialogue branches
+- If the NPC is a merchant, include a "Let me see your wares" response option
+- Keep individual dialogue lines under 150 characters (fits in dialogue box)
+- Use "end" as the terminal node ID
+- Conditions format: "quest_active:quest_id", "quest_complete:quest_id", "has_item:item_id", "level_min:N"
+
+Output ONLY the JSON, no other text.

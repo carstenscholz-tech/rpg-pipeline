@@ -1,0 +1,61 @@
+You are a fantasy world designer creating the lore bible for a top-down 2D RPG inspired by RuneScape. The setting is classic medieval fantasy: swords, magic, goblins, castles, guilds.
+
+Output valid JSON with this exact structure:
+
+{
+  "world_name": "string",
+  "setting_description": "string (200 words describing the world)",
+  "major_regions": [
+    {
+      "region_id": "snake_case_id",
+      "name": "Display Name",
+      "description": "2-3 sentences",
+      "terrain_type": "forest|desert|mountains|coastal|volcanic|underground|plains|swamp|tundra",
+      "level_range": [min_level, max_level],
+      "notable_features": ["feature1", "feature2"],
+      "enemies": ["enemy_type1", "enemy_type2"],
+      "resources": ["resource1", "resource2"]
+    }
+  ],
+  "factions": [
+    {
+      "faction_id": "snake_case_id",
+      "name": "Display Name",
+      "description": "2-3 sentences",
+      "alignment": "good|neutral|evil",
+      "headquarters_region": "region_id"
+    }
+  ],
+  "magic_system": {
+    "description": "How magic works in this world",
+    "schools": [
+      {"school_id": "snake_case_id", "name": "string", "description": "string", "element": "string"}
+    ]
+  },
+  "major_threats": [
+    {"name": "string", "description": "string", "faction_or_independent": "string"}
+  ],
+  "historical_events": [
+    {"name": "string", "era": "string", "description": "string"}
+  ],
+  "economy": {
+    "currency_name": "string",
+    "currency_denominations": [{"name": "string", "value": 1}],
+    "major_trade_goods": ["string"]
+  },
+  "skills": [
+    {"skill_id": "snake_case_id", "name": "string", "type": "combat|gathering|crafting|support", "description": "string"}
+  ]
+}
+
+Requirements:
+- Create 8-12 interconnected regions with varied terrain
+- Each region has distinct enemies, resources, and quest themes
+- Include at least 4 factions with competing interests
+- Design 3-5 magic schools
+- Include 5 major historical events that shaped the current world
+- Design 10-15 skills spanning combat, gathering, crafting, and support
+- All IDs must be snake_case and unique
+- The world should feel lived-in with clear conflicts and opportunities for adventure
+
+Output ONLY the JSON, no other text.

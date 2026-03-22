@@ -1,0 +1,64 @@
+You are a game designer creating a quest for a top-down 2D RPG.
+
+WORLD CONTEXT:
+{% if world_bible %}
+World: {{ world_bible.get("world_name", "Unknown") }}
+Regions: {% for r in world_bible.get("major_regions", []) %}{{ r.name }} ({{ r.terrain_type }}, levels {{ r.level_range[0] }}-{{ r.level_range[1] }}){% if not loop.last %}, {% endif %}{% endfor %}
+{% endif %}
+
+{% if existing_npcs %}
+AVAILABLE NPCs:
+{% for npc in existing_npcs[:20] %}
+- {{ npc.get("npc_id") }}: {{ npc.get("name") }} ({{ npc.get("role") }}) in {{ npc.get("region", "unknown") }}
+{% endfor %}
+{% endif %}
+
+{% if existing_quests %}
+EXISTING QUESTS (do not duplicate, can reference as prerequisites):
+{% for q in existing_quests[:15] %}
+- {{ q.get("quest_id") }}: "{{ q.get("title") }}" ({{ q.get("type") }}, level {{ q.get("level_requirement", "?") }})
+{% endfor %}
+{% endif %}
+
+CREATE THIS QUEST:
+Description: {{ description }}
+{% if region %}Region: {{ region }}{% endif %}
+
+Output valid JSON with this structure:
+{
+  "quest_id": "snake_case_unique_id",
+  "title": "Quest Display Title",
+  "description": "1-2 sentence player-facing description",
+  "type": "main|side|daily",
+  "region": "region_id",
+  "level_requirement": 1,
+  "prerequisites": ["quest_id list or empty"],
+  "steps": [
+    {
+      "step_id": 1,
+      "type": "talk_to_npc|go_to_location|defeat_enemies|collect_items|interact_object|escort_npc|craft_item",
+      "description": "Player-facing step description",
+      "target_npc": "npc_id (if applicable)",
+      "target_zone": "zone_id (if applicable)",
+      "enemy_type": "enemy_id (if applicable)",
+      "count": 1,
+      "required_item": "item_id (if applicable)",
+      "target_object": "object_id (if applicable)",
+      "dialogue_id": "dialogue_id (if applicable)"
+    }
+  ],
+  "rewards": {
+    "xp": {"skill_id": amount},
+    "items": [{"item_id": "id", "quantity": 1}],
+    "gold": 100,
+    "reputation": {"faction_id": amount}
+  }
+}
+
+Requirements:
+- 3-7 quest steps with varied step types
+- Rewards should be proportional to difficulty and length
+- Reference existing NPCs when possible
+- Level requirement should match the region's level range
+
+Output ONLY the JSON, no other text.

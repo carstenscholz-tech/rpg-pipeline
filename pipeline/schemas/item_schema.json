@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["item_id", "name", "type", "value"],
+  "properties": {
+    "item_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "name": {"type": "string", "minLength": 1},
+    "type": {"type": "string", "enum": ["weapon", "armor", "consumable", "material", "tool", "quest_item"]},
+    "subtype": {"type": "string"},
+    "level_requirement": {"type": "integer", "minimum": 0},
+    "stats": {
+      "type": "object",
+      "properties": {
+        "attack_bonus": {"type": "number"},
+        "defense_bonus": {"type": "number"},
+        "speed": {"type": "number"},
+        "hp_restore": {"type": "number"},
+        "special_effect": {"type": ["string", "null"]}
+      }
+    },
+    "description": {"type": "string"},
+    "value": {"type": "number", "minimum": 0},
+    "sprite_id": {"type": "string"},
+    "stackable": {"type": "boolean"},
+    "crafting_recipe": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "properties": {
+            "skill": {"type": "string"},
+            "level": {"type": "integer"},
+            "materials": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "item_id": {"type": "string"},
+                  "quantity": {"type": "integer", "minimum": 1}
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drop_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "enemy_id": {"type": "string"},
+          "drop_rate": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    }
+  }
+}

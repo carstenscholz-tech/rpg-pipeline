@@ -1,0 +1,52 @@
+extends CharacterBody2D
+
+@export var npc_id: String = "{{ npc_id }}"
+
+var npc_data: Dictionary
+var dialogue_data: Dictionary
+var is_interactable: bool = true
+
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var interaction_area: Area2D = $InteractionArea
+@onready var name_label: Label = $NameLabel
+
+func _ready() -> void:
+	npc_data = GameData.get_npc(npc_id)
+	if npc_data.is_empty():
+		push_warning("NPC data not found for: " + npc_id)
+		return
+
+	# Load sprite sheet
+	var sprite_path: String = "res://assets/sprites/npcs/%s_sheet.png" % npc_data.get("sprite_id", npc_id)
+	if ResourceLoader.exists(sprite_path):
+		sprite.texture = load(sprite_path)
+
+	# Set display name
+	name_label.text = npc_data.get("name", npc_id)
+
+	# Load dialogue
+	var dialogue_id: String = npc_data.get("dialogue_tree_id", "")
+	if dialogue_id:
+		dialogue_data = GameData.get_dialogue(dialogue_id)
+
+	# Connect interaction signal
+	interaction_area.body_entered.connect(_on_body_entered)
+	interaction_area.body_exited.connect(_on_body_exited)
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		is_interactable = true
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		is_interactable = false
+
+func interact() -> void:
+	if not is_interactable or dialogue_data.is_empty():
+		return
+	EventBus.start_dialogue.emit(npc_id, dialogue_data)
+	{% if has_shop %}
+	var shop_inv: Variant = npc_data.get("shop_inventory")
+	if shop_inv:
+		EventBus.open_shop.emit(shop_inv)
+	{% endif %}

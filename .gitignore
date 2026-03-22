@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ComfyUI raw output (unprocessed)
+assets/raw/
+
+# IDE
+.vscode/
+.idea/
+
+# Godot
+.godot/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Environment
+.env
